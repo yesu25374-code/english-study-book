@@ -1,0 +1,1497 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>大学英语期末复习册</title>
+  <style>
+    :root {
+      --ink: #172033;
+      --muted: #667085;
+      --line: #d8dde8;
+      --paper: #fbfaf7;
+      --panel: #ffffff;
+      --accent: #b33a3a;
+      --accent-soft: #fff0ee;
+      --blue: #255f85;
+      --blue-soft: #eef6fb;
+      --shadow: 0 18px 45px rgba(21, 33, 54, .14);
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: Arial, "Microsoft YaHei", sans-serif;
+      background:
+        radial-gradient(circle at 18% 12%, rgba(179, 58, 58, .08), transparent 30%),
+        linear-gradient(135deg, #f3f0ea 0%, #eef4f7 100%);
+      overflow: hidden;
+    }
+    .app {
+      display: grid;
+      grid-template-columns: 280px minmax(0, 1fr);
+      height: 100vh;
+    }
+    .sidebar {
+      padding: 24px 18px;
+      border-right: 1px solid rgba(23, 32, 51, .1);
+      background: rgba(255, 255, 255, .72);
+      backdrop-filter: blur(16px);
+      overflow-y: auto;
+    }
+    .brand h1 {
+      margin: 0;
+      font-size: 22px;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+    .brand p {
+      margin: 8px 0 20px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.55;
+    }
+    .unit-tab {
+      display: block;
+      width: 100%;
+      margin: 0 0 10px;
+      padding: 12px 12px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      background: transparent;
+      color: var(--ink);
+      text-align: left;
+      cursor: pointer;
+      transition: background .18s ease, border-color .18s ease, transform .18s ease;
+    }
+    .unit-tab span {
+      display: block;
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: 12px;
+    }
+    .unit-tab strong {
+      display: block;
+      font-size: 14px;
+      line-height: 1.35;
+      font-weight: 700;
+    }
+    .unit-tab.active {
+      border-color: rgba(37, 95, 133, .22);
+      background: var(--blue-soft);
+    }
+    .unit-tab:hover { transform: translateX(2px); }
+    .stage {
+      position: relative;
+      min-width: 0;
+      padding: 28px 76px;
+      overflow: hidden;
+    }
+    .page-frame {
+      height: calc(100vh - 56px);
+      overflow: hidden;
+      border: 1px solid rgba(23, 32, 51, .13);
+      border-radius: 8px;
+      background: var(--paper);
+      box-shadow: var(--shadow);
+    }
+    .page-track {
+      display: flex;
+      height: 100%;
+      transition: transform .32s ease;
+    }
+    .unit-page {
+      flex: 0 0 100%;
+      min-width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background:
+        linear-gradient(90deg, rgba(23, 32, 51, .035) 0 1px, transparent 1px 100%),
+        linear-gradient(#fffdf9, #fbfaf7);
+      background-size: 42px 42px, auto;
+    }
+    .page-scroll {
+      height: 100%;
+      overflow-y: auto;
+      padding: 42px min(7vw, 82px) 70px;
+      scroll-behavior: smooth;
+    }
+    .unit-kicker {
+      color: var(--blue);
+      font-size: 13px;
+      font-weight: 700;
+      margin-bottom: 8px;
+    }
+    .unit-page h1 {
+      margin: 0 0 30px;
+      font-size: 34px;
+      line-height: 1.14;
+      letter-spacing: 0;
+    }
+    .unit-page h2 {
+      margin: 30px 0 13px;
+      font-size: 22px;
+      letter-spacing: 0;
+    }
+    .section-title {
+      padding-top: 10px;
+      border-top: 1px solid var(--line);
+    }
+    .passage-block {
+      margin: 0 0 42px;
+      padding-bottom: 26px;
+      border-bottom: 1px solid var(--line);
+    }
+    .passage-text {
+      max-width: 950px;
+      margin: 0 0 12px;
+      font-size: 17px;
+      line-height: 1.76;
+    }
+    .questions {
+      margin-top: 22px;
+      display: grid;
+      gap: 18px;
+    }
+    .question-row {
+      padding: 18px 20px;
+      border: 1px solid rgba(23, 32, 51, .12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .86);
+    }
+    .question-title {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 18px;
+      margin-bottom: 10px;
+      font-size: 16px;
+      line-height: 1.55;
+      font-weight: 700;
+    }
+    .question-title b {
+      flex: 0 0 auto;
+      padding: 4px 9px;
+      border-radius: 999px;
+      background: var(--accent-soft);
+      color: var(--accent);
+      font-size: 14px;
+      line-height: 1.2;
+      white-space: nowrap;
+    }
+    .options {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: grid;
+      gap: 7px;
+    }
+    .options li {
+      padding-left: 0;
+      font-size: 15px;
+      line-height: 1.52;
+    }
+    .listening-stem {
+      margin: 24px 0 12px;
+      padding: 12px 14px;
+      border-left: 4px solid var(--blue);
+      background: rgba(238, 246, 251, .9);
+      color: #24364a;
+      font-size: 15px;
+      line-height: 1.55;
+    }
+    .listening-row {
+      margin-bottom: 14px;
+    }
+    .turn {
+      position: absolute;
+      top: 50%;
+      width: 44px;
+      height: 74px;
+      margin-top: -37px;
+      border: 1px solid rgba(23, 32, 51, .16);
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .88);
+      box-shadow: 0 10px 25px rgba(21, 33, 54, .16);
+      color: var(--ink);
+      font-size: 28px;
+      line-height: 1;
+      cursor: pointer;
+    }
+    .turn:disabled {
+      opacity: .28;
+      cursor: default;
+    }
+    .turn.prev { left: 20px; }
+    .turn.next { right: 20px; }
+    .page-count {
+      position: absolute;
+      right: 88px;
+      bottom: 16px;
+      padding: 7px 10px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, .9);
+      color: var(--muted);
+      font-size: 13px;
+    }
+    @media (max-width: 860px) {
+      body { overflow: hidden; }
+      .app { grid-template-columns: 1fr; }
+      .sidebar {
+        height: 132px;
+        padding: 10px 12px;
+        border-right: 0;
+        border-bottom: 1px solid rgba(23, 32, 51, .1);
+        overflow-x: auto;
+        overflow-y: hidden;
+        white-space: nowrap;
+      }
+      .brand {
+        display: inline-block;
+        width: 168px;
+        vertical-align: top;
+        white-space: normal;
+      }
+      .brand h1 { font-size: 18px; }
+      .brand p { display: none; }
+      .unit-tab {
+        display: inline-block;
+        width: 170px;
+        margin: 0 8px 0 0;
+        vertical-align: top;
+        white-space: normal;
+      }
+      .stage { padding: 12px 40px; height: calc(100vh - 132px); }
+      .page-frame { height: calc(100vh - 156px); }
+      .page-scroll { padding: 22px 16px 68px; }
+      .unit-page h1 { font-size: 25px; margin-bottom: 22px; }
+      .passage-text { font-size: 15px; line-height: 1.68; }
+      .question-title { display: block; font-size: 15px; }
+      .question-title b { display: inline-block; margin-top: 8px; }
+      .turn { width: 36px; height: 62px; font-size: 24px; }
+      .turn.prev { left: 7px; }
+      .turn.next { right: 7px; }
+      .page-count { right: 48px; bottom: 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="app">
+    <aside class="sidebar">
+      <div class="brand">
+        <h1>大学英语期末复习册</h1>
+        <p>阅读与听力分开，每个 Unit 独立成页。</p>
+      </div>
+      <nav><button class="unit-tab active" data-go="0"><span>阅读</span><strong>Unit 2 Reading Comprehension</strong></button>
+<button class="unit-tab" data-go="1"><span>阅读</span><strong>UNIT 3 Reading Comprehension</strong></button>
+<button class="unit-tab" data-go="2"><span>阅读</span><strong>Unit 4 Reading Comprehension</strong></button>
+<button class="unit-tab" data-go="3"><span>听力</span><strong>Unit 2</strong></button>
+<button class="unit-tab" data-go="4"><span>听力</span><strong>Unit 4</strong></button>
+<button class="unit-tab" data-go="5"><span>听力</span><strong>Unit 6</strong></button>
+<button class="unit-tab" data-go="6"><span>听力</span><strong>Unit 8</strong></button></nav>
+    </aside>
+    <main class="stage">
+      <button class="turn prev" id="prev" aria-label="上一页">‹</button>
+      <div class="page-frame">
+        <div class="page-track" id="track">
+          <section class="unit-page reading-page" data-page="0">
+<div class="page-scroll">
+<div class="unit-kicker">阅读理解</div>
+<h1>Unit 2 Reading Comprehension</h1>
+<article class="passage-block" id="page-0-passage-1">
+<h2>Passage 1</h2>
+<p class="passage-text">A successful business trip requires more than just booking a flight and a hotel. It involves careful preparation to ensure that every part of the journey runs smoothly, allowing you to focus on your work goals rather than unexpected problems. Whether you are traveling domestically or internationally, taking the time to plan ahead can make a significant difference in your trip experience.</p>
+<p class="passage-text">First, check all your travel documents well in advance. For domestic trips, a valid ID card is essential. For international business travel, your passport must be valid for at least six months beyond your travel dates, and you may need a visa or entry permit depending on the destination. Make copies of your important documents, such as your passport, visa, and travel itinerary, and store them separately from the originals.</p>
+<p class="passage-text">This way, if you lose the originals, you can still prove your identity and travel plans. Second, pack wisely. Business travelers often need to balance professionalism with practicality. Pack formal clothing suitable for meetings, but also include comfortable casual clothes for free time. Don’t forget essential items like a laptop, charger, business cards, and any necessary work documents. It’s also a good idea to bring a small first-aid kit with basic medications, as well as a reusable water bottle to stay hydrated during the trip.</p>
+<p class="passage-text">Finally, familiarize yourself with your destination. Research the local culture, customs, and transportation options. Knowing how to get from the airport to your hotel, and understanding basic local etiquette, can help you avoid misunderstandings and save time. You should also check the local weather forecast and pack accordingly.</p>
+<p class="passage-text">By following these simple steps, you can ensure that your business trip is productive and stress-free.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. What is the main idea of the passage?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. How to book a flight for a business trip</li><li>B. The importance of preparation for a smooth business trip</li><li>C. What to pack for an international business trip</li><li>D. How to deal with unexpected problems during travel</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. What is required for international business travel according to the passage?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. A valid ID card</li><li>B. A copy of your work contract</li><li>C. A passport valid for at least six months beyond travel dates</li><li>D. A local guide</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. Why should you make copies of your important documents?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. To share with your colleagues</li><li>B. To avoid losing the originals</li><li>C. To prove your identity if the originals are lost</li><li>D. To show to the hotel staff</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. What should business travelers pack besides formal clothing?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Expensive gifts for clients</li><li>B. Comfortable casual clothes and work essentials</li><li>C. A large suitcase</li><li>D. Local snacks</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. What is the benefit of researching the destination?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. To find the cheapest hotel</li><li>B. To avoid misunderstandings and save time</li><li>C. To make new friends</li><li>D. To learn a new language</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-0-passage-2">
+<h2>Passage 2</h2>
+<p class="passage-text">Business travel is a common part of many professionals’ jobs. While it offers opportunities to meet clients, attend conferences, and expand business connections, it can also be tiring and stressful. The key to a successful business trip is to balance work responsibilities with adequate rest, so that you can perform at your best and make the most of the experience.</p>
+<p class="passage-text">One of the biggest challenges of business travel is jet lag, especially for international trips. To minimize its impact, try to adjust your sleep schedule a few days before your trip. If you are traveling east, go to bed and wake up earlier; if you are traveling west, stay up later. During the flight, drink plenty of water, avoid excessive caffeine and alcohol, and try to sleep if it’s nighttime at your destination. Once you arrive, get plenty of natural light during the day and avoid napping for too long, as this can make jet lag worse.</p>
+<p class="passage-text">Another important aspect is managing your work schedule effectively. Before your trip, make a detailed list of your tasks, such as meetings, presentations, and follow-ups. Prioritize your tasks so that you focus on the most important ones first. Use travel time wisely: you can work on documents, prepare for meetings, or respond to emails during flights or train rides. However, it’s also important to set aside some time for rest. Taking a short walk, having a meal at a local restaurant, or simply relaxing in your hotel room can help you recharge and stay productive.</p>
+<p class="passage-text">Additionally, building relationships is a key part of business travel. Take the time to interact with clients, colleagues, and even other travelers. A casual conversation over a meal or coffee can lead to new business opportunities or valuable connections. Remember to be polite and respectful, and adapt to different communication styles.</p>
+<p class="passage-text">By balancing work, rest, and relationship-building, you can turn business travel into a rewarding experience.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. What is the key to a successful business trip according to the passage?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Attending as many meetings as possible</li><li>B. Balancing work and rest</li><li>C. Making as many new connections as possible</li><li>D. Avoiding jet lag completely</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. How to minimize the impact of jet lag?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Drink a lot of caffeine during the flight</li><li>B. Adjust your sleep schedule before the trip</li><li>C. Take a long nap after arriving</li><li>D. Avoid natural light during the day</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. What should you do before the trip to manage your work schedule?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Book the cheapest flight</li><li>B. Make a detailed task list and prioritize tasks</li><li>C. Contact all clients in advance</li><li>D. Pack extra work documents</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. How can you use travel time wisely?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Watch movies or play games</li><li>B. Sleep for the entire flight</li><li>C. Work on documents or prepare for meetings</li><li>D. Chat with other passengers</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. What is the benefit of building relationships during business travel?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It can help you avoid jet lag</li><li>B. It can lead to new business opportunities</li><li>C. It can make your trip less tiring</li><li>D. It can help you finish work faster</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-0-passage-3">
+<h2>Passage 3</h2>
+<p class="passage-text">When traveling for business, your behavior and etiquette can have a significant impact on your professional image and the success of your business interactions. Different cultures may have different etiquette rules, but there are some general dos and don’ts that apply to most business travel situations, helping you make a good impression on clients and colleagues.</p>
+<p class="passage-text">First, be punctual. Whether it’s a meeting, a flight, or a dinner with clients, arriving on time shows respect for others’ time and demonstrates your professionalism. If you anticipate being late, notify the relevant people in advance and apologize sincerely. Being late without explanation can make you appear unreliable and unprofessional.</p>
+<p class="passage-text">Second, dress appropriately. Your clothing should match the occasion and the culture of your destination. For formal business meetings, a suit or professional attire is usually required. In more casual business settings, smart casual clothing may be acceptable. Avoid wearing overly casual clothes, such as jeans and sneakers, to formal meetings. Also, pay attention to your personal grooming, as a neat and tidy appearance reflects well on you and your company.</p>
+<p class="passage-text">Third, be mindful of communication etiquette. When talking to clients or colleagues, listen actively and avoid interrupting others. Use polite language and maintain eye contact to show that you are engaged. Be careful with body language: avoid crossing your arms, which may seem defensive, and keep a friendly posture. When dealing with international clients, be aware of cultural differences in communication styles—for example, some cultures value indirect communication, while others prefer directness.</p>
+<p class="passage-text">Finally, avoid unprofessional behavior. Don’t use your phone excessively during meetings or meals, as this can distract others and show a lack of respect. Don’t discuss sensitive topics, such as politics or personal conflicts, in a business setting. Also, be careful with alcohol consumption at business dinners; drinking too much can lead to inappropriate behavior and damage your professional image.</p>
+<p class="passage-text">By following these etiquette rules, you can ensure that your business travel is successful and productive.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. What is the main purpose of the passage?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. To explain the importance of business travel</li><li>B. To introduce different cultural customs</li><li>C. To list dos and don’ts of business travel etiquette</li><li>D. To teach how to dress for business meetings</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. Why is being punctual important in business travel?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It helps you avoid missing flights</li><li>B. It shows respect and professionalism</li><li>C. It allows you to prepare for meetings</li><li>D. It makes you popular with colleagues</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. What kind of clothing is suitable for formal business meetings?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Jeans and sneakers</li><li>B. Smart casual clothing</li><li>C. A suit or professional attire</li><li>D. Casual dresses</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. What should you avoid in communication during business travel?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Listening actively</li><li>B. Interrupting others</li><li>C. Maintaining eye contact</li><li>D. Using polite language</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. Which behavior is considered unprofessional during business travel?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Notifying others in advance if you are late</li><li>B. Dressing neatly and appropriately</li><li>C. Using your phone excessively during meetings</li><li>D. Listening actively to clients</li></ol>
+</div>
+</div>
+</article>
+</div></section><section class="unit-page reading-page" data-page="1">
+<div class="page-scroll">
+<div class="unit-kicker">阅读理解</div>
+<h1>UNIT 3 Reading Comprehension</h1>
+<article class="passage-block" id="page-1-passage-1">
+<h2>Passage 1</h2>
+<p class="passage-text">Conventional wisdom holds that a collaborative leadership style works best in most situations. However, research suggests an exception for managers who are perceived as having low status due to factors like youth, lack of experience, or less prestigious educational backgrounds. For these rookie managers, being directive—even bossy—can lead to better evaluations and team results.</p>
+<p class="passage-text">In one study, participants watched videos of leaders and evaluated them. A young, inexperienced leader from a modest academic background received a higher rating when he gave clear orders to his team. When he instead asked for their input, his rating fell significantly. A second study placed people in teams performing a complex computer task. Low-status leaders who adopted a directive approach were rated more favorably by their team members, both in terms of confidence and actual performance. Their teams also completed the task with fewer errors compared to teams led by low-status leaders who tried to be participative.</p>
+<p class="passage-text">The researchers explain that when team members doubt a leader’s qualifications, a directive style can signal confidence and competence. Asking for opinions in such a situation may backfire, making the leader appear unsure or unqualified.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. 1. What does the research say about a collaborative management style?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It is always the most effective approach.</li><li>B. It works well except for certain new managers.</li><li>C. It should never be used by inexperienced leaders.</li><li>D. It leads to lower team performance in all cases.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. 2. In the first study, how did the young, inexperienced leader’s ratings change when he was directive?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. They dropped significantly.</li><li>B. They remained the same.</li><li>C. They were higher than when he asked for opinions.</li><li>D. They were lower than the average.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. 3. What was the task in the second study?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Watching and rating video clips.</li><li>B. Solving a complex computer problem.</li><li>C. Interviewing business school students.</li><li>D. Designing a team training program.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. 4. How did teams with low-status directive leaders perform compared to those with low-status participative leaders?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. They performed worse.</li><li>B. They performed about the same.</li><li>C. They performed better.</li><li>D. They refused to work.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. 5. Why might asking for opinions hurt a low-status leader?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because team members hate being asked.</li><li>B. Because it makes the leader seem less confident.</li><li>C. Because it takes too much time.</li><li>D. Because only high-status leaders should ask.</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-1-passage-2">
+<h2>Passage 2</h2>
+<p class="passage-text">Imagine joining a well-established team that suddenly gets a new leader. Naturally, you will look for signs of that person’s status: age, manner of dress, educational background, and so on. Based on these clues, you quickly form an opinion. If the leader seems inexperienced or unimpressive, you are likely to resist his or her attempts to guide the team. And if that leader then asks for your suggestions, you may see him or her as even less capable. On the other hand, if the leader acts assertively and gives clear instructions, you might interpret that behavior as a sign of confidence. Over time, your perception of the leader’s ability may improve.</p>
+<p class="passage-text">This psychological mechanism explains the study’s findings. Low-status leaders who used a directive style received better ratings for both confidence and effectiveness. In contrast, low-status leaders who tried to involve their team members in decisions were viewed more poorly. Interestingly, the highest ratings of all went to high-status leaders who used a participative style. That matches traditional management advice: when a leader is clearly experienced and knowledgeable, team members prefer to be consulted. However, when a high-status leader gives orders, team members see that as a lack of confidence, and team performance suffers.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. 1. According to the passage, what do team members do when they first meet a new leader?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. They immediately accept the leader’s authority.</li><li>B. They look for status clues and form an opinion.</li><li>C. They ask the leader for personal information.</li><li>D. They ignore the leader’s background.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. 2. If a new leader seems inexperienced and then asks for opinions, how are team members likely to view him?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. As highly competent.</li><li>B. As even less capable.</li><li>C. As very confident.</li><li>D. As similar to a high-status leader.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. 3. What happens when a low-status leader acts assertively?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Team members become more resistant.</li><li>B. The leader is seen as more confident.</li><li>C. The leader’s ratings drop.</li><li>D. The team stops working.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. 4. Which type of leader received the highest ratings in the studies?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Low-status directive leaders.</li><li>B. Low-status participative leaders.</li><li>C. High-status participative leaders.</li><li>D. High-status directive leaders.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. 5. What is the effect of a high-status leader giving direct orders?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Team members feel more motivated.</li><li>B. The leader is seen as less confident and team performance drops.</li><li>C. The team performs better than usual.</li><li>D. Team members ask for even more direction.</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-1-passage-3">
+<h2>Passage 3</h2>
+<p class="passage-text">The research offers practical advice for new managers. Before deciding on a leadership style, a manager should first assess how team members perceive him or her. If the manager is seen as experienced and competent, the best approach is to invite subordinates to participate in decision-making. This collaborative style will likely lead to high ratings and strong team performance. However, if the manager senses that the team views him or her as low-status—perhaps because of youth, lack of experience, or other factors—then being directive is the smarter choice.</p>
+<p class="passage-text">In that situation, the manager should set the agenda, establish a clear direction, and assign tasks without seeking much input. Acting decisively helps to build perceived confidence and capability. Over time, as the team’s perception of the manager’s status rises, the manager can gradually shift toward a more participative style.</p>
+<p class="passage-text">The study also shows that trying to be collaborative too early, when one is seen as low-status, can backfire. Team members may interpret requests for input as signs of weakness or incompetence. Therefore, rookie managers should not blindly follow traditional advice about being democratic. Instead, they should adapt their style based on the team’s initial perceptions.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. 1. What should a new manager do first according to the passage?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Always use a directive style.</li><li>B. Always ask for team members’ opinions.</li><li>C. Assess how the team perceives him or her.</li><li>D. Ignore the team’s views and focus on tasks.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. 2. If a manager is seen as experienced and competent, which style is recommended?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Directive style.</li><li>B. Participative style.</li><li>C. Strict and bossy style.</li><li>D. Avoiding any decisions.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. 3. What should a low-status manager do to improve team perception?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Ask for opinions frequently.</li><li>B. Act decisively and set clear directions.</li><li>C. Admit lack of experience openly.</li><li>D. Let the team make all decisions.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. 4. Why can a participative style backfire for a low-status manager?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because team members prefer being bossed.</li><li>B. Because asking for input may seem like weakness.</li><li>C. Because it takes too much time.</li><li>D. Because high-status managers forbid it.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. 5. When should a manager introduce a more collaborative style?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Immediately after starting the job.</li><li>B. Only after the team’s perception of his or her status has improved.</li><li>C. Never, because directive style is always better.</li><li>D. Only when the team explicitly asks for it.</li></ol>
+</div>
+</div>
+</article>
+</div></section><section class="unit-page reading-page" data-page="2">
+<div class="page-scroll">
+<div class="unit-kicker">阅读理解</div>
+<h1>Unit 4 Reading Comprehension</h1>
+<article class="passage-block" id="page-2-passage-1">
+<h2>Passage 1</h2>
+<p class="passage-text">After determining the target audience for a product or service, advertising agencies must select the appropriate media for the advertisement. We discuss here the major types of media used in advertising. We focus our attention on seven types of advertising: television, newspapers, radio, magazines, out-of-home, Internet, and direct mail. Television is an attractive medium for advertising because it delivers mass audiences to advertisers.</p>
+<p class="passage-text">When you consider that nearly three out of four Americans have seen the game show Who Wants to Be a Millionaire? you can understand the power of television to communicate with a large audience. But television is an expensive medium, and not all advertisers can afford to use it. Television&#x27;s influence on advertising is fourfold.</p>
+<p class="passage-text">First, narrowcasting means that television channels are seen by an increasingly narrow segment of the audience. Second, there is an increase in the number of television channels available to viewers and advertisers. Third, digital recording devices allow audience members more control over which commercials they watch. Fourth, control over programming is being passed from the networks to local cable operators and satellite programmers. After television, the medium attracting the next largest annual ad revenue is newspapers. Newspapers are a less expensive advertising medium than television and provide a way for advertisers to communicate a longer, more detailed message to their audience. Newspapers are often the most important form of news for a local community, and they develop a high degree of loyalty from local readers. Advertising on radio continues to grow. Radio is often used in conjunction with outdoor billboards and the Internet to reach even more customers than television. Advertisers are likely to use radio because it is a less expensive medium than television, which means advertisers can afford to repeat their ads often.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. What is the main purpose of this passage?</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. To introduce different types of advertising media.</li><li>B. To compare the cost of different advertising media.</li><li>C. To explain how to choose the right advertising medium.</li><li>D. To discuss the influence of television on advertising.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. Why is television an attractive medium for advertising?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It is cheap and easy to afford for all advertisers.</li><li>B. It can reach a large number of audiences.</li><li>C. It allows viewers to control the commercials they watch.</li><li>D. It has more channels than other media.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. Which of the following is a feature of narrowcasting?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It helps advertisers reach a broad audience.</li><li>B. It makes television channels more popular.</li><li>C. It targets a specific small group of audience.</li><li>D. It reduces the number of television channels.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. What advantage does newspaper advertising have over television advertising?</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. It can deliver more detailed information.</li><li>B. It can reach a national audience easily.</li><li>C. It is more attractive to young people.</li><li>D. It is more expensive but more effective.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. Why do advertisers prefer radio advertising?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It has more listeners than television.</li><li>B. It is cheaper and allows repeated ads.</li><li>C. It is more effective than outdoor billboards.</li><li>D. It can deliver more vivid messages.</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-2-passage-2">
+<h2>Passage 2</h2>
+<p class="passage-text">In the digital age, social media has become an indispensable platform for advertising. Social media advertising is defined as the use of social media platforms to promote products, services, or brands to target audiences. Unlike traditional advertising, which often reaches a broad and untargeted group, social media advertising allows advertisers to focus on specific groups based on factors like age, gender, location, and interests.</p>
+<p class="passage-text">One of the key benefits of social media advertising is its interactivity. Users can engage with ads by liking, commenting, sharing, or reposting them, which not only increases the exposure of the ads but also helps build a connection between the brand and the audience. Many social media platforms also offer analytics tools that enable advertisers to track the performance of their ads, such as the number of views, clicks, and conversions.</p>
+<p class="passage-text">This data helps advertisers adjust their strategies to improve effectiveness. However, social media advertising also faces challenges. A major issue is ad fatigue, as users are constantly exposed to a large number of ads every day, leading them to ignore or even avoid ads. Another concern is privacy. Some users worry that their personal data is being used to target ads without their consent, which has led to stricter data privacy regulations in many countries. Despite these challenges, social media advertising remains a powerful tool for brands to connect with consumers in the digital world.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. What is social media advertising?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Advertising through traditional media like TV and newspaper</li><li>B. Using social media platforms to promote products or brands。</li><li>C. Advertising that targets all social media users equally.</li><li>D. A free way for brands to promote their products.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. What makes social media advertising different from traditional advertising？</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It is much cheaper than traditional advertising。</li><li>B. It can target specific groups of audiences。</li><li>C. It has no limitations on content.</li><li>D. It is more effective than all traditional media.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. How does interactivity benefit social media advertising?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It reduces the cost of advertising。</li><li>B. It helps brands connect with audiences.</li><li>C. It avoids ad fatigue among users.</li><li>D. It eliminates privacy concerns.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. What is ad fatigue?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Advertisers feel tired of creating social media ads.</li><li>B. Users get tired of seeing too many ads and ignore them.</li><li>C. Social media platforms stop showing ads temporarily.</li><li>D. Ads become less effective due to poor design.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. What is the privacy concern related to social media advertising?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Users’ personal data is stolen by hackers.</li><li>B. Advertisers share users’ data with third parties.</li><li>C. Users’ personal data is used for targeting without consent.</li><li>D. Social media platforms sell users’ data for profit.</li></ol>
+</div>
+</div>
+</article>
+<article class="passage-block" id="page-2-passage-3">
+<h2>Passage 3</h2>
+<p class="passage-text">Advertising has a significant impact on both children and adults, but the way it affects each group varies greatly. Children, with their underdeveloped cognitive skills, are more easily influenced by advertising than adults. They often cannot tell the difference between advertising and real life, making them more likely to believe that the products in ads are as perfect as they are portrayed. For children, advertising often shapes their preferences and behaviors. Many ads targeting children are colorful, fun, and filled with attractive images, which easily catch their attention.</p>
+<p class="passage-text">This can lead children to pester their parents to buy certain products. Additionally, some ads for junk food and sugary drinks can encourage unhealthy eating habits among children, which has become a major concern for parents and health experts. To protect children, many countries have made rules to limit advertising targeted at them, such as restricting the time when these ads can be shown. Adults, on the other hand, have more life experience and critical thinking skills, allowing them to make more rational judgments about advertising. Ads can provide adults with useful information about new products and services, helping them make better purchasing decisions. However, some ads use misleading or exaggerated language to persuade adults to buy products they don’t need. Despite this, most adults can recognize the purpose of advertising and choose whether to buy a product based on their actual needs.</p>
+<div class="questions">
+<div class="question-row">
+<div class="question-title">
+<span>1. Why are children more easily influenced by advertising than adults?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. They have more interest in advertising than adults.</li><li>B. Their cognitive skills are not fully developed.</li><li>C. They watch more TV and social media than adults.</li><li>D. They are more likely to trust all information.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>2. What do children often fail to distinguish between?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Good products and bad products.</li><li>B. Advertising and real life.</li><li>C. Different types of advertising media.</li><li>D. Needs and wants.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>3. What is a major concern about advertising targeting children?</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It makes children less creative.</li><li>B. It leads children to develop unhealthy eating habits.</li><li>C. It makes children spend too much money.</li><li>D. It affects children’s school performance.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>4. How do adults respond to advertising？</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. They are easily persuaded to buy products they don’t need.</li><li>B. They ignore all advertising messages.</li><li>C. They use critical thinking to make rational choices.</li><li>D. They rely on advertising to make all purchasing decisions.</li></ol>
+</div>
+<div class="question-row">
+<div class="question-title">
+<span>5. What can we learn from the passage?</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Advertising has no positive impact on anyone.</li><li>B. Adults are not influenced by advertising at all.</li><li>C. Many countries have rules to protect children from harmful ads.</li><li>D. Children can easily resist the influence of advertising.</li></ol>
+</div>
+</div>
+</article>
+</div></section><section class="unit-page listening-page" data-page="3">
+<div class="page-scroll">
+<div class="unit-kicker">听力选择</div>
+<h1>Unit 2</h1>
+<h2 class="section-title">一. 单选题（共23题，92分）</h2>
+<p class="listening-stem">Questions 1 to 4 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 1 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Marriage lowers the risk for developing health problems.</li><li>B. Marriage and well- being are not quite related.</li><li>C. Marriage is generally good for health.</li><li>D. Women gain more benefits than men do in a marriage.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 2 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Widowed people are more likely to have cardiovascular disease than married ones.</li><li>B. Divorced people have a 3 percent greater risk of having heart problems than married couples.</li><li>C. Getting married is an effective therapy for heart diseases.</li><li>D. Marriage provides more benefit for those under fifty.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 3 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because being married means a committed relationship.</li><li>B. It doesn&#x27;t give a definite answer.</li><li>C. Because bad habits will raise the risk for heart disease.</li><li>D. It doesn&#x27;t support this idea.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 4 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Entering a marriage means the start of an enjoyable life.</li><li>B. Marriage should be a preference for common people.</li><li>C. A bad marriage may be responsible for bad habits.</li><li>D. Being married guarantees good health.</li></ol>
+</div>
+<p class="listening-stem">Questions 5 to 8 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 5 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Because you and your brother or sister inherit half of your DNA from each parent.</li><li>B. Because the bodies of your for bearers created different sex cells.</li><li>C. Because after the process of genetic recombination, each of you will have a distinctive combination of 23 chromosomes.</li><li>D. Because your cells engaged in the genetic reshuffling.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 6 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. You and your brothers or sisters inherit the same DNA from your parents.</li><li>B. Genetic recombination is the process of sex cells created by our parents engaging in genetic reshuffling.</li><li>C. In the process of recombination, genetic make-up will not be lost along the way.</li><li>D. You and your cousin inherited the same genes from your grandparents.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 7 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Because the technology is not mature.</li><li>B. Because the results may be influenced by various factors.</li><li>C. Because the testing condition is not stable.</li><li>D. Because its database is incomplete.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 8 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Modern DNA testing.</li><li>B. Genetic recombination and its influence.</li><li>C. The Family&#x27;s ancestry.</li><li>D. The genetic samples.</li></ol>
+</div>
+<p class="listening-stem">Questions 9 to 11 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 9 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. He receives the nomination in Broadway.</li><li>B. He is in a production of Macbeth.</li><li>C. He participate the film-shooting there.</li><li>D. Broadway sent the invitation to him for a performance.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 10 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. I&#x27;s in October at Lincoln Center.</li><li>B. It is on October 21 at Lincoln Center.</li><li>C. lt’s on November 21 at the Vivian Beaumont Theater.</li><li>D. It&#x27;s on November 21 at Lincoln Center.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 11 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Horror films.</li><li>B. Romantic films.</li><li>C. Tragedy film.</li><li>D. Comedy films.</li></ol>
+</div>
+<p class="listening-stem">Questions 12 to 15 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 12 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Marriage.</li><li>B. Education.</li><li>C. Employment.</li><li>D. Sport contests.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 13 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. They are considered to be less efficient.</li><li>B. They are thought to be less flexible.</li><li>C. They are seen as having less supervisory potential.</li><li>D. Not mentioned in the passage.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 14 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. CEO.</li><li>B. Salesman.</li><li>C. Programmer.</li><li>D. Receptionists.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 15 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. High-weight men.</li><li>B. Low-weight men.</li><li>C. High-weight women.</li><li>D. Thinner women.</li></ol>
+</div>
+<p class="listening-stem">Questions 16 to 19 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 16 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. They like pretending to be happy about things and events that make normal people unhappy.</li><li>B. They will clearly boast about their wealth and status.</li><li>C. They like to quote from literatures for self- flattery</li><li>D. They use so called literary techniques and pretend to be superior in taste.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 17 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. They are those who lead an elegant or extravagant lifestyle.</li><li>B. They are the rising middle income group.</li><li>C. They are poor people who dream to live rich lives.</li><li>D. They are generation-Zs.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 18 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. A group of young women who share the experience of their sojourns in luxurious hotels and exquisite afternoon tea session.</li><li>B. A group of young women who are the core of the Versailles&quot; group.</li><li>C. A group of young women who pretend to be wealth on social media with photos in luxurious hotels and exquisite afternoon tea session for which the bills are shared.</li><li>D. A group of young upper-class woman who share their lifestyle online.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 19 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. The rising of middle-income population in China.</li><li>B. The trend of self- brag on social media.</li><li>C. People&#x27;s pursuing of being famous.</li><li>D. People&#x27;s desire for a better life.</li></ol>
+</div>
+<p class="listening-stem">Questions 20 to 22 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 20 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Spending an hour of self-studying for every credit hour will put you ahead of a lot of your peers.</li><li>B. There is no straight jacket solution for becoming a top student.</li><li>C. Almost every teacher expect their students to be studying for long hours every day.</li><li>D. Studying for more hours are less productive and effective than studying for less time along with adequate breaks in between.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 21 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Vital flowcharts.</li><li>B. Illustrations in textbooks.</li><li>C. Points that are likely to be in exams.</li><li>D. Important definitions.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 22 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Studying for more hours are more productive and effective than studying for less time along with adequate breaks in between.</li><li>B. There is no connection between studying time and studying productivity and effect.</li><li>C. Studying for more hours are less productive and effective than studying for less time along with adequate breaks in between.</li><li>D. The more time you spent in studying, the more productive and efficient you will be.</li></ol>
+</div>
+<p class="listening-stem">Questions 23 to 25 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 23 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. About 8,766 hours.</li><li>B. 8,760 hours.</li><li>C. 8,670 hours.</li><li>D. 8,676 hours.</li></ol>
+</div>
+<h2 class="section-title">二. 简答题（共2题，8分）</h2>
+<p class="listening-stem">Questions 23 to 25 are based on the recording you have just heard. A. The days of a calendar year can&#x27;t be divided nicely. A.The calendar year ends up with uneven months of either 30 or 31 days. C. The calendar predicts that the time it takes for the Earth to go around the Sun is 8,760 hours. D. The days of calendar years are always the same.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 24 题</span>
+<b>答案：D</b>
+</div>
+
+</div>
+<p class="listening-stem">Questions 23 to 25 are based on the recording you have just heard. A. To see the changes of plants on the Earth. A.To count the days passing which gives human kinds a 365- day calendar. c. To sense the changes of temperature. D. To see the movement of the Sun.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 25 题</span>
+<b>答案：B</b>
+</div>
+
+</div>
+</div></section><section class="unit-page listening-page" data-page="4">
+<div class="page-scroll">
+<div class="unit-kicker">听力选择</div>
+<h1>Unit 4</h1>
+<p class="listening-stem">Questions 1 to 4 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 1 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It is a nature reserve center where lions are bred.</li><li>B. It is a unique rentable property in South Africa.</li><li>C. It is a property built by Airbnb.</li><li>D. It is a nature reserve where tourists can live with lions.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 2 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It was constructed for profits.</li><li>B. It is being punished for ethical violation.</li><li>C. It doesn&#x27;t allow any interaction between guests and lions.</li><li>D. Its booking fees benefit the owner.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 3 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Guests can live among the lions.</li><li>B. Its income will be donated to the non-profit organization.</li><li>C. It doesn&#x27;t allow breeding or interaction with lions.</li><li>D. Guests can observe and watch lions very closely.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 4 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. It costs $140 per night.</li><li>B. Kids are not allowed to be included.</li><li>C. Guests don&#x27;t have to worry about power supply</li><li>D. It can accommodate at most six people</li></ol>
+</div>
+<p class="listening-stem">Questions 5 to 8 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 5 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It can perform work for much longer hours.</li><li>B. It is sometimes more accurate and cheaper</li><li>C. It is more efficient and sometimes more accurate</li><li>D. It is more efficient and cheaper.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 6 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. They can sort objects and pick goods.</li><li>B. They can move objects and distribute goods.</li><li>C. They can sort and move objects.</li><li>D. They can pick and distribute goods.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 7 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Over 2630 billion.</li><li>B. Over 2630 million.</li><li>C. About 2630 million.</li><li>D. Around 2630 billion.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 8 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. They fear that human workers would have no job to do.</li><li>B. They fear that robots would control the human world.</li><li>C. They fear that robots could not work as well as human workers.</li><li>D. They fear that human workers would depend too much on robots.</li></ol>
+</div>
+<p class="listening-stem">Questions 9 to 11 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 9 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Social security and public service system.</li><li>B. Social vitality and innovation.</li><li>C. Innovative technologies.</li><li>D. Social security and vitality.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 10 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Because the growth model driven by production elements is out of date.</li><li>B. Because the growth model driven by innovation is a modern trend.</li><li>C. Because it&#x27;s essential for a developed economy.</li><li>D. Because it will minimize the impact of the loss of labor on the economy.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 11 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Enhance legal and social protections for the young.</li><li>B. Increase the social investment and inputs for production.</li><li>C. Improve social services.</li><li>D. Build a high quality work force and introduce advanced and innovative technologies.</li></ol>
+</div>
+<p class="listening-stem">Questions 12 to 15 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 12 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Chimps use twigs to gather termite snacks.</li><li>B. New Caledonian crows can assemble multipart tools to solve puzzle boxes.</li><li>C. Puffins use sticks to scratch their bodies.</li><li>D. Termites use advanced language to communicate.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 13 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Bright red.</li><li>B. Bright yellow.</li><li>C. Bright orange.</li><li>D. Bright white.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 14 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. In 2018, on Iceland&#x27;s Grímsey Island.</li><li>B. In 2014, on the sea off Wales.</li><li>C. In 2018, on the Atlantic Ocean.</li><li>D. In 2014, in America.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 15 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. The seabirds must be very intelligent.</li><li>B. The intelligence of the seabirds can be proved by the two instances.</li><li>C. The puffin populations are increasing.</li><li>D. Humans and their tools make seabird life harder.</li></ol>
+</div>
+<p class="listening-stem">Questions 16 to 18 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 16 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. It slows down our process of aging.</li><li>B. It helps us with our mood.</li><li>C. It releases our stress.</li><li>D. It helps us function efficiently and productively.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 17 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Four years.</li><li>B. Twenty-four years.</li><li>C. Forty years.</li><li>D. Fourteen years.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 18 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Four hours.</li><li>B. Six hours.</li><li>C. Seven to eight hours.</li><li>D. More than eight hours.</li></ol>
+</div>
+<p class="listening-stem">Questions 19 to 21 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 19 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. They were gathered to demand a higher salary.</li><li>B. They were gathered to ask the government for more holidays.</li><li>C. They were gathered to demand equal treatment for black Americans.</li><li>D. They were gathered to protest soaring prices.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 20 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. For the books that he wrote.</li><li>B. For his leading talent.</li><li>C. For his personal attraction.</li><li>D. For the Civil Rights movement that he led.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 21 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. They demonstrated against the policy.</li><li>B. They refused to take buses for more than a year.</li><li>C. They grabbed seats when taking buses.</li><li>D. They damaged buses in public.</li></ol>
+</div>
+<p class="listening-stem">Questions 22 to 25 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 22 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. From 20 to 200.</li><li>B. From 10 to 200.</li><li>C. About 200.</li><li>D. From 10 to 100.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 23 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Because they want to get trust from others.</li><li>B. Because they want to avoid punishment.</li><li>C. Because they don&#x27;t like their real selves.</li><li>D. Because they want to paint a better picture of themselves.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 24 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because the brain is busy.</li><li>B. Because our consciousness can&#x27;t control most of our cognitive function</li><li>C. Because the brain controls only 5% of our communication.</li><li>D. Because the brain can only make imagined stories.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 25 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. It is the tool called eye trackers.</li><li>B. It is the way to test the speaker&#x27;s pulse.</li><li>C. It is the method to analyze the speaker&#x27;s facial expressions.</li><li>D. It is a technology called linguistic text analysis.</li></ol>
+</div>
+</div></section><section class="unit-page listening-page" data-page="5">
+<div class="page-scroll">
+<div class="unit-kicker">听力选择</div>
+<h1>Unit 6</h1>
+<h2 class="section-title">一. 单选题（共23题，92分）</h2>
+<p class="listening-stem">Questions 1 to 4 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 1 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. A website article.</li><li>B. A magazine article.</li><li>C. A statement from a book.</li><li>D. A report from a TV program.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 2 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Five minutes.</li><li>B. Fifteen minutes.</li><li>C. Twenty-five minutes.</li><li>D. Thirty-five minutes.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 3 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. A sleep mask.</li><li>B. An exercise mat.</li><li>C. A music player.</li><li>D. A timer.</li></ol>
+</div>
+<p class="listening-stem">Questions 5 to 8 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 4 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. The Ugly Duckling.</li><li>B. Cinderella.</li><li>C. The Adventures of Pinocchio.</li><li>D. The Little Mermaid.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 5 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Fairy tales are just fairy tales.</li><li>B. The nose will grow when someone lies.</li><li>C. The nose will shrink when someone lies.</li><li>D. It&#x27;s up to further researches about how the nose will change when someone lies.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 6 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because people feel excited.</li><li>B. Because people feel anxious.</li><li>C. Because the nose is prominent.</li><li>D. Because people speed up their breathing.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 7 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Thermal imaging technology is used in the test.</li><li>B. The success rate of the thermal lie detector is up to80%.</li><li>C. The number of participants is large.</li><li>D. The idea to investigate the so-called&quot;Pinocchio effect&quot;is fresh.</li></ol>
+</div>
+<p class="listening-stem">Questions 9 to 12 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 8 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. On water taps.</li><li>B. On doors.</li><li>C. On beds.</li><li>D. On toilets.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 9 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. During the night.</li><li>B. During the daytime.</li><li>C. During working hours.</li><li>D. All day and all night.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 10 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Spotting people in need of the device.</li><li>B. Installing the device and making it work.</li><li>C. Coming up with the idea to do so.</li><li>D. Having workers respond to the alarm immediately.</li></ol>
+</div>
+<p class="listening-stem">Questions13 to 15 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 11 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Lonely.</li><li>B. Rewarding.</li><li>C. Tiring.</li><li>D. Interesting.</li></ol>
+</div>
+<p class="listening-stem">Questions 13 to 15 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 12 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. When he is alone.</li><li>B. When he has nothing to do.</li><li>C. When he goes for a lecture trip.</li><li>D. When he is overtired.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 13 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. He plans to live alone till the end of his life.</li><li>B. He is a blue-collar worker.</li><li>C. He has a cat and a dog at home.</li><li>D. He has a huge and empty house.</li></ol>
+</div>
+<p class="listening-stem">Questions 16 to 18 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 14 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Because you are neither confident nor attractive.</li><li>B. Because the group didn&#x27;t invite you to join.</li><li>C. Because there may be a high solid brick wall between you and others.</li><li>D. Because you want to read books from the bookshelf.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 15 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. We give off many signals as to what we&#x27;re really like.</li><li>B. We hardly ever feel safe enough to display our vulnerabilities.</li><li>C. We believe that most of what we know of our own minds exist in the minds of strangers as well.</li><li>D. We are willing to communicate with a group of strangers.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 16 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Strenuously insisting on our own merits.</li><li>B. Hiding our emotions and interests.</li><li>C. Imagining a more accurate and less forbidding mode of the inner lives of strangers.</li><li>D. Understanding the way a person chooses to accurately represent who they are.</li></ol>
+</div>
+<p class="listening-stem">Questions 19to 21 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 17 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Because of the mere-exposure effect.</li><li>B. Because people resist things they&#x27;ve been exposed to before.</li><li>C. Because the music sounds pleasant.</li><li>D. Because critics think highly of music&#x27;s repetitiveness.</li></ol>
+</div>
+<p class="listening-stem">Questions 19 to 21 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 18 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Because people have had enough of the repeated music and remember it well.</li><li>B. Because music is playing everywhere now.</li><li>C. Because musical repetitions attracts people&#x27;s attention.</li><li>D. Because repetition invites us into music as imagined participants, rather than as passive listeners.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 19 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. With a segment of repeated music people are more likely to move or tap along to it.</li><li>B. Repeating a word can make you stop reflecting on what the word means and instead focus on the sounds.</li><li>C. Music with repetitions will be more compelling to people.</li><li>D. People will only remember the sound of a word and forget the meaning of it.</li></ol>
+</div>
+<p class="listening-stem">Questions22 to 25 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 20 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Buying a house or flat is too expensive.</li><li>B. Flat sharing is full of joys.</li><li>C. To get emotional support from your roommates.</li><li>D. To pool and share resources.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 21 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. You can use anything in the flat without leaving an IOU.</li><li>B. You are likely to gain access to your roommates&#x27; social networks.</li><li>C. You can gain material support from your roommates.</li><li>D. You have to deal with others&#x27; life events.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 22 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Others won&#x27;t give you support when you need emotional supports.</li><li>B. Your roommates may steal your money.</li><li>C. There&#x27;s limited storage space.</li><li>D. You can never sleep well because your roommates are noisy.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 23 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. In 2007, the total amount of rent paid by tenants in Britain is more than ￡50million.</li><li>B. One of the disadvantages of flatsharing is that you have to stand the noise from the party held by your roommates.</li><li>C. There will be fewer and fewer people choosing to share flats.</li><li>D. Housing prices will decrease in the future</li></ol>
+</div>
+<h2 class="section-title">二. 简答题（共2题，8分）</h2>
+<p class="listening-stem">Questions 1 to 4 are based on the conversation you have just heard. A. How to do meditation. A.How to improve mental health. C. How to learn new technology. D. How to improve physical health.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 24 题</span>
+<b>答案：A</b>
+</div>
+
+</div>
+<p class="listening-stem">Questions 9 to 12 are based on the passage you have just heard. A.They praised it as a good idea to help the elderly. A. They praised it as a prime example of technology serving people. C. They called for its application on other facilities. D. They called for its application across the whole city.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 25 题</span>
+<b>答案：B</b>
+</div>
+
+</div>
+</div></section><section class="unit-page listening-page" data-page="6">
+<div class="page-scroll">
+<div class="unit-kicker">听力选择</div>
+<h1>Unit 8</h1>
+<p class="listening-stem">Questions 1 to 4 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 1 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Special personalities.</li><li>B. Lacking of sleep.</li><li>C. There are other people around.</li><li>D. Spending a long period on one project.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 2 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Because sleep helps both our body and our mind rest and recharge.</li><li>B. Because sleep helps our muscles recover and become strong.</li><li>C. Because sleep can limit our focus.</li><li>D. Because sleep protects our mental health.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 3 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. REM sleep is the first stage of sleep.</li><li>B. REM sleep contributes to brain development in adults.</li><li>C. REM sleep may have adverse implications for physical and emotional health.</li><li>D. Restful REM sleep is what is needed for keeping mind clear and concentrated.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 4 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Learn more about sleep.</li><li>B. Sleep longer everyday.</li><li>C. Try to improve the quality of her sleep.</li><li>D. Do more exercises.</li></ol>
+</div>
+<p class="listening-stem">Questions 5 to 8 are based on the conversation you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 5 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. The scenery.</li><li>B. The transportation.</li><li>C. The cost of housing.</li><li>D. The opportunities.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 6 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. About $4,100 a month.</li><li>B. About $380,000.</li><li>C. About $360,000.</li><li>D. About $630,000.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 7 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It has advanced infrastructure.</li><li>B. The housing area there is above the average level.</li><li>C. It provides lower cost of living.</li><li>D. It enjoys government policies.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 8 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Large cities like Los Angeles, Chicago and New York are still attractive.</li><li>B. Cost of living is a factor that influences migration.</li><li>C. People shouldn&#x27;t live in cities with high cost of living.</li><li>D. Areas with low rent are always a good choice</li></ol>
+</div>
+<p class="listening-stem">Questions 9 to11 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 9 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Communication.</li><li>B. Culture.</li><li>C. History.</li><li>D. Context.</li></ol>
+</div>
+<p class="listening-stem">Questions 9 to 11 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 10 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. North America.</li><li>B. Much of Western Europe.</li><li>C. The Middle East.</li><li>D. Pacific Islands.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 11 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. They like to line up the facts and evaluate one after another.</li><li>B. They emphasize interpersonal relationships.</li><li>C. They tend to be more indirect and more formal.</li><li>D. They are less governed by reason than by intuition or feelings.</li></ol>
+</div>
+<p class="listening-stem">Questions12 to 15 are based on the passage you have just heard</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 12 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. $10.8billion.</li><li>B. $10.18billion.</li><li>C. $10.8million.</li><li>D. $10.18million.</li></ol>
+</div>
+<p class="listening-stem">Questions 12 to 15 are based on the passage you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 13 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Development of the Internet.</li><li>B. Advanced team management.</li><li>C. Adequate funds.</li><li>D. Government support.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 14 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It has sound business management.</li><li>B. It has a great profitable idea.</li><li>C. It doesn&#x27;t have to produce, sell or ship by itself.</li><li>D. eBay&#x27;s founder has a successful business background.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 15 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. It should be seriously tackled.</li><li>B. It will have a bad influence on other businesses.</li><li>C. It will affect the development of the enterprise.</li><li>D. It is not very serious.</li></ol>
+</div>
+<p class="listening-stem">Questions16 to 18 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 16 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Within around 100 years.</li><li>B. Within around 10 years.</li><li>C. By 2110.</li><li>D. By 2130.</li></ol>
+</div>
+<p class="listening-stem">Questions 16 to 18 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 17 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. It will bypass biological sensory systems and create artificial experiences.</li><li>B. It will bypass VR signals and create artificial experiences.</li><li>C. It will construct an alternate reality for people to experience.</li><li>D. It will mix up what&#x27;s real and what&#x27;s not.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 18 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. It can remove arm fatigue.</li><li>B. It can fend off incoming bullets.</li><li>C. It can improve marksmanship for some soldiers.</li><li>D. It can hit enemies forcefully.</li></ol>
+</div>
+<p class="listening-stem">Questions 19 to21 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 19 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. Because water is poisonous to babies.</li><li>B. Because their bodies are composed of enough water.</li><li>C. Because a baby&#x27;s kidney is about a quarter the size of an adult&#x27;s.</li><li>D. Because babies never feel thirsty.</li></ol>
+</div>
+<p class="listening-stem">Questions 19 to 21 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 20 题</span>
+<b>答案：D</b>
+</div>
+<ol class="options"><li>A. Death.</li><li>B. Brain damage.</li><li>C. Pressure increase inside the skull.</li><li>D. Extreme thirst.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 21 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. It will increase their water content by17% to 18%.</li><li>B. It ends up in the circulatory system.</li><li>C. It will make their blood thicker.</li><li>D. It will cause water intoxication and death.</li></ol>
+</div>
+<p class="listening-stem">Questions 22 to25 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 22 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Someone has been fired.</li><li>B. Someone has made many millions from his investment.</li><li>C. Someone has made a small mistake which turned out to have damaging consequences.</li><li>D. Someone has failed his exam.</li></ol>
+</div>
+<p class="listening-stem">Questions 22 to 25 are based on the recording you have just heard.</p>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 23 题</span>
+<b>答案：A</b>
+</div>
+<ol class="options"><li>A. Because civilization like science and public education goes against luck and has won.</li><li>B. Because in modern civilization people understand they are the authors of their destinies.</li><li>C. Because modern civilization has already tamed luck entirely.</li><li>D. Because insurance and medicine can prevent bad luck from occurring.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 24 题</span>
+<b>答案：C</b>
+</div>
+<ol class="options"><li>A. Because it cannot be seen clearly.</li><li>B. Because it is a great power to determine people&#x27;s fate.</li><li>C. Because we can&#x27;t detect its territory and power.</li><li>D. Because failure is always caused by bad luck.</li></ol>
+</div>
+<div class="question-row listening-row">
+<div class="question-title">
+<span>第 25 题</span>
+<b>答案：B</b>
+</div>
+<ol class="options"><li>A. They need to build up their self-confidence.</li><li>B. They need to learn more about personal responsibility and capacity.</li><li>C. They need to get rid of their self-hatred.</li><li>D. They need to stop self-blame for failure.</li></ol>
+</div>
+</div></section>
+        </div>
+      </div>
+      <button class="turn next" id="next" aria-label="下一页">›</button>
+      <div class="page-count" id="counter"></div>
+    </main>
+  </div>
+  <script>
+    const titles = ["Unit 2 Reading Comprehension", "UNIT 3 Reading Comprehension", "Unit 4 Reading Comprehension", "Unit 2", "Unit 4", "Unit 6", "Unit 8"];
+    let page = 0;
+    const track = document.getElementById('track');
+    const tabs = Array.from(document.querySelectorAll('.unit-tab'));
+    const prev = document.getElementById('prev');
+    const next = document.getElementById('next');
+    const counter = document.getElementById('counter');
+
+    function showPage(index) {
+      page = Math.max(0, Math.min(titles.length - 1, index));
+      track.style.transform = `translateX(${-page * 100}%)`;
+      tabs.forEach((tab, i) => tab.classList.toggle('active', i === page));
+      prev.disabled = page === 0;
+      next.disabled = page === titles.length - 1;
+      counter.textContent = `${page + 1} / ${titles.length}`;
+      const current = document.querySelector(`.unit-page[data-page="${page}"] .page-scroll`);
+      if (current) current.scrollTop = 0;
+    }
+    tabs.forEach((tab) => tab.addEventListener('click', () => showPage(Number(tab.dataset.go))));
+    prev.addEventListener('click', () => showPage(page - 1));
+    next.addEventListener('click', () => showPage(page + 1));
+    window.addEventListener('keydown', (event) => {
+      if (event.key === 'ArrowRight') showPage(page + 1);
+      if (event.key === 'ArrowLeft') showPage(page - 1);
+    });
+    showPage(0);
+  </script>
+</body>
+</html>
