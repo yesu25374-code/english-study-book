@@ -384,6 +384,93 @@
         max-height: 460px;
       }
     }
+
+    .finance-overview-layout {
+      display: grid;
+      grid-template-columns: minmax(280px, 42%) minmax(320px, 1fr);
+      gap: 22px;
+      align-items: start;
+    }
+    .finance-overview-figure {
+      margin: 0;
+      padding: 12px;
+      border: 1px solid rgba(23, 32, 51, .12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .92);
+    }
+    .finance-overview-image {
+      width: 100%;
+      max-height: 520px;
+      object-fit: contain;
+      display: block;
+      border-radius: 6px;
+      background: #f7f7f7;
+    }
+    .finance-overview-figure figcaption {
+      margin-top: 8px;
+      color: var(--muted);
+      font-size: 12px;
+      text-align: center;
+    }
+    .finance-overview-text .finance-points {
+      gap: 12px;
+    }
+    .finance-qa-grid {
+      display: grid;
+      gap: 16px;
+      max-width: 1120px;
+    }
+    .finance-qa-card {
+      padding: 18px 20px 20px;
+      border: 1px solid rgba(23, 32, 51, .12);
+      border-radius: 8px;
+      background: rgba(255, 255, 255, .95);
+    }
+    .finance-qa-head {
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+    }
+    .finance-qa-badge {
+      min-width: 54px;
+      height: 34px;
+      border-radius: 8px;
+      background: var(--accent);
+      color: #fff;
+      font-size: 17px;
+      font-weight: 800;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex: 0 0 auto;
+    }
+    .finance-qa-q {
+      font-size: 20px;
+      line-height: 1.45;
+      font-weight: 800;
+      color: var(--ink);
+      margin-top: 3px;
+    }
+    .finance-qa-a {
+      margin: 12px 0 0 68px;
+      font-size: 17px;
+      line-height: 1.72;
+      color: #303947;
+    }
+    .finance-qa-page .page-scroll {
+      padding-top: 28px;
+    }
+    @media (max-width: 900px) {
+      .finance-overview-layout {
+        grid-template-columns: 1fr;
+      }
+      .finance-qa-a {
+        margin-left: 0;
+      }
+      .finance-qa-q {
+        font-size: 18px;
+      }
+    }
     .subject-divider {
       margin: 18px 0 10px;
       padding: 11px 12px;
@@ -411,18 +498,19 @@
 <button class="unit-tab" data-go="5"><span>听力</span><strong>Unit 6</strong></button>
 <button class="unit-tab" data-go="6"><span>听力</span><strong>Unit 8</strong></button>
 <div class="subject-divider" data-summary-page="finance-summary">财务管理重点</div>
-<button class="unit-tab" data-go="7"><span>总纲</span><strong>财务管理大题考点总纲</strong></button>
-<button class="unit-tab" data-go="8"><span>重点 2</span><strong>筹资方式、资本成本与资本结构</strong></button>
-<button class="unit-tab" data-go="9"><span>重点 3</span><strong>投资项目评价与现金流量</strong></button>
-<button class="unit-tab" data-go="10"><span>重点 4</span><strong>营运资金、风险与股利政策</strong></button>
-<div class="subject-divider">财务管理例题</div>
-<button class="unit-tab" data-go="11"><span>财务 1</span><strong>货币时间价值与年金现值</strong></button>
-<button class="unit-tab" data-go="12"><span>财务 2</span><strong>销售百分比法与外部筹资额</strong></button>
-<button class="unit-tab" data-go="13"><span>财务 3</span><strong>资本成本与加权平均资本成本</strong></button>
-<button class="unit-tab" data-go="14"><span>财务 4</span><strong>每股收益无差别点</strong></button>
-<button class="unit-tab" data-go="15"><span>财务 5</span><strong>项目投资现金流量与净现值</strong></button>
-<button class="unit-tab" data-go="16"><span>财务 6</span><strong>静态回收期与动态回收期</strong></button>
-<button class="unit-tab" data-go="17"><span>财务 7</span><strong>短期资金管理与最佳现金持有量</strong></button></nav>
+<button class="unit-tab" data-go="7"><span>总纲</span><strong>财务管理总纲</strong></button>
+<button class="unit-tab" data-go="8"><span>1-3</span><strong>财务问答 1-3</strong></button>
+<button class="unit-tab" data-go="9"><span>4-6</span><strong>财务问答 4-6</strong></button>
+<button class="unit-tab" data-go="10"><span>7-9</span><strong>财务问答 7-9</strong></button>
+<button class="unit-tab" data-go="11"><span>10-12</span><strong>财务问答 10-12</strong></button>
+<button class="unit-tab" data-go="12"><span>13-15</span><strong>财务问答 13-15</strong></button>
+<button class="unit-tab" data-go="13"><span>16-18</span><strong>财务问答 16-18</strong></button>
+<button class="unit-tab" data-go="14"><span>19-21</span><strong>财务问答 19-21</strong></button>
+<button class="unit-tab" data-go="15"><span>22-24</span><strong>财务问答 22-24</strong></button>
+<button class="unit-tab" data-go="16"><span>25-27</span><strong>财务问答 25-27</strong></button>
+<button class="unit-tab" data-go="17"><span>28-30</span><strong>财务问答 28-30</strong></button>
+<button class="unit-tab" data-go="18"><span>31-33</span><strong>财务问答 31-33</strong></button>
+<button class="unit-tab" data-go="19"><span>34-36</span><strong>财务问答 34-36</strong></button></nav>
     </aside>
     <main class="stage">
       <button class="turn prev" id="prev" aria-label="上一页">‹</button>
@@ -1595,8 +1683,8 @@
 <section class="unit-page finance-page" data-page="7">
 <div class="page-scroll finance-scroll">
 <div class="unit-kicker">财务重点总纲 / 手写封面分点整理</div>
-<h1>财务管理大题考点总纲</h1>
-<p class="finance-source">第一页改成你发来的手写总纲图，下面把整套考点按“复习提纲”的样子拆开，方便直接背。</p>
+<h1>财务管理 36 问答总纲</h1>
+<p class="finance-source">先看总纲图，再往下翻 36 条问答。每条都是“问：考什么？答：背什么/怎么算”。</p>
 <article class="finance-block finance-overview">
 <div class="finance-overview-layout">
 <figure class="finance-overview-figure">
@@ -1606,11 +1694,11 @@
 <div class="finance-overview-text">
 <h2>分点整理</h2>
 <ul class="finance-points">
-<li>货币时间价值：现值、终值、年金、利率、期数，先统一到同一时间点再比较。</li>
+<li>货币时间价值：现值、终值、年金、利率、期数，统一到同一时间点再比较。</li>
 <li>筹资数量预测：经营性资产增加额、经营性负债增加额、留存收益增加额、外部筹资额。</li>
-<li>资本结构决策：债务资本成本、普通股/留存收益资本成本、优先股资本成本、加权平均资本成本。</li>
-<li>每股收益分析法：EPS = [(EBIT-I)(1-T)-Dp] / N；重点看每股收益无差别点。</li>
-<li>投资项目评价：现金流量、净现值、回收期、动态回收期，先算流量，再判可行性。</li>
+<li>资本结构决策：债务资本成本、普通股/留存收益资本成本、优先股资本成本、WACC。</li>
+<li>每股收益分析法：EPS 无差别点用来比较普通股筹资与负债筹资。</li>
+<li>项目投资评价：现金流量、净现值、回收期、动态回收期。</li>
 <li>短期资金管理：最佳现金持有量、转换成本、机会成本。</li>
 <li>存货/现金模型：EOQ、鲍莫尔模型，核心是总成本最低。</li>
 </ul>
@@ -1619,187 +1707,372 @@
 </article>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="8">
+<section class="unit-page finance-page finance-qa-page" data-page="8">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">财务重点总览 2 / 筹资与资本结构</div>
-<h1>筹资方式、资本成本与资本结构</h1>
-<p class="finance-source">来自第一个 Word 文档：长期筹资、股权/债务筹资、资本成本、杠杆和每股收益分析。</p>
-<article class="finance-block">
-<h2>分点整理</h2>
-<ul class="finance-points"><li>股权筹资优点：没有固定还本付息压力，能增强企业信誉和偿债能力；缺点是资本成本较高、可能稀释控制权。</li><li>债务筹资优点：资金成本较低、利息可抵税；缺点是固定付息还本压力大，财务风险较高。</li><li>吸收直接投资可以用货币、实物、土地使用权、非专利技术等出资；特许经营权、商誉等通常不能作为资产出资。</li><li>计算个别资本成本时，债务资本成本要考虑所得税抵扣；普通股、优先股和留存收益不乘所得税因素。</li><li>债务筹资资本成本通常低于普通股筹资，但财务风险更大。</li><li>经营杠杆不是经营风险来源，只是放大经营风险；财务杠杆放大普通股收益和财务风险。</li><li>每股收益无差别点用于比较普通股筹资和债务筹资方案，关键是建立两个 EPS 相等的方程。</li><li>发行债券与股票上市不同：债券形成债务，股票形成权益；股票上市可能带来信息披露压力、控制权稀释等不利影响。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 1-3</div>
+<h1>财务管理 36 问 · 1-3</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">01</div>
+<div class="finance-qa-q">问：财务管理的内容：筹资、投资、短期资产管理、股利分配...</div>
+</div>
+<div class="finance-qa-a">答：主要包括筹资管理、投资管理、短期资产/营运资金管理、股利分配管理。背法：钱从哪里来、投到哪里去、日常怎么周转、利润怎么分。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">02</div>
+<div class="finance-qa-q">问：财务管理的目标</div>
+</div>
+<div class="finance-qa-a">答：核心目标通常围绕企业价值最大化或股东财富最大化。答题时要注意利益相关者协调，尤其是所有者、债权人、经营者之间的利益冲突。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">03</div>
+<div class="finance-qa-q">问：财务管理的金融环境</div>
+</div>
+<div class="finance-qa-a">答：包括金融市场、金融机构、金融工具、利率和金融政策等。它会影响企业筹资成本、投资收益要求和资金流动性。</div>
 </article>
 </div>
-</section>
-<section class="unit-page finance-page" data-page="9">
-<div class="page-scroll finance-scroll">
-<div class="unit-kicker">财务重点总览 3 / 投资决策</div>
-<h1>投资项目评价与现金流量</h1>
-<p class="finance-source">来自第一个 Word 文档：项目投资管理、现金流量、净现值、回收期、现值指数。</p>
-<article class="finance-block">
-<h2>分点整理</h2>
-<ul class="finance-points"><li>项目投资管理特点：金额大、周期长、风险高，对企业长期发展影响明显。</li><li>项目评价看现金流量，不看会计利润；折旧本身不是现金流出，但能产生抵税作用。</li><li>现金流出量包括原始投资、垫支流动资金、付现成本、所得税等。</li><li>现金流入量包括营业现金流入、固定资产残值收入、收回垫支流动资金等。</li><li>净现值 NPV = 未来现金净流量现值 - 原始投资现值；NPV 大于 0 通常说明项目可行。</li><li>现值指数 PI = 未来现金流入现值 / 原始投资现值；PI 大于 1 通常说明项目可行。</li><li>静态回收期是非折现指标，是“越小越好”的反指标；动态回收期要考虑资金时间价值。</li><li>销售变动难预测时，企业通常维持较高流动资产与销售收入比率，以防缺货断货。</li></ul>
-</article>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="10">
+<section class="unit-page finance-page finance-qa-page" data-page="9">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">财务重点总览 4 / 营运与政策</div>
-<h1>营运资金、风险与股利政策</h1>
-<p class="finance-source">来自第一个 Word 文档：短期资产管理、应收账款、现金、存货、风险和股利政策。</p>
-<article class="finance-block">
-<h2>分点整理</h2>
-<ul class="finance-points"><li>营运资金管理范围：现金、应收账款、存货、短期借款、商业信用等短期资产和短期负债管理。</li><li>现金管理目标：在流动性和收益性之间平衡，常考最佳现金持有量。</li><li>应收账款机会成本可用应收账款占用资金的应计利息表示。</li><li>延长信用期限会增加机会成本、管理成本、坏账成本和收账成本等。</li><li>积极收账政策能加快回款、减少坏账和资金占用，但也会增加收账费用并可能影响客户关系。</li><li>存货 EOQ 基本模型在订货成本和储存成本之间找最低点；相关成本包括取得成本、订货成本、储存成本、缺货成本。</li><li>商业信用可理解为“欠上游、收下游”，是企业日常经营中形成的自然融资。</li><li>可分散风险可通过组合投资降低；不可分散风险与市场整体因素有关，难以靠分散投资消除。</li><li>股利分配政策影响企业留存收益、外部筹资需求和投资者预期。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 4-6</div>
+<h1>财务管理 36 问 · 4-6</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">04</div>
+<div class="finance-qa-q">问：货币时间价值</div>
+</div>
+<div class="finance-qa-a">答：同一金额资金在不同时点价值不同。计算时要把资金统一到同一时点：终值 F=P(1+i)^n，现值 P=F/(1+i)^n，年金用年金现值/终值系数。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">05</div>
+<div class="finance-qa-q">问：能协调所有者与债权人之间利益冲突的方式是什么？</div>
+</div>
+<div class="finance-qa-a">答：常见方式：限制性借款条款、债权人提前收回借款、拒绝继续提供新借款。核心是防止所有者通过高风险投资或过度举债损害债权人利益。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">06</div>
+<div class="finance-qa-q">问：长期筹资中，股权筹资和债券筹资的特点和优缺点。与发行债务筹资相比，发行普通股股票筹资的优点。哪些方式可以降低企业降低筹资风险？</div>
+</div>
+<div class="finance-qa-a">答：股权筹资无固定还本付息压力、财务风险小，但资本成本高、可能稀释控制权。债务筹资成本较低且利息可抵税，但固定还本付息压力大、财务风险高。</div>
 </article>
 </div>
-</section>
-<section class="unit-page finance-page" data-page="11">
-<div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 1 / 时间价值</div>
-<h1>货币时间价值与年金现值</h1>
-<p class="finance-source">对应图片：img01、img02；对应重点：货币时间价值、年金、预付年金、永续年金、现值指数与净现值。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>核心思想：不同时间点的钱不能直接相加，必须统一到同一时点，常见做法是折现到现在。</li><li>普通年金：每期期末收付，现值 = A × (P/A, i, n)。</li><li>预付年金：每期期初收付，现值 = A × [1 + (P/A, i, n-1)]，也可理解为普通年金提前一期。</li><li>永续年金：没有到期日，现值 = A / i；优先股价值常按永续年金思路处理。</li><li>净现值 NPV = 未来现金流入现值 - 原始投资现值；现值指数 PI = 未来现金流入现值 / 原始投资现值。</li></ul>
-</article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">某投资者拟购买一处房产。方案一：从现在起15年内每年末支付10万元；方案二：从现在起15年内每年初支付9.5万元；方案三：一次性支付55万元。银行贷款利率10%，复利计息。已知 (P/A,10%,15)=5.019，(P/A,10%,14)=5.216，问哪种方式对购买者有利？</p>
-</article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>比较付款方案时，要站在购买者角度选“付款现值最小”的方案。</li><li>方案一是普通年金：PV1 = 10 × (P/A,10%,15) = 10 × 5.019 = 50.19万元。</li><li>方案二是预付年金：第一笔在现在支付，后14笔再折现，PV2 = 9.5 × [1 + (P/A,10%,14)] = 9.5 × 6.216 = 59.052万元。</li><li>方案三一次性支付，PV3 = 55万元。</li><li>比较：50.19 &lt; 55 &lt; 59.052，因此选择方案一。注意：题目给的系数就直接用，不要临场自己重新查表。</li></ol>
-</article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img02.jpg" alt="财务管理例题图片 img02.jpg"><figcaption>img02.jpg</figcaption></figure></div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="12">
+<section class="unit-page finance-page finance-qa-page" data-page="10">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 2 / 筹资数量预测</div>
-<h1>销售百分比法与外部筹资额</h1>
-<p class="finance-source">对应图片：img03、img04、img05；对应重点：销售百分比法、经营性资产、经营性负债、留存收益增加额。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>第一步：找敏感项目。敏感资产和敏感负债会随营业收入同比例变化。</li><li>常见敏感资产：现金、应收账款、存货等经营性流动资产；固定资产是否增加要看是否还有剩余生产能力。</li><li>常见敏感负债：应付账款、应付票据等随经营自然形成的负债；短期借款、长期借款通常不是经营性负债。</li><li>外部筹资额 = 经营性资产增加额 - 经营性负债增加额 - 留存收益增加额。</li><li>留存收益增加额 = 预计销售收入 × 销售净利率 × 利润留存率。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 7-9</div>
+<h1>财务管理 36 问 · 7-9</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">07</div>
+<div class="finance-qa-q">问：现值指数、净现值的计算公式</div>
+</div>
+<div class="finance-qa-a">答：净现值 NPV=未来现金净流量现值-原始投资现值；现值指数 PI=未来现金流入现值/原始投资现值。一般 NPV&gt;0、PI&gt;1，项目可行。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">某公司2009年营业收入10000万元，营业净利率10%，利润留存率40%，2010年销售收入提高20%。期末经营性资产：现金500、应收账款1500、存货3000；固定资产还有剩余生产能力。经营性负债按应付账款500、应付票据1000处理。求经营性资产增加额、经营性负债增加额、留存收益增加额和外部筹资额。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">08</div>
+<div class="finance-qa-q">问：销售百分比法，会随销售额变动而呈正比例变动的有哪些？判断经营性资产/经营性负债有哪些。</div>
+</div>
+<div class="finance-qa-a">答：经营性资产常见有现金、应收账款、存货等；经营性负债常见有应付账款、应付票据、预收账款等。外部筹资额=资产增加-负债增加-留存收益增加。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>经营性资产基数 = 现金500 + 应收账款1500 + 存货3000 = 5000万元。固定资产不需要增加，因为题目说还有剩余生产能力。</li><li>经营性资产增加额 = 5000 × 20% = 1000万元。</li><li>经营性负债基数 = 应付账款500 + 应付票据1000 = 1500万元；经营性负债增加额 = 1500 × 20% = 300万元。</li><li>预计销售收入 = 10000 × (1 + 20%) = 12000万元；留存收益增加额 = 12000 × 10% × 40% = 480万元。</li><li>外部筹资额 = 1000 - 300 - 480 = 220万元。若课堂口径只把应付账款算作经营性负债，则负债增加额为100万元，外部筹资额为420万元；考试按老师口径判断敏感负债范围。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">09</div>
+<div class="finance-qa-q">问：项目投资管理特点</div>
+</div>
+<div class="finance-qa-a">答：金额大、周期长、风险高、影响长期发展，很多投资具有不可逆性。评价时重点看现金流量，不看单纯会计利润。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img03.jpg" alt="财务管理例题图片 img03.jpg"><figcaption>img03.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img04.jpg" alt="财务管理例题图片 img04.jpg"><figcaption>img04.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img05.jpg" alt="财务管理例题图片 img05.jpg"><figcaption>img05.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="13">
+<section class="unit-page finance-page finance-qa-page" data-page="11">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 3 / 资本结构与筹资</div>
-<h1>资本成本与加权平均资本成本</h1>
-<p class="finance-source">对应图片：img06、img07；对应重点：个别资本成本、所得税影响、债务筹资与股权筹资、WACC。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>债务资本成本要考虑所得税抵扣，因为利息可以税前扣除；普通股、留存收益和优先股不乘 (1-T)。</li><li>长期借款资本成本 = 借款利率 × (1 - 所得税税率)。</li><li>债券资本成本 = 债券票面利率 × (1 - T) / (1 - 筹资费率)。</li><li>优先股资本成本 = 优先股固定股息率 / (1 - 筹资费率)。</li><li>留存收益资本成本可用 CAPM：Ks = Rf + β × (Rm - Rf)。</li><li>WACC = Σ 每类资本占比 × 对应资本成本，权重通常按目标资本结构或账面/市场价值口径计算，题目要求优先。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 10-12</div>
+<h1>财务管理 36 问 · 10-12</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">10</div>
+<div class="finance-qa-q">问：应收账款占用资金的应计利息可用来表示应收账款机会成本</div>
+</div>
+<div class="finance-qa-a">答：应收账款机会成本可用占用资金的应计利息表示。常用：平均应收账款=赊销额/360×平均收账期；占用资金=平均应收账款×变动成本率；机会成本=占用资金×资本成本率。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">甲公司长期银行借款1000万元，年利率6%；所有者权益4000万元。计划追加筹资5000万元，其中发行债券2000万元，票面年利率6.86%，筹资费率2%；发行优先股3000万元，固定股息率7.76%，筹资费率3%。普通股β=2，一年期国债利率4%，市场平均报酬率9%，所得税税率25%。计算各项资本成本和加权平均资本成本。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">11</div>
+<div class="finance-qa-q">问：哪些属于现金流入量、现金流出量？</div>
+</div>
+<div class="finance-qa-a">答：流出量：原始投资、垫支营运资金、付现成本、所得税等。流入量：营业现金流入、固定资产残值收入、收回垫支营运资金等。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>长期银行借款资本成本 = 6% × (1 - 25%) = 4.5%。</li><li>债券资本成本 = 6.86% × (1 - 25%) / (1 - 2%) = 5.25%。分母扣筹资费，表示企业实际拿到的钱少。</li><li>优先股资本成本 = 7.76% / (1 - 3%) = 8%。优先股股息不能抵税，所以不乘 (1 - T)。</li><li>留存收益资本成本 = 4% + 2 × (9% - 4%) = 14%。这是股东要求的必要收益率。</li><li>总资本 = 1000 + 4000 + 2000 + 3000 = 10000万元。</li><li>WACC = 1000/10000×4.5% + 4000/10000×14% + 2000/10000×5.25% + 3000/10000×8% = 9.5%。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">12</div>
+<div class="finance-qa-q">问：不能作为资产出资的有哪些？能够作为吸收直接投资出资方式的有土地使用权和非专利技术等，不能的是特许经营权和商誉等。</div>
+</div>
+<div class="finance-qa-a">答：可以：货币、实物、土地使用权、知识产权、非专利技术等。通常不能：特许经营权、商誉等不能可靠计量或不能独立转让的项目。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img06.jpg" alt="财务管理例题图片 img06.jpg"><figcaption>img06.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img07.jpg" alt="财务管理例题图片 img07.jpg"><figcaption>img07.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="14">
+<section class="unit-page finance-page finance-qa-page" data-page="12">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 4 / EPS 分析法</div>
-<h1>每股收益无差别点</h1>
-<p class="finance-source">对应图片：img08、img09、img10、img11；对应重点：资本结构决策、杠杆系数、筹资方式比较。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>每股收益无差别点：两种筹资方案下普通股每股收益相等时的 EBIT，也叫息税前利润平衡点。</li><li>EPS = [(EBIT - I) × (1 - T) - Dp] / N。</li><li>债务筹资会增加利息，减少普通股股数稀释；发行普通股不增加利息，但会增加股数。</li><li>若预计 EBIT 高于无差别点，通常选择债务筹资；若低于无差别点，通常选择普通股筹资。</li><li>经营杠杆和财务杠杆本身不是风险来源，但会放大经营风险或财务风险。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 13-15</div>
+<h1>财务管理 36 问 · 13-15</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">13</div>
+<div class="finance-qa-q">问：股利分配政策</div>
+</div>
+<div class="finance-qa-a">答：剩余股利政策、固定或稳定增长股利政策、固定股利支付率政策、低正常股利加额外股利政策。记忆重点：稳定性、融资需求、股东偏好不同。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">某公司目前长期资本8500万元，其中长期负债1000万元，普通股7500万元，普通股股数1000万股。计划追加筹资1500万元：方案一增发普通股300万股；方案二增加负债，债务利息由90万元增至270万元。所得税率25%。追加筹资后销售额预计3000万元，变动成本率50%，固定成本600万元。计算 EPS 无差别点并判断方案。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">14</div>
+<div class="finance-qa-q">问：哪些属于可分散风险？哪些属于不可分散风险？</div>
+</div>
+<div class="finance-qa-a">答：可分散风险是公司特有风险，如经营失误、产品问题、诉讼等，可通过组合投资降低。不可分散风险是系统风险，如利率、通胀、经济衰退，无法通过组合完全消除。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>建立等式：[(EBIT - 90)(1 - 25%)] / (1000 + 300) = [(EBIT - 270)(1 - 25%)] / 1000。</li><li>两边都有 (1 - 25%)，可以约去：1000(EBIT - 90) = 1300(EBIT - 270)。</li><li>解得 EBIT = 870万元。这就是两种方案 EPS 相同的临界点。</li><li>预计 EBIT = 销售额 × (1 - 变动成本率) - 固定成本 = 3000 × 50% - 600 = 900万元。</li><li>因为预计 EBIT 900万元 &gt; 无差别点870万元，所以负债筹资方案 EPS 更高。</li><li>验证：发行股票 EPS = (900 - 90)×75% / 1300 = 0.4673元/股；增加负债 EPS = (900 - 270)×75% / 1000 = 0.4725元/股。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">15</div>
+<div class="finance-qa-q">问：净现值的理解</div>
+</div>
+<div class="finance-qa-a">答：净现值表示项目给企业带来的价值净增加。NPV=未来现金净流量折现值-原始投资折现值；NPV&gt;0 说明收益超过必要报酬，通常应接受。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img08.jpg" alt="财务管理例题图片 img08.jpg"><figcaption>img08.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img09.jpg" alt="财务管理例题图片 img09.jpg"><figcaption>img09.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img10.jpg" alt="财务管理例题图片 img10.jpg"><figcaption>img10.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img11.jpg" alt="财务管理例题图片 img11.jpg"><figcaption>img11.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="15">
+<section class="unit-page finance-page finance-qa-page" data-page="13">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 5 / 投资项目评价</div>
-<h1>项目投资现金流量与净现值</h1>
-<p class="finance-source">对应图片：img12、img13；对应重点：现金流入、现金流出、净现值、项目投资管理特点。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>项目投资评价看的是现金流量，不是会计利润。</li><li>建设起点固定资产投入是现金流出；垫支流动资金也是现金流出，通常在项目结束时收回。</li><li>营业期现金净流量常用公式：NCF = (销售收入 - 付现成本) × (1 - T) + 折旧 × T。</li><li>终结点现金流量要加回残值收入和收回的垫支流动资金。</li><li>净现值 NPV = 各年现金净流量现值合计 - 原始投资现值；NPV &gt; 0 通常可行。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 16-18</div>
+<h1>财务管理 36 问 · 16-18</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">16</div>
+<div class="finance-qa-q">问：对资产收益率的理解，短期国库券的利率近似地代替无风险收益率，必要收益率表示投资者对某资产合理要求的最低收益率，不同投资者要求的必要收益率是不同的，在没有通货膨胀条件下，无风险收益率也称无风险利率，也称纯利率。</div>
+</div>
+<div class="finance-qa-a">答：短期国库券利率常近似无风险收益率。必要收益率是投资者对某资产合理要求的最低收益率，不同投资者可能不同。无通胀、无风险时的收益率可称纯利率。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">某工业项目原始投资1300万元，其中固定资产投资1100万元，垫支流动资金200万元，建设期1年。固定资产在建设起点一次投入，流动资金在完工投产时投入。项目寿命10年，直线法折旧，期满净残值100万元。投产后每年销售收入800万元，付现成本200万元，所得税率25%。计算各年现金净流量，并写出净现值公式。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">17</div>
+<div class="finance-qa-q">问：什么是纯粹利率？</div>
+</div>
+<div class="finance-qa-a">答：纯粹利率是在没有通货膨胀、没有风险条件下的资金时间价值，也可理解为最基础的无风险报酬率。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>折旧额 = (1100 - 100) / 10 = 100万元。折旧不是现金流出，但能抵税，抵税额 = 100 × 25% = 25万元。</li><li>项目计算期 = 建设期1年 + 经营期10年 = 11年。</li><li>NCF0 = -1100万元，表示建设起点投入固定资产。</li><li>NCF1 = -200万元，表示完工投产时垫支流动资金。</li><li>NCF2-10 = (800 - 200) × (1 - 25%) + 100 × 25% = 475万元。</li><li>NCF11 = 475 + 100 + 200 = 775万元，最后一年要收回残值和流动资金。</li><li>若资本成本为 i，则 NPV = -1100 - 200/(1+i) + 475×(P/A,i,9)/(1+i) + 775/(1+i)^11。题目给 i 后直接代入，NPV大于0则值得投资。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">18</div>
+<div class="finance-qa-q">问：什么是年金？预付年金、永续年金怎么计算？永续年金与优先股的关系，优先股的价值的计算。</div>
+</div>
+<div class="finance-qa-a">答：年金是等额、定期、连续收付款。普通年金现值=A×(P/A,i,n)；预付年金现值=A×[1+(P/A,i,n-1)]；永续年金现值=A/i。优先股价值常用 V=D/K。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img12.jpg" alt="财务管理例题图片 img12.jpg"><figcaption>img12.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img13.jpg" alt="财务管理例题图片 img13.jpg"><figcaption>img13.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="16">
+<section class="unit-page finance-page finance-qa-page" data-page="14">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 6 / 回收期法</div>
-<h1>静态回收期与动态回收期</h1>
-<p class="finance-source">对应图片：img14、img15；对应重点：静态回收期是越小越好的反指标，动态回收期要考虑资金时间价值。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>静态回收期 = 原始投资额 / 每年现金净流量，适用于每年现金流量相等的情况。</li><li>动态回收期把每年现金流量折现后再累计，考虑了货币时间价值。</li><li>每年 NCF 相等时，可先算年金现值系数：(P/A, i, n) = 原始投资额 / 每年现金净流量，再用年金现值系数表插值求 n。</li><li>如果有建设期，考虑建设期的回收期 = 建设期 + 经营期内回收期。</li><li>回收期越短，资金回收越快、风险越小；但它不能全面反映回收期后的收益。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 19-21</div>
+<h1>财务管理 36 问 · 19-21</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">19</div>
+<div class="finance-qa-q">问：影响经营杠杆系数计算结果的有哪些？影响财务杠杆系数计算结果的有哪些？经营杠杆不是经营风险的来源，只是放大了经营风险。</div>
+</div>
+<div class="finance-qa-a">答：DOL 受销售额、单价、单位变动成本、固定成本影响；DFL 受息税前利润、利息、优先股股利、所得税影响。经营杠杆不是风险来源，只是放大经营风险。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">大为矿山机械厂准备从甲、乙两种机床中选购一件。甲机床购价35000元，投入使用后每年现金净流量7000元；乙机床购价36000元，投入使用后每年现金净流量8000元。假设资本成本9%。用静态回收期和动态回收期比较。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">20</div>
+<div class="finance-qa-q">问：影响债券价值的因素主要有哪些？</div>
+</div>
+<div class="finance-qa-a">答：债券面值、票面利率、市场利率、期限、付息方式都会影响债券价值。市场利率上升，债券价值一般下降；市场利率下降，债券价值一般上升。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>静态回收期：甲 = 35000 / 7000 = 5年；乙 = 36000 / 8000 = 4.5年。静态角度乙更快。</li><li>动态回收期先把现金流折现。甲需要的年金现值系数 = 35000 / 7000 = 5。</li><li>查9%年金现值系数：6年为4.486，7年为5.033。插值：(5 - 4.486) / (5.033 - 4.486) = 0.94，所以甲动态回收期约6.94年。</li><li>乙需要的年金现值系数 = 36000 / 8000 = 4.5。</li><li>插值：(4.5 - 4.486) / (5.033 - 4.486) = 0.03，所以乙动态回收期约6.03年。</li><li>乙的静态和动态回收期都更短，因此按回收期指标应选乙机床。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">21</div>
+<div class="finance-qa-q">问：股票上市和发行债券的区别，股票上市对公司可能的不利影响有哪些？</div>
+</div>
+<div class="finance-qa-a">答：股票上市形成权益资本，不需还本；债券形成债务，需要还本付息。股票上市可能带来信息披露压力、上市维护成本、控制权稀释、股价波动和被收购风险。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img14.jpg" alt="财务管理例题图片 img14.jpg"><figcaption>img14.jpg</figcaption></figure><figure class="finance-image"><img src="finance-assets/img15.jpg" alt="财务管理例题图片 img15.jpg"><figcaption>img15.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-<section class="unit-page finance-page" data-page="17">
+<section class="unit-page finance-page finance-qa-page" data-page="15">
 <div class="page-scroll finance-scroll">
-<div class="unit-kicker">考点 7 / 现金与存货管理</div>
-<h1>短期资金管理与最佳现金持有量</h1>
-<p class="finance-source">对应图片：img01、img16；对应重点：现金管理、存货经济订货批量、短期借款实际利率、补偿性余额。</p>
-<article class="finance-block">
-<h2>重点拆分</h2>
-<ul class="finance-points"><li>现金管理的目标是在流动性和收益性之间平衡：现金太少会缺钱，现金太多会损失投资收益。</li><li>成本模型下，最佳现金持有量使转换成本与机会成本合计最低。</li><li>鲍莫尔模型：C* = √(2TF / K)，T为全年现金需要量，F为每次转换成本，K为有价证券年利率或现金机会成本率。</li><li>全年交易次数 = T / C*；全年转换成本 = 交易次数 × F；全年机会成本 = C*/2 × K。</li><li>存货 EOQ 模型与现金模型思路相似，核心也是在订货成本和储存成本之间找最低总成本点。</li><li>短期借款若采用贴现法或补偿性余额，实际利率通常高于名义利率。</li></ul>
+<div class="unit-kicker">财务管理 36 问 · 22-24</div>
+<h1>财务管理 36 问 · 22-24</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">22</div>
+<div class="finance-qa-q">问：商业信用的含义（欠上游、收下游）</div>
+</div>
+<div class="finance-qa-a">答：商业信用是企业在商品交易中形成的自然融资。简单记：欠上游是应付账款/应付票据，收下游的钱是预收账款。</div>
 </article>
-<article class="finance-block">
-<h2>例题</h2>
-<p class="finance-example">飞翔公司现金收支平衡，预计全年现金需要量360000元；现金与有价证券每次转换成本600元；有价证券年利率12%。运用存货模型计算最佳现金持有量、全年现金管理相关总成本、全年转换成本、全年机会成本和交易次数。</p>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">23</div>
+<div class="finance-qa-q">问：现金管理的内容</div>
+</div>
+<div class="finance-qa-a">答：包括确定现金持有动机和目标、编制现金预算、确定最佳现金持有量、日常收支控制、闲置现金短期投资等。核心是流动性和收益性的平衡。</div>
 </article>
-<article class="finance-block">
-<h2>解答</h2>
-<ol class="finance-steps"><li>套用鲍莫尔模型：C* = √(2TF / K)。</li><li>代入 T=360000，F=600，K=12%：C* = √(2×360000×600 / 0.12) = √3600000000 = 60000元。</li><li>全年交易次数 = T / C* = 360000 / 60000 = 6次。</li><li>全年转换成本 = 6 × 600 = 3600元。</li><li>全年机会成本 = C*/2 × K = 60000/2 × 12% = 3600元。</li><li>全年现金管理相关总成本 = 3600 + 3600 = 7200元。最优点的特征就是转换成本等于机会成本。</li></ol>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">24</div>
+<div class="finance-qa-q">问：静态投资回收期法不是一个非折现的正指标，它是一个“越小越好”的反指标。</div>
+</div>
+<div class="finance-qa-a">答：静态回收期是不考虑时间价值的非折现指标，而且是“越小越好”的反指标。缺点是忽视资金时间价值，也忽视回收期后的现金流量。</div>
 </article>
-<div class="finance-gallery"><figure class="finance-image"><img src="finance-assets/img16.jpg" alt="财务管理例题图片 img16.jpg"><figcaption>img16.jpg</figcaption></figure></div>
+</div>
 </div>
 </section>
-        </div>
-      </div>
+<section class="unit-page finance-page finance-qa-page" data-page="16">
+<div class="page-scroll finance-scroll">
+<div class="unit-kicker">财务管理 36 问 · 25-27</div>
+<h1>财务管理 36 问 · 25-27</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">25</div>
+<div class="finance-qa-q">问：计算加权平均资本成本时，不能按股票的市场价格。计算个别资本成本时，哪些需要考虑所得税？</div>
+</div>
+<div class="finance-qa-a">答：WACC=Σ资本权重×个别资本成本，权重按题目要求用账面价值、市场价值或目标资本结构。个别资本成本中，债务成本要考虑所得税抵扣；普通股、优先股、留存收益通常不乘(1-T)。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">26</div>
+<div class="finance-qa-q">问：存货经济订货批量基本模型，最佳订货期的计算。持有存货有关的成本有哪些？（取得成本/订货成本/储存成本/缺货成本）</div>
+</div>
+<div class="finance-qa-a">答：EOQ Q*=√(2KD/Kc)，K 为每次订货成本，D 为全年需求量，Kc 为单位年储存成本。最佳订货次数=D/Q*，订货间隔=360/订货次数。存货成本包括取得、订货、储存、缺货成本。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">27</div>
+<div class="finance-qa-q">问：理解吸收直接投资的资本成本，债务筹资和普通股筹资哪个的资本成本大？哪个的财务风险大？</div>
+</div>
+<div class="finance-qa-a">答：一般债务筹资资本成本低于普通股筹资，但债务财务风险更大；普通股无固定还本付息压力，财务风险较小但资本成本高；吸收直接投资成本通常也较高。</div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page finance-qa-page" data-page="17">
+<div class="page-scroll finance-scroll">
+<div class="unit-kicker">财务管理 36 问 · 28-30</div>
+<h1>财务管理 36 问 · 28-30</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">28</div>
+<div class="finance-qa-q">问：短期借款按贴现法付息计算利率实际利率会高于名义利率。</div>
+</div>
+<div class="finance-qa-a">答：贴现法是在放款时先扣利息，企业实际可用资金小于借款本金。实际利率=名义利率/(1-名义利率)，所以实际利率高于名义利率。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">29</div>
+<div class="finance-qa-q">问：长期借款的例行性保护条款，一般性保护条款，特殊性保护条款可结合使用，有利于全面保护债权人的权益。</div>
+</div>
+<div class="finance-qa-a">答：可分为例行性保护条款、一般性保护条款、特殊性保护条款。三类条款可以结合使用，目的是限制借款企业高风险行为，全面保护债权人权益。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">30</div>
+<div class="finance-qa-q">问：应收账款中，延长信用期限会导致哪些成本增加？</div>
+</div>
+<div class="finance-qa-a">答：一般会增加应收账款机会成本、坏账成本和收账成本；如果伴随现金折扣政策，还可能增加现金折扣成本。好处是可能扩大销售。</div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page finance-qa-page" data-page="18">
+<div class="page-scroll finance-scroll">
+<div class="unit-kicker">财务管理 36 问 · 31-33</div>
+<h1>财务管理 36 问 · 31-33</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">31</div>
+<div class="finance-qa-q">问：销售变数较大而难以预测时，通常要维持较高的流动资产与销售收入比率，为了应对突发销售需求，防止缺货断货。</div>
+</div>
+<div class="finance-qa-a">答：销售变数大时，较高的流动资产/销售收入比率能应对突发需求，防止缺货、断货和资金周转紧张，但也会降低资金使用效率。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">32</div>
+<div class="finance-qa-q">问：营运资金管理的范畴有哪些？</div>
+</div>
+<div class="finance-qa-a">答：包括流动资产管理和流动负债管理。常见对象：现金、应收账款、存货、短期借款、商业信用等。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">33</div>
+<div class="finance-qa-q">问：股票的分类。</div>
+</div>
+<div class="finance-qa-a">答：常见分类：普通股和优先股；记名股票和无记名股票；有面值股票和无面值股票；按权利还可分为有表决权和限制表决权股票。考试重点通常是普通股与优先股。</div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page finance-qa-page" data-page="19">
+<div class="page-scroll finance-scroll">
+<div class="unit-kicker">财务管理 36 问 · 34-36</div>
+<h1>财务管理 36 问 · 34-36</h1>
+<p class="finance-source">每条下面直接给答案和涉及知识点，不用再自己找对应答案。</p>
+<div class="finance-qa-grid">
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">34</div>
+<div class="finance-qa-q">问：已知补偿性余额计算实际利率。</div>
+</div>
+<div class="finance-qa-a">答：补偿性余额会减少企业实际可用资金。实际利率=名义利率/(1-补偿性余额比例)。若同时有贴现法或手续费，要用实际支付利息/实际可用资金计算。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">35</div>
+<div class="finance-qa-q">问：应收账款管理中，积极的收账政策会带来哪些影响？</div>
+</div>
+<div class="finance-qa-a">答：积极收账可减少应收账款占用、降低机会成本和坏账损失、加快现金回收；但会增加收账费用，也可能影响客户关系和销售。</div>
+</article>
+<article class="finance-qa-card">
+<div class="finance-qa-head">
+<div class="finance-qa-badge">36</div>
+<div class="finance-qa-q">问：杠杆系数的计算。</div>
+</div>
+<div class="finance-qa-a">答：经营杠杆系数 DOL=边际贡献/息税前利润=M/EBIT；财务杠杆系数 DFL=EBIT/[EBIT-I-Dp/(1-T)]；总杠杆系数 DTL=DOL×DFL。</div>
+</article>
+</div>
+</div>
+</section>
       <button class="turn next" id="next" aria-label="下一页">›</button>
       <div class="page-count" id="counter"></div>
     </main>
   </div>
   <script>
-    const titles = ['Unit 2 Reading Comprehension', 'UNIT 3 Reading Comprehension', 'Unit 4 Reading Comprehension', 'Unit 2', 'Unit 4', 'Unit 6', 'Unit 8', '财务管理大题考点总纲', '筹资方式、资本成本与资本结构', '投资项目评价与现金流量', '营运资金、风险与股利政策', '货币时间价值与年金现值', '销售百分比法与外部筹资额', '资本成本与加权平均资本成本', '每股收益无差别点', '项目投资现金流量与净现值', '静态回收期与动态回收期', '短期资金管理与最佳现金持有量'];
+    const titles = ['Unit 2 Reading Comprehension', 'UNIT 3 Reading Comprehension', 'Unit 4 Reading Comprehension', 'Unit 2', 'Unit 4', 'Unit 6', 'Unit 8', '财务管理 36 问答总纲', '财务问答 1-3', '财务问答 4-6', '财务问答 7-9', '财务问答 10-12', '财务问答 13-15', '财务问答 16-18', '财务问答 19-21', '财务问答 22-24', '财务问答 25-27', '财务问答 28-30', '财务问答 31-33', '财务问答 34-36'];
     let page = 0;
     const track = document.getElementById('track');
     const tabs = Array.from(document.querySelectorAll('.unit-tab'));
