@@ -679,6 +679,287 @@
       font-size: 13px;
     }
 
+    .stage {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+    .page-frame {
+      flex: 1 1 auto;
+      min-height: 0;
+      height: auto;
+    }
+    .page-scroll {
+      position: relative;
+    }
+    .study-toolbar {
+      position: static;
+      flex: 0 0 auto;
+      z-index: 8;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding: 10px 12px;
+      border-radius: 8px;
+      background: rgba(255, 251, 240, .94);
+      box-shadow: 0 12px 28px rgba(92, 65, 24, .10);
+    }
+    .tool-cluster,
+    .tool-options {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .tool-btn,
+    .icon-btn {
+      border-radius: 8px;
+      touch-action: manipulation;
+    }
+    .icon-btn {
+      border: 1px solid rgba(132, 96, 40, .18);
+      background: #fffdf7;
+      color: #4d3a22;
+      width: 34px;
+      min-width: 34px;
+      height: 34px;
+      padding: 0;
+      font-weight: 900;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .tool-btn.active,
+    .icon-btn.active {
+      background: #d9ad5f;
+      color: #fff;
+      border-color: #c3923b;
+    }
+    .swatch {
+      width: 26px;
+      height: 26px;
+      border: 2px solid rgba(77, 58, 34, .20);
+      border-radius: 999px;
+      background: var(--swatch);
+      cursor: pointer;
+      padding: 0;
+    }
+    .swatch.active {
+      border-color: #4d3a22;
+      box-shadow: 0 0 0 3px rgba(217, 173, 95, .28);
+    }
+    .size-range {
+      width: 104px;
+      accent-color: #b88432;
+    }
+    .notes-panel,
+    .nav-edit-panel {
+      top: 86px;
+      bottom: auto;
+      width: min(430px, calc(100vw - 120px));
+      z-index: 12;
+    }
+    .panel-head,
+    .notes-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      padding: 10px 12px;
+      background: linear-gradient(135deg, #ecd49e, #fff0cc);
+      color: #2a2118;
+      font-weight: 900;
+    }
+    .notes-tabs {
+      display: flex;
+      gap: 6px;
+      padding: 10px 12px 0;
+    }
+    .notes-tab {
+      flex: 1;
+      height: 32px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: #fffaf0;
+      color: #4d3a22;
+      font-weight: 800;
+      cursor: pointer;
+    }
+    .notes-tab.active {
+      background: #d9ad5f;
+      color: #fff;
+    }
+    .notes-panel textarea {
+      width: calc(100% - 24px);
+      margin: 12px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+    }
+    .notes-list {
+      display: none;
+      max-height: 360px;
+      overflow-y: auto;
+      padding: 12px;
+    }
+    .notes-list.open {
+      display: grid;
+      gap: 10px;
+    }
+    .note-item {
+      padding: 10px 12px;
+      border: 1px solid rgba(132, 96, 40, .16);
+      border-radius: 8px;
+      background: #fffaf0;
+      line-height: 1.55;
+    }
+    .note-item strong {
+      display: block;
+      margin-bottom: 5px;
+      color: #8a251f;
+      font-size: 13px;
+    }
+    .nav-edit-panel {
+      position: absolute;
+      right: 76px;
+      display: none;
+      border: 1px solid rgba(132, 96, 40, .22);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .98);
+      box-shadow: 0 18px 44px rgba(92, 65, 24, .18);
+      overflow: hidden;
+    }
+    .nav-edit-panel.open {
+      display: block;
+    }
+    .nav-edit-panel form {
+      display: grid;
+      gap: 12px;
+      padding: 14px;
+    }
+    .nav-edit-panel label {
+      display: grid;
+      gap: 6px;
+      color: #4d3a22;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .nav-edit-panel input {
+      min-height: 38px;
+      border: 1px solid rgba(132, 96, 40, .22);
+      border-radius: 8px;
+      padding: 8px 10px;
+      background: #fffdf7;
+      color: #2a2118;
+      font: 15px/1.4 Arial, "Microsoft YaHei", sans-serif;
+    }
+    .nav-color-row {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    .draw-layer {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 6;
+      pointer-events: none;
+    }
+    .draw-layer.enabled {
+      pointer-events: auto;
+      cursor: crosshair;
+      touch-action: none;
+    }
+    .draw-layer.eraser {
+      cursor: cell;
+    }
+    .brand-tools {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .brand-tools .brand {
+      min-width: 0;
+    }
+    .brand-tools .brand p {
+      margin-bottom: 0;
+    }
+    .subject-divider {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      width: 100%;
+    }
+    .subject-divider .divider-label {
+      flex: 1 1 auto;
+      min-width: 0;
+    }
+    .divider-actions {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      flex: 0 0 auto;
+    }
+    .divider-actions .icon-btn {
+      width: 28px;
+      min-width: 28px;
+      height: 28px;
+      border-radius: 7px;
+      background: rgba(255, 253, 247, .72);
+    }
+    .subject-divider::after {
+      content: none !important;
+    }
+    @media (min-width: 701px) and (max-width: 860px) {
+      .app { grid-template-columns: 280px minmax(0, 1fr); }
+      .sidebar {
+        height: 100vh;
+        padding: 24px 18px;
+        border-right: 1px solid rgba(132, 96, 40, .22);
+        border-bottom: 0;
+        overflow-x: hidden;
+        overflow-y: auto;
+        white-space: normal;
+      }
+      .brand { display: block; width: auto; white-space: normal; }
+      .brand h1 { font-size: 28px; }
+      .brand p { display: block; }
+      .unit-tab {
+        display: block;
+        width: 100%;
+        margin: 0 0 10px;
+      }
+      .stage {
+        height: auto;
+        padding: 20px 56px;
+      }
+      .page-frame {
+        height: auto;
+      }
+      .page-count { right: 68px; }
+    }
+    @media (max-width: 700px) {
+      .study-toolbar {
+        overflow-x: auto;
+        flex-wrap: nowrap;
+      }
+      .tool-cluster,
+      .tool-options {
+        flex-wrap: nowrap;
+      }
+      .notes-panel,
+      .nav-edit-panel {
+        left: 10px;
+        right: 10px;
+        top: 70px;
+        width: auto;
+      }
+    }
+
   </style>
 </head>
 <body>
@@ -2685,6 +2966,471 @@
     setupNavGroups();
     setupCanvases();
     showPage(0);
+  </script>
+  <script>
+    (() => {
+      const STORE_PREFIX = 'xiaoxiaoyu-study-v3:';
+      const key = (name) => STORE_PREFIX + name;
+      const stage = document.querySelector('.stage');
+      const toolbar = document.querySelector('.study-toolbar');
+      const notesPanel = document.getElementById('notesPanel');
+      const pageEls = Array.from(document.querySelectorAll('.unit-page'));
+      const trackEl = document.getElementById('track');
+      let tabEls = [];
+      let prevBtn;
+      let nextBtn;
+      let counterEl;
+      let currentPage = 0;
+      let tool = 'none';
+      let color = localStorage.getItem(key('inkColor')) || '#7f4a16';
+      let size = Number(localStorage.getItem(key('inkSize')) || 5);
+      let drawing = false;
+      let activeStroke = null;
+      let editingTarget = null;
+      let editColor = '#8a251f';
+
+      function replaceNode(id) {
+        const oldNode = document.getElementById(id);
+        if (!oldNode) return null;
+        const next = oldNode.cloneNode(true);
+        oldNode.replaceWith(next);
+        return next;
+      }
+
+      function rebuildToolbar() {
+        if (!toolbar) return;
+        toolbar.innerHTML = `
+          <div class="tool-cluster">
+            <button class="tool-btn" id="noteToggle" type="button">备注</button>
+            <button class="tool-btn" id="penTool" type="button">笔</button>
+            <button class="tool-btn" id="highlighterTool" type="button">荧光</button>
+            <button class="tool-btn" id="eraserTool" type="button">橡皮</button>
+            <button class="tool-btn" id="clearInk" type="button">清空</button>
+          </div>
+          <div class="tool-options" aria-label="笔迹选项">
+            <button class="swatch active" data-color="#7f4a16" style="--swatch:#7f4a16" type="button" aria-label="棕色"></button>
+            <button class="swatch" data-color="#d64242" style="--swatch:#d64242" type="button" aria-label="红色"></button>
+            <button class="swatch" data-color="#2367d1" style="--swatch:#2367d1" type="button" aria-label="蓝色"></button>
+            <button class="swatch" data-color="#f4cf3a" style="--swatch:#f4cf3a" type="button" aria-label="黄色"></button>
+            <input class="size-range" id="strokeSize" type="range" min="2" max="34" value="5" aria-label="粗细" />
+          </div>`;
+      }
+
+      function rebuildNotes() {
+        if (!notesPanel) return;
+        notesPanel.innerHTML = `
+          <div class="notes-head"><span>备注</span><button class="icon-btn" id="closeNotes" type="button" aria-label="关闭">x</button></div>
+          <div class="notes-tabs">
+            <button class="notes-tab active" id="currentNoteTab" type="button">当前页</button>
+            <button class="notes-tab" id="allNotesTab" type="button">全部备注</button>
+          </div>
+          <textarea id="pageNotes" placeholder="写在这里会自动保存到当前这一页。"></textarea>
+          <div class="notes-list" id="notesList"></div>`;
+      }
+
+      function ensureNavEditPanel() {
+        if (document.getElementById('navEditPanel')) return;
+        const panel = document.createElement('div');
+        panel.className = 'nav-edit-panel';
+        panel.id = 'navEditPanel';
+        panel.innerHTML = `
+          <div class="panel-head"><span id="navEditTitle">修改</span><button class="icon-btn" id="closeNavEdit" type="button" aria-label="关闭">x</button></div>
+          <form id="navEditForm">
+            <label>名称<input id="navNameInput" type="text" /></label>
+            <label id="subtitleField">副标题<input id="navSubInput" type="text" /></label>
+            <label>颜色
+              <div class="nav-color-row">
+                <button class="swatch" data-nav-color="#8a251f" style="--swatch:#8a251f" type="button" aria-label="红色"></button>
+                <button class="swatch" data-nav-color="#9b6a25" style="--swatch:#9b6a25" type="button" aria-label="金色"></button>
+                <button class="swatch" data-nav-color="#255f85" style="--swatch:#255f85" type="button" aria-label="蓝色"></button>
+                <button class="swatch" data-nav-color="#387344" style="--swatch:#387344" type="button" aria-label="绿色"></button>
+              </div>
+            </label>
+            <button class="tool-btn" id="saveNavEdit" type="submit">保存</button>
+          </form>`;
+        stage.appendChild(panel);
+      }
+
+      function cleanOldBindings() {
+        tabEls = Array.from(document.querySelectorAll('.unit-tab')).map((tab) => {
+          const next = tab.cloneNode(true);
+          tab.replaceWith(next);
+          return next;
+        });
+        prevBtn = replaceNode('prev');
+        nextBtn = replaceNode('next');
+        counterEl = document.getElementById('counter');
+        document.querySelectorAll('canvas.draw-layer').forEach((canvas) => canvas.remove());
+      }
+
+      function pageTitle(index) {
+        const strong = tabEls[index]?.querySelector('strong')?.textContent.trim();
+        return strong || `第 ${index + 1} 页`;
+      }
+
+      function showPage(index) {
+        currentPage = Math.max(0, Math.min(pageEls.length - 1, index));
+        trackEl.style.transform = `translateX(${-currentPage * 100}%)`;
+        tabEls.forEach((tab, i) => tab.classList.toggle('active', i === currentPage));
+        if (prevBtn) prevBtn.disabled = currentPage === 0;
+        if (nextBtn) nextBtn.disabled = currentPage === pageEls.length - 1;
+        if (counterEl) counterEl.textContent = `${currentPage + 1} / ${pageEls.length}`;
+        const scroller = pageEls[currentPage]?.querySelector('.page-scroll');
+        if (scroller) scroller.scrollTop = 0;
+        loadNotes();
+        requestAnimationFrame(resizeAllCanvases);
+      }
+
+      function strokesFor(index) {
+        try {
+          return JSON.parse(localStorage.getItem(key(`strokes:${index}`)) || '[]');
+        } catch {
+          return [];
+        }
+      }
+
+      function saveStrokes(index, strokes) {
+        localStorage.setItem(key(`strokes:${index}`), JSON.stringify(strokes));
+      }
+
+      function makeCanvas(scroller) {
+        let canvas = scroller.querySelector('canvas.draw-layer');
+        if (!canvas) {
+          canvas = document.createElement('canvas');
+          canvas.className = 'draw-layer';
+          scroller.appendChild(canvas);
+          canvas.addEventListener('pointerdown', startDraw);
+          canvas.addEventListener('pointermove', moveDraw);
+          canvas.addEventListener('pointerup', endDraw);
+          canvas.addEventListener('pointercancel', endDraw);
+        }
+        return canvas;
+      }
+
+      function resizeCanvasForPage(unitPage) {
+        const scroller = unitPage.querySelector('.page-scroll');
+        if (!scroller) return;
+        const canvas = makeCanvas(scroller);
+        const ratio = window.devicePixelRatio || 1;
+        const width = scroller.clientWidth;
+        const height = Math.max(scroller.scrollHeight, scroller.clientHeight);
+        canvas.style.width = `${width}px`;
+        canvas.style.height = `${height}px`;
+        canvas.width = Math.max(1, Math.round(width * ratio));
+        canvas.height = Math.max(1, Math.round(height * ratio));
+        const ctx = canvas.getContext('2d');
+        ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        ctx.lineCap = 'round';
+        ctx.lineJoin = 'round';
+        redrawPage(Number(unitPage.dataset.page));
+      }
+
+      function resizeAllCanvases() {
+        pageEls.forEach(resizeCanvasForPage);
+        updateCanvasToolState();
+      }
+
+      function drawStroke(ctx, stroke) {
+        if (!stroke.points || stroke.points.length < 2) return;
+        ctx.save();
+        ctx.globalCompositeOperation = stroke.tool === 'highlight' ? 'multiply' : 'source-over';
+        ctx.globalAlpha = stroke.tool === 'highlight' ? 0.58 : 0.95;
+        ctx.strokeStyle = stroke.color;
+        ctx.lineWidth = stroke.size;
+        ctx.beginPath();
+        ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
+        stroke.points.slice(1).forEach((point) => ctx.lineTo(point.x, point.y));
+        ctx.stroke();
+        ctx.restore();
+      }
+
+      function redrawPage(index) {
+        const canvas = document.querySelector(`.unit-page[data-page="${index}"] canvas.draw-layer`);
+        if (!canvas) return;
+        const ctx = canvas.getContext('2d');
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+        strokesFor(index).forEach((stroke) => drawStroke(ctx, stroke));
+      }
+
+      function canvasPoint(event, canvas) {
+        const rect = canvas.getBoundingClientRect();
+        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+      }
+
+      function distanceToSegment(point, a, b) {
+        const dx = b.x - a.x;
+        const dy = b.y - a.y;
+        if (dx === 0 && dy === 0) return Math.hypot(point.x - a.x, point.y - a.y);
+        const t = Math.max(0, Math.min(1, ((point.x - a.x) * dx + (point.y - a.y) * dy) / (dx * dx + dy * dy)));
+        return Math.hypot(point.x - (a.x + t * dx), point.y - (a.y + t * dy));
+      }
+
+      function eraseAt(index, point) {
+        const radius = Math.max(24, Number(document.getElementById('strokeSize').value) * 3);
+        const kept = strokesFor(index).filter((stroke) => {
+          const pts = stroke.points || [];
+          for (let i = 1; i < pts.length; i += 1) {
+            if (distanceToSegment(point, pts[i - 1], pts[i]) <= radius) return false;
+          }
+          return true;
+        });
+        saveStrokes(index, kept);
+        redrawPage(index);
+      }
+
+      function startDraw(event) {
+        if (tool === 'none') return;
+        const index = Number(event.currentTarget.closest('.unit-page').dataset.page);
+        const point = canvasPoint(event, event.currentTarget);
+        event.preventDefault();
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+        drawing = true;
+        if (tool === 'eraser') {
+          eraseAt(index, point);
+          return;
+        }
+        const pickedSize = Number(document.getElementById('strokeSize').value);
+        activeStroke = {
+          tool,
+          color: tool === 'highlight' && color === '#7f4a16' ? '#f4cf3a' : color,
+          size: tool === 'highlight' ? Math.max(16, pickedSize) : pickedSize,
+          points: [point]
+        };
+      }
+
+      function moveDraw(event) {
+        if (!drawing || tool === 'none') return;
+        const canvas = event.currentTarget;
+        const index = Number(canvas.closest('.unit-page').dataset.page);
+        const point = canvasPoint(event, canvas);
+        event.preventDefault();
+        if (tool === 'eraser') {
+          eraseAt(index, point);
+          return;
+        }
+        activeStroke.points.push(point);
+        redrawPage(index);
+        drawStroke(canvas.getContext('2d'), activeStroke);
+      }
+
+      function endDraw(event) {
+        if (!drawing) return;
+        const index = event?.currentTarget?.closest?.('.unit-page') ? Number(event.currentTarget.closest('.unit-page').dataset.page) : currentPage;
+        drawing = false;
+        if (activeStroke && activeStroke.points.length > 1) {
+          const strokes = strokesFor(index);
+          strokes.push(activeStroke);
+          saveStrokes(index, strokes);
+        }
+        activeStroke = null;
+        redrawPage(index);
+      }
+
+      function setTool(nextTool) {
+        tool = tool === nextTool ? 'none' : nextTool;
+        ['penTool', 'highlighterTool', 'eraserTool'].forEach((id) => document.getElementById(id)?.classList.remove('active'));
+        if (tool === 'pen') document.getElementById('penTool')?.classList.add('active');
+        if (tool === 'highlight') document.getElementById('highlighterTool')?.classList.add('active');
+        if (tool === 'eraser') document.getElementById('eraserTool')?.classList.add('active');
+        updateCanvasToolState();
+      }
+
+      function updateCanvasToolState() {
+        document.querySelectorAll('.draw-layer').forEach((canvas) => {
+          canvas.classList.toggle('enabled', tool !== 'none');
+          canvas.classList.toggle('eraser', tool === 'eraser');
+        });
+      }
+
+      function loadNotes() {
+        const pageNotes = document.getElementById('pageNotes');
+        if (pageNotes) pageNotes.value = localStorage.getItem(key(`notes:${currentPage}`)) || '';
+      }
+
+      function escapeHtml(text) {
+        return text.replace(/[&<>]/g, (match) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[match]));
+      }
+
+      function renderNotesList() {
+        const notesList = document.getElementById('notesList');
+        const items = pageEls.map((_, i) => ({ i, text: localStorage.getItem(key(`notes:${i}`)) || '' })).filter((item) => item.text.trim());
+        notesList.innerHTML = items.length
+          ? items.map((item) => `<div class="note-item"><strong>${escapeHtml(pageTitle(item.i))}</strong><div>${escapeHtml(item.text).replace(/\n/g, '<br>')}</div></div>`).join('')
+          : '<div class="note-item"><strong>暂无备注</strong><div>写过的页会显示在这里。</div></div>';
+      }
+
+      function showNoteMode(mode) {
+        const all = mode === 'all';
+        document.getElementById('currentNoteTab')?.classList.toggle('active', !all);
+        document.getElementById('allNotesTab')?.classList.toggle('active', all);
+        const pageNotes = document.getElementById('pageNotes');
+        const notesList = document.getElementById('notesList');
+        if (pageNotes) pageNotes.style.display = all ? 'none' : 'block';
+        if (notesList) notesList.classList.toggle('open', all);
+        if (all) renderNotesList();
+      }
+
+      function openNavEditor(target) {
+        editingTarget = target;
+        const panel = document.getElementById('navEditPanel');
+        const isBrand = target === 'brand';
+        document.getElementById('navEditTitle').textContent = isBrand ? '修改网站标题' : '修改分组';
+        document.getElementById('subtitleField').style.display = isBrand ? 'grid' : 'none';
+        if (isBrand) {
+          document.getElementById('navNameInput').value = document.querySelector('.brand h1')?.textContent.trim() || 'Study';
+          document.getElementById('navSubInput').value = document.querySelector('.brand p')?.textContent.trim() || '';
+          editColor = localStorage.getItem(key('brandColor')) || '#9b6a25';
+        } else {
+          document.getElementById('navNameInput').value = target.querySelector('.divider-label')?.textContent.trim() || target.textContent.trim();
+          document.getElementById('navSubInput').value = '';
+          editColor = localStorage.getItem(key(`dividerColor:${target.dataset.groupId}`)) || '#8a251f';
+        }
+        document.querySelectorAll('[data-nav-color]').forEach((btn) => btn.classList.toggle('active', btn.dataset.navColor === editColor));
+        panel.classList.add('open');
+        document.getElementById('navNameInput').focus();
+      }
+
+      function applyNavEdit(event) {
+        event.preventDefault();
+        const name = document.getElementById('navNameInput').value.trim();
+        if (!name) return;
+        if (editingTarget === 'brand') {
+          const title = document.querySelector('.brand h1');
+          const sub = document.querySelector('.brand p');
+          if (title) title.textContent = name;
+          if (sub) sub.textContent = document.getElementById('navSubInput').value.trim();
+          document.title = name;
+          localStorage.setItem(key('brandTitle'), name);
+          localStorage.setItem(key('brandSub'), document.getElementById('navSubInput').value.trim());
+          localStorage.setItem(key('brandColor'), editColor);
+          if (title) title.style.color = editColor;
+        } else if (editingTarget) {
+          const label = editingTarget.querySelector('.divider-label');
+          if (label) label.textContent = name;
+          editingTarget.style.color = editColor;
+          localStorage.setItem(key(`divider:${editingTarget.dataset.groupId}`), name);
+          localStorage.setItem(key(`dividerColor:${editingTarget.dataset.groupId}`), editColor);
+        }
+        document.getElementById('navEditPanel').classList.remove('open');
+      }
+
+      function setupBrand() {
+        const brand = document.querySelector('.brand');
+        if (!brand || brand.closest('.brand-tools')) return;
+        const title = brand.querySelector('h1');
+        const sub = brand.querySelector('p');
+        title.contentEditable = 'false';
+        sub.contentEditable = 'false';
+        title.textContent = localStorage.getItem(key('brandTitle')) || title.textContent.trim() || 'Study';
+        sub.textContent = localStorage.getItem(key('brandSub')) || sub.textContent.trim();
+        title.style.color = localStorage.getItem(key('brandColor')) || '#2a2118';
+        document.title = title.textContent.trim() || 'Study';
+        const wrapper = document.createElement('div');
+        wrapper.className = 'brand-tools';
+        brand.parentNode.insertBefore(wrapper, brand);
+        wrapper.appendChild(brand);
+        const edit = document.createElement('button');
+        edit.className = 'icon-btn';
+        edit.type = 'button';
+        edit.textContent = '...';
+        edit.setAttribute('aria-label', '修改标题');
+        edit.addEventListener('click', () => openNavEditor('brand'));
+        wrapper.appendChild(edit);
+      }
+
+      function setupNavGroups() {
+        const groups = Array.from(document.querySelectorAll('.nav-group'));
+        groups.forEach((group, index) => {
+          const divider = group.querySelector('.subject-divider');
+          if (!divider || divider.querySelector('.divider-label')) return;
+          const id = divider.dataset.groupId || `group-${index}`;
+          divider.dataset.groupId = id;
+          divider.contentEditable = 'false';
+          const savedName = localStorage.getItem(key(`divider:${id}`)) || divider.textContent.trim();
+          const savedColor = localStorage.getItem(key(`dividerColor:${id}`)) || '';
+          divider.innerHTML = '<span class="divider-label"></span><span class="divider-actions"><button class="icon-btn divider-edit" type="button" aria-label="修改">...</button><button class="icon-btn divider-fold" type="button" aria-label="折叠">⌄</button></span>';
+          divider.querySelector('.divider-label').textContent = savedName;
+          if (savedColor) divider.style.color = savedColor;
+          const collapsed = localStorage.getItem(key(`collapsed:${id}`)) === '1';
+          group.classList.toggle('collapsed', collapsed);
+          divider.classList.toggle('collapsed', collapsed);
+          divider.querySelector('.divider-fold').textContent = collapsed ? '›' : '⌄';
+          divider.querySelector('.divider-edit').addEventListener('click', (event) => {
+            event.stopPropagation();
+            openNavEditor(divider);
+          });
+          divider.querySelector('.divider-fold').addEventListener('click', (event) => {
+            event.stopPropagation();
+            group.classList.toggle('collapsed');
+            divider.classList.toggle('collapsed');
+            event.currentTarget.textContent = group.classList.contains('collapsed') ? '›' : '⌄';
+            localStorage.setItem(key(`collapsed:${id}`), group.classList.contains('collapsed') ? '1' : '0');
+          });
+        });
+      }
+
+      rebuildToolbar();
+      rebuildNotes();
+      ensureNavEditPanel();
+      cleanOldBindings();
+      setupBrand();
+      setupNavGroups();
+
+      tabEls.forEach((tab) => tab.addEventListener('click', () => showPage(Number(tab.dataset.go))));
+      prevBtn?.addEventListener('click', () => showPage(currentPage - 1));
+      nextBtn?.addEventListener('click', () => showPage(currentPage + 1));
+      document.getElementById('penTool')?.addEventListener('click', () => setTool('pen'));
+      document.getElementById('highlighterTool')?.addEventListener('click', () => setTool('highlight'));
+      document.getElementById('eraserTool')?.addEventListener('click', () => setTool('eraser'));
+      document.getElementById('clearInk')?.addEventListener('click', () => {
+        saveStrokes(currentPage, []);
+        redrawPage(currentPage);
+      });
+      document.querySelectorAll('[data-color]').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.color === color);
+        btn.addEventListener('click', () => {
+          color = btn.dataset.color;
+          localStorage.setItem(key('inkColor'), color);
+          document.querySelectorAll('[data-color]').forEach((item) => item.classList.toggle('active', item === btn));
+        });
+      });
+      const strokeSize = document.getElementById('strokeSize');
+      strokeSize.value = size;
+      strokeSize.addEventListener('input', () => {
+        size = Number(strokeSize.value);
+        localStorage.setItem(key('inkSize'), String(size));
+      });
+      document.getElementById('noteToggle')?.addEventListener('click', () => {
+        notesPanel.classList.toggle('open');
+        document.getElementById('navEditPanel').classList.remove('open');
+        document.getElementById('noteToggle').classList.toggle('active', notesPanel.classList.contains('open'));
+        showNoteMode('current');
+        loadNotes();
+      });
+      document.getElementById('closeNotes')?.addEventListener('click', () => {
+        notesPanel.classList.remove('open');
+        document.getElementById('noteToggle')?.classList.remove('active');
+      });
+      document.getElementById('pageNotes')?.addEventListener('input', (event) => localStorage.setItem(key(`notes:${currentPage}`), event.target.value));
+      document.getElementById('currentNoteTab')?.addEventListener('click', () => showNoteMode('current'));
+      document.getElementById('allNotesTab')?.addEventListener('click', () => showNoteMode('all'));
+      document.getElementById('closeNavEdit')?.addEventListener('click', () => document.getElementById('navEditPanel').classList.remove('open'));
+      document.getElementById('navEditForm')?.addEventListener('submit', applyNavEdit);
+      document.querySelectorAll('[data-nav-color]').forEach((btn) => btn.addEventListener('click', () => {
+        editColor = btn.dataset.navColor;
+        document.querySelectorAll('[data-nav-color]').forEach((item) => item.classList.toggle('active', item === btn));
+      }));
+      window.addEventListener('resize', resizeAllCanvases);
+      window.addEventListener('keydown', (event) => {
+        if (event.target.matches('input, textarea')) return;
+        if (event.key === 'ArrowRight') showPage(currentPage + 1);
+        if (event.key === 'ArrowLeft') showPage(currentPage - 1);
+        if (event.key === 'Escape') setTool('none');
+      });
+
+      resizeAllCanvases();
+      showPage(0);
+    })();
   </script>
 
 </body>
