@@ -1116,6 +1116,7 @@
     }
 
     .portal-layer,
+    .review-layer,
     .mock-layer {
       position: fixed;
       inset: 0;
@@ -1131,15 +1132,35 @@
       padding: 28px;
     }
     .portal-card {
-      width: min(920px, 100%);
+      width: min(980px, 100%);
       display: grid;
       gap: 24px;
+      text-align: center;
+      justify-items: center;
     }
     .portal-title {
+      position: relative;
+      display: inline-block;
       margin: 0;
-      font-size: clamp(42px, 7vw, 76px);
-      line-height: 1;
+      font-family: Georgia, "Times New Roman", "Microsoft YaHei", serif;
+      font-size: clamp(64px, 12vw, 132px);
+      line-height: .9;
       letter-spacing: 0;
+      color: #2a2118;
+      text-shadow:
+        0 2px 0 rgba(255, 246, 218, .92),
+        0 14px 34px rgba(92, 65, 24, .18);
+    }
+    .portal-title::after {
+      content: "";
+      position: absolute;
+      left: 8%;
+      right: 8%;
+      bottom: -14px;
+      height: 8px;
+      border-radius: 999px;
+      background: linear-gradient(90deg, transparent, #c99b4f, transparent);
+      opacity: .72;
     }
     .portal-subtitle {
       margin: 0;
@@ -1148,13 +1169,16 @@
       line-height: 1.7;
     }
     .portal-actions,
+    .review-home-actions,
     .mock-home-actions,
     .mock-paper-actions {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
+      justify-content: center;
     }
     .portal-btn,
+    .review-btn,
     .mock-btn {
       min-height: 44px;
       border: 1px solid rgba(132, 96, 40, .22);
@@ -1167,10 +1191,20 @@
       box-shadow: 0 10px 24px rgba(92, 65, 24, .10);
     }
     .portal-btn.primary,
+    .review-btn.primary,
     .mock-btn.primary {
       background: #b88432;
       color: #fff;
       border-color: #a9782a;
+    }
+    .portal-btn:hover,
+    .review-btn:hover,
+    .mock-btn:hover,
+    .mock-subject-card:hover,
+    .mock-paper-card:hover,
+    .review-subject-card:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 14px 30px rgba(92, 65, 24, .14);
     }
     .portal-stats {
       display: grid;
@@ -1208,13 +1242,19 @@
       cursor: pointer;
       box-shadow: 0 10px 24px rgba(92, 65, 24, .12);
     }
+    .subject-chip {
+      left: 86px;
+    }
+    .review-layer,
     .mock-layer {
       display: none;
       grid-template-rows: auto minmax(0, 1fr);
     }
+    .review-layer.open,
     .mock-layer.open {
       display: grid;
     }
+    .review-topbar,
     .mock-topbar {
       display: flex;
       align-items: center;
@@ -1224,12 +1264,100 @@
       border-bottom: 1px solid rgba(132, 96, 40, .20);
       background: rgba(255, 253, 247, .92);
     }
+    .review-topbar strong,
     .mock-topbar strong {
       font-size: 18px;
     }
+    .review-body,
     .mock-body {
       overflow: auto;
       padding: 22px;
+    }
+    .review-shell {
+      width: min(1120px, 100%);
+      margin: 0 auto;
+      display: grid;
+      gap: 22px;
+    }
+    .review-hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.25fr) minmax(260px, .75fr);
+      gap: 18px;
+      align-items: stretch;
+    }
+    .review-hero-main,
+    .review-hero-side {
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .76);
+      box-shadow: 0 16px 36px rgba(92, 65, 24, .10);
+      padding: 22px;
+    }
+    .review-hero-main h1 {
+      margin: 0 0 10px;
+      font-size: clamp(34px, 5vw, 58px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .review-hero-side {
+      display: grid;
+      align-content: center;
+      gap: 10px;
+    }
+    .review-hero-side strong {
+      font-size: 28px;
+    }
+    .review-subject-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .review-subject-card {
+      min-height: 168px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: linear-gradient(180deg, rgba(255, 253, 247, .92), rgba(249, 235, 205, .86));
+      padding: 18px;
+      color: #2a2118;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(92, 65, 24, .10);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+    .review-subject-card span {
+      display: inline-flex;
+      margin-bottom: 16px;
+      color: #8a251f;
+      font-size: 13px;
+      font-weight: 900;
+    }
+    .review-subject-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 24px;
+    }
+    .review-subject-card p {
+      margin: 0;
+      color: #7b6e60;
+      line-height: 1.62;
+    }
+    body.review-focused .nav-group {
+      display: none;
+    }
+    body[data-review-subject="english"] .nav-group[data-review-subject="english"],
+    body[data-review-subject="finance"] .nav-group[data-review-subject="finance"],
+    body[data-review-subject="mayuan"] .nav-group[data-review-subject="mayuan"] {
+      display: block;
+    }
+    .review-subject-label {
+      margin: 12px 0 16px;
+      padding: 10px 12px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .78);
+      color: #8a251f;
+      font-size: 13px;
+      font-weight: 900;
     }
     .mock-view {
       display: none;
@@ -1443,6 +1571,8 @@
     }
     @media (max-width: 760px) {
       .portal-stats,
+      .review-hero,
+      .review-subject-grid,
       .exam-info-row {
         grid-template-columns: 1fr;
       }
@@ -1460,8 +1590,7 @@
   <section class="portal-layer" id="portalLayer">
     <div class="portal-card">
       <div>
-        <h1 class="portal-title">Study</h1>
-        <p class="portal-subtitle">小小鱼期末复习。资料背诵、模拟试卷和 iPad 批注放在同一个入口里。</p>
+        <h1 class="portal-title">STUDY</h1>
       </div>
       <div class="portal-actions">
         <button class="portal-btn primary" id="openReview" type="button">复习</button>
@@ -1475,6 +1604,34 @@
     </div>
   </section>
   <button class="home-chip" id="homeChip" type="button">首页</button>
+  <button class="home-chip subject-chip" id="subjectChip" type="button">科目</button>
+  <section class="review-layer" id="reviewLayer" aria-label="复习科目">
+    <div class="review-topbar">
+      <strong>复习</strong>
+      <div class="review-home-actions">
+        <button class="review-btn" id="reviewHome" type="button">首页</button>
+      </div>
+    </div>
+    <div class="review-body">
+      <div class="review-shell">
+        <div class="review-hero">
+          <div class="review-hero-main">
+            <h1>选择复习科目</h1>
+            <p class="portal-subtitle">英语、财管和马原分开进入。进去以后左侧只保留对应目录，翻页也停在当前学科里。</p>
+          </div>
+          <div class="review-hero-side">
+            <strong>3 个板块</strong>
+            <p class="portal-subtitle">重点、真题、批注工具继续保留，整体还是原来的香槟金色调。</p>
+          </div>
+        </div>
+        <div class="review-subject-grid">
+          <button class="review-subject-card" data-open-subject="english" type="button"><span>Reading / Listening</span><strong>英语</strong><p>阅读和听力原题整理，适合直接背题背答案。</p></button>
+          <button class="review-subject-card" data-open-subject="finance" type="button"><span>Key Points / 真题</span><strong>财管</strong><p>36 个重点问答和 7 道真题文本版，按复习顺序整理。</p></button>
+          <button class="review-subject-card" data-open-subject="mayuan" type="button"><span>Handwritten Points</span><strong>马原</strong><p>按学校手写考点重排的 27 条重点内容。</p></button>
+        </div>
+      </div>
+    </div>
+  </section>
   <section class="mock-layer" id="mockLayer" aria-label="模拟考试">
     <div class="mock-topbar">
       <strong id="mockTitle">模拟</strong>
@@ -4346,8 +4503,10 @@
   <script>
     (() => {
       const portalLayer = document.getElementById('portalLayer');
+      const reviewLayer = document.getElementById('reviewLayer');
       const mockLayer = document.getElementById('mockLayer');
       const homeChip = document.getElementById('homeChip');
+      const subjectChip = document.getElementById('subjectChip');
       const mockTitle = document.getElementById('mockTitle');
       const views = {
         subjects: document.getElementById('mockSubjects'),
@@ -4363,6 +4522,11 @@
       let examResizeHandler = null;
 
       const optionLabels = ['A', 'B', 'C', 'D'];
+      const reviewSubjects = {
+        english: { start: 0, end: 6, label: '英语复习' },
+        finance: { start: 7, end: 26, label: '财管复习' },
+        mayuan: { start: 27, end: 34, label: '马原复习' },
+      };
       const papers = [
         {
           id: 'mayuan-a',
@@ -4542,22 +4706,106 @@
 
       function showPortal() {
         portalLayer.style.display = 'grid';
+        reviewLayer.classList.remove('open');
         mockLayer.classList.remove('open');
         homeChip.style.display = 'none';
+        subjectChip.style.display = 'none';
+        document.body.classList.remove('review-focused');
+        delete document.body.dataset.reviewSubject;
       }
 
-      function showReview() {
+      function showReviewHub() {
         portalLayer.style.display = 'none';
+        reviewLayer.classList.add('open');
+        mockLayer.classList.remove('open');
+        homeChip.style.display = 'none';
+        subjectChip.style.display = 'none';
+        document.body.classList.remove('review-focused');
+        delete document.body.dataset.reviewSubject;
+      }
+
+      function showReview(subject = 'english') {
+        annotateReviewGroups();
+        const config = reviewSubjects[subject] || reviewSubjects.english;
+        document.body.classList.add('review-focused');
+        document.body.dataset.reviewSubject = subject;
+        portalLayer.style.display = 'none';
+        reviewLayer.classList.remove('open');
         mockLayer.classList.remove('open');
         homeChip.style.display = 'block';
+        subjectChip.style.display = 'block';
+        updateReviewLabel(config.label);
+        goToReviewPage(config.start);
+        updateReviewControls();
       }
 
       function showMock(view = 'subjects') {
         portalLayer.style.display = 'none';
+        reviewLayer.classList.remove('open');
         mockLayer.classList.add('open');
         homeChip.style.display = 'none';
+        subjectChip.style.display = 'none';
+        document.body.classList.remove('review-focused');
+        delete document.body.dataset.reviewSubject;
         Object.entries(views).forEach(([key, el]) => el.classList.toggle('active', key === view));
         mockTitle.textContent = view === 'exam' && activePaper ? activePaper.title : '模拟';
+      }
+
+      function annotateReviewGroups() {
+        document.querySelectorAll('.nav-group').forEach((group) => {
+          const firstPage = Number(group.querySelector('.unit-tab')?.dataset.go ?? -1);
+          let subject = 'mayuan';
+          if (firstPage <= 6) subject = 'english';
+          else if (firstPage <= 26) subject = 'finance';
+          group.dataset.reviewSubject = subject;
+        });
+      }
+
+      function updateReviewLabel(label) {
+        const brand = document.querySelector('.brand-tools') || document.querySelector('.brand');
+        if (!brand) return;
+        let badge = document.getElementById('reviewSubjectLabel');
+        if (!badge) {
+          badge = document.createElement('div');
+          badge.id = 'reviewSubjectLabel';
+          badge.className = 'review-subject-label';
+          brand.insertAdjacentElement('afterend', badge);
+        }
+        badge.textContent = label;
+      }
+
+      function activeReviewConfig() {
+        return reviewSubjects[document.body.dataset.reviewSubject] || null;
+      }
+
+      function activeReviewPage() {
+        return Number(document.querySelector('.unit-tab.active')?.dataset.go ?? 0);
+      }
+
+      function goToReviewPage(index) {
+        const target = document.querySelector(`.unit-tab[data-go="${index}"]`);
+        target?.click();
+        setTimeout(updateReviewControls, 0);
+      }
+
+      function updateReviewControls() {
+        const config = activeReviewConfig();
+        if (!config || !document.body.classList.contains('review-focused')) return;
+        const current = activeReviewPage();
+        const prev = document.getElementById('prev');
+        const next = document.getElementById('next');
+        if (prev) prev.disabled = current <= config.start;
+        if (next) next.disabled = current >= config.end;
+      }
+
+      function moveWithinReview(step) {
+        const config = activeReviewConfig();
+        if (!config || !document.body.classList.contains('review-focused')) return false;
+        const current = activeReviewPage();
+        const nextPage = Math.max(config.start, Math.min(config.end, current + step));
+        if (nextPage !== current) goToReviewPage(nextPage);
+        updateReviewControls();
+        return true;
       }
 
       function sectionScore(section) {
@@ -4779,9 +5027,38 @@
         if (canvas) canvas.classList.toggle('enabled', examTool !== 'select');
       }
 
-      document.getElementById('openReview')?.addEventListener('click', showReview);
+      document.getElementById('openReview')?.addEventListener('click', showReviewHub);
       document.getElementById('openMock')?.addEventListener('click', () => showMock('subjects'));
       document.getElementById('homeChip')?.addEventListener('click', showPortal);
+      document.getElementById('subjectChip')?.addEventListener('click', showReviewHub);
+      document.getElementById('reviewHome')?.addEventListener('click', showPortal);
+      document.querySelectorAll('[data-open-subject]').forEach((btn) => {
+        btn.addEventListener('click', () => showReview(btn.dataset.openSubject));
+      });
+      document.querySelectorAll('.unit-tab').forEach((tab) => {
+        tab.addEventListener('click', () => setTimeout(updateReviewControls, 0));
+      });
+      document.getElementById('prev')?.addEventListener('click', (event) => {
+        if (!document.body.classList.contains('review-focused')) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        moveWithinReview(-1);
+      }, true);
+      document.getElementById('next')?.addEventListener('click', (event) => {
+        if (!document.body.classList.contains('review-focused')) return;
+        event.preventDefault();
+        event.stopImmediatePropagation();
+        moveWithinReview(1);
+      }, true);
+      window.addEventListener('keydown', (event) => {
+        if (!document.body.classList.contains('review-focused')) return;
+        if (event.target?.matches?.('input, textarea, [contenteditable="true"]')) return;
+        if (event.key === 'ArrowLeft' || event.key === 'ArrowRight') {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          moveWithinReview(event.key === 'ArrowRight' ? 1 : -1);
+        }
+      }, true);
       document.getElementById('mockHome')?.addEventListener('click', showPortal);
       document.getElementById('mockBack')?.addEventListener('click', () => {
         if (views.exam.classList.contains('active')) showMock('papers');
