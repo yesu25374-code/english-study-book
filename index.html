@@ -1206,25 +1206,50 @@
       transform: translateY(-1px);
       box-shadow: 0 14px 30px rgba(92, 65, 24, .14);
     }
+    .portal-review-title {
+      margin-top: 4px;
+      color: #8d672f;
+      font-size: 18px;
+      font-weight: 900;
+    }
     .portal-stats {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 12px;
+      width: min(660px, 100%);
     }
     .portal-stat {
+      display: grid;
+      align-content: center;
+      gap: 8px;
       border: 1px solid rgba(132, 96, 40, .18);
       border-radius: 8px;
-      background: rgba(255, 253, 247, .72);
-      padding: 16px;
-      min-height: 86px;
+      background: linear-gradient(180deg, rgba(255, 253, 247, .92), rgba(247, 232, 199, .84));
+      padding: 18px 16px;
+      min-height: 128px;
       color: #2a2118;
       text-align: center;
       cursor: pointer;
       transition: transform .18s ease, box-shadow .18s ease;
     }
+    .portal-stat:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 34px rgba(92, 65, 24, .16);
+    }
+    .portal-code {
+      color: #9b6a25;
+      font-size: 13px;
+      font-weight: 900;
+    }
     .portal-stat strong {
       display: block;
-      font-size: 26px;
+      font-size: 30px;
+    }
+    .portal-stat em {
+      color: #8d672f;
+      font-style: normal;
+      font-size: 13px;
+      font-weight: 800;
     }
     .home-chip {
       position: fixed;
@@ -1579,13 +1604,14 @@
       <div>
         <h1 class="portal-title">STUDY</h1>
       </div>
+      <div class="portal-review-title">复习</div>
+      <div class="portal-stats">
+        <button class="portal-stat" data-open-subject="english" type="button"><span class="portal-code">01</span><strong>英语</strong><em>阅读 · 听力</em></button>
+        <button class="portal-stat" data-open-subject="finance" type="button"><span class="portal-code">02</span><strong>财管</strong><em>重点 · 真题</em></button>
+        <button class="portal-stat" data-open-subject="mayuan" type="button"><span class="portal-code">03</span><strong>马原</strong><em>手写考点</em></button>
+      </div>
       <div class="portal-actions">
         <button class="portal-btn" id="openMock" type="button">模拟</button>
-      </div>
-      <div class="portal-stats">
-        <button class="portal-stat" data-open-subject="english" type="button"><strong>英语</strong></button>
-        <button class="portal-stat" data-open-subject="finance" type="button"><strong>财管</strong></button>
-        <button class="portal-stat" data-open-subject="mayuan" type="button"><strong>马原</strong></button>
       </div>
     </div>
   </section>
