@@ -1115,9 +1115,405 @@
       }
     }
 
+    .portal-layer,
+    .mock-layer {
+      position: fixed;
+      inset: 0;
+      z-index: 40;
+      background:
+        linear-gradient(135deg, rgba(255, 250, 240, .96), rgba(235, 216, 178, .96)),
+        #f8eed8;
+      color: #2a2118;
+    }
+    .portal-layer {
+      display: grid;
+      place-items: center;
+      padding: 28px;
+    }
+    .portal-card {
+      width: min(920px, 100%);
+      display: grid;
+      gap: 24px;
+    }
+    .portal-title {
+      margin: 0;
+      font-size: clamp(42px, 7vw, 76px);
+      line-height: 1;
+      letter-spacing: 0;
+    }
+    .portal-subtitle {
+      margin: 0;
+      color: #7b6e60;
+      font-size: 18px;
+      line-height: 1.7;
+    }
+    .portal-actions,
+    .mock-home-actions,
+    .mock-paper-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .portal-btn,
+    .mock-btn {
+      min-height: 44px;
+      border: 1px solid rgba(132, 96, 40, .22);
+      border-radius: 8px;
+      background: #fffdf7;
+      color: #2a2118;
+      padding: 0 18px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(92, 65, 24, .10);
+    }
+    .portal-btn.primary,
+    .mock-btn.primary {
+      background: #b88432;
+      color: #fff;
+      border-color: #a9782a;
+    }
+    .portal-stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 12px;
+    }
+    .portal-stat {
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .72);
+      padding: 16px;
+    }
+    .portal-stat strong {
+      display: block;
+      font-size: 22px;
+      margin-bottom: 4px;
+    }
+    .portal-stat span {
+      color: #7b6e60;
+      font-size: 13px;
+    }
+    .home-chip {
+      position: fixed;
+      left: 18px;
+      bottom: 18px;
+      z-index: 30;
+      display: none;
+      min-height: 38px;
+      border: 1px solid rgba(132, 96, 40, .20);
+      border-radius: 999px;
+      background: rgba(255, 253, 247, .92);
+      color: #4d3a22;
+      padding: 0 14px;
+      font-weight: 900;
+      cursor: pointer;
+      box-shadow: 0 10px 24px rgba(92, 65, 24, .12);
+    }
+    .mock-layer {
+      display: none;
+      grid-template-rows: auto minmax(0, 1fr);
+    }
+    .mock-layer.open {
+      display: grid;
+    }
+    .mock-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 18px;
+      border-bottom: 1px solid rgba(132, 96, 40, .20);
+      background: rgba(255, 253, 247, .92);
+    }
+    .mock-topbar strong {
+      font-size: 18px;
+    }
+    .mock-body {
+      overflow: auto;
+      padding: 22px;
+    }
+    .mock-view {
+      display: none;
+      max-width: 1120px;
+      margin: 0 auto;
+    }
+    .mock-view.active {
+      display: block;
+    }
+    .mock-subject-grid,
+    .mock-paper-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 14px;
+      margin-top: 18px;
+    }
+    .mock-subject-card,
+    .mock-paper-card {
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .82);
+      padding: 18px;
+      text-align: left;
+      cursor: pointer;
+      box-shadow: 0 12px 28px rgba(92, 65, 24, .10);
+    }
+    .mock-subject-card strong,
+    .mock-paper-card strong {
+      display: block;
+      margin-bottom: 8px;
+      font-size: 19px;
+    }
+    .mock-subject-card span,
+    .mock-paper-card span {
+      color: #7b6e60;
+      line-height: 1.55;
+    }
+    .mock-toolbar {
+      position: sticky;
+      top: 0;
+      z-index: 6;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-bottom: 14px;
+      padding: 10px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .94);
+      box-shadow: 0 10px 24px rgba(92, 65, 24, .08);
+    }
+    .mock-score {
+      font-weight: 900;
+      color: #8a251f;
+    }
+    .exam-paper {
+      position: relative;
+      width: min(920px, 100%);
+      margin: 0 auto 40px;
+      padding: 34px 40px 56px;
+      border: 1px solid rgba(132, 96, 40, .24);
+      border-radius: 8px;
+      background: #fffdf7;
+      box-shadow: 0 18px 42px rgba(92, 65, 24, .14);
+    }
+    .exam-paper h1 {
+      margin: 0;
+      text-align: center;
+      font-size: 28px;
+      letter-spacing: 0;
+    }
+    .exam-meta,
+    .exam-note {
+      margin: 12px 0 18px;
+      color: #62533f;
+      line-height: 1.7;
+      text-align: center;
+    }
+    .exam-info-row {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin: 18px 0 24px;
+      color: #3a3024;
+    }
+    .exam-info-row span {
+      border-bottom: 1px solid #8d806c;
+      min-height: 30px;
+    }
+    .exam-section {
+      margin-top: 28px;
+      padding-top: 16px;
+      border-top: 2px solid rgba(132, 96, 40, .20);
+    }
+    .exam-section h2 {
+      margin: 0 0 12px;
+      font-size: 20px;
+    }
+    .exam-question {
+      margin: 0 0 18px;
+      line-height: 1.72;
+    }
+    .exam-question-title {
+      margin-bottom: 8px;
+      font-weight: 900;
+    }
+    .exam-options {
+      display: grid;
+      gap: 6px;
+    }
+    .exam-option {
+      display: flex;
+      align-items: flex-start;
+      gap: 8px;
+      width: 100%;
+      border: 1px solid rgba(132, 96, 40, .16);
+      border-radius: 8px;
+      background: #fffaf0;
+      padding: 9px 10px;
+      color: #2a2118;
+      text-align: left;
+      cursor: pointer;
+    }
+    .exam-option.selected {
+      border-color: #b88432;
+      background: #f2dfb8;
+    }
+    .exam-option.correct {
+      border-color: #387344;
+      background: rgba(56, 115, 68, .12);
+    }
+    .exam-option.wrong {
+      border-color: #b33a3a;
+      background: rgba(179, 58, 58, .10);
+    }
+    .write-space {
+      min-height: 130px;
+      border: 1px dashed rgba(132, 96, 40, .32);
+      border-radius: 8px;
+      background:
+        repeating-linear-gradient(#fffdf7 0 31px, rgba(132, 96, 40, .18) 32px);
+      margin-top: 8px;
+    }
+    .write-space.tall {
+      min-height: 220px;
+    }
+    .answer-panel {
+      display: none;
+      margin-top: 10px;
+      padding: 12px 14px;
+      border-left: 4px solid #b88432;
+      background: rgba(255, 246, 224, .78);
+      line-height: 1.72;
+    }
+    .answer-panel.open {
+      display: block;
+    }
+    .answer-panel strong {
+      display: block;
+      color: #8a251f;
+      margin-bottom: 6px;
+    }
+    .answer-panel ul {
+      margin: 0;
+      padding-left: 1.25em;
+    }
+    .answer-sheet {
+      display: none;
+      width: min(920px, 100%);
+      margin: 0 auto 42px;
+      padding: 26px 30px;
+      border: 1px solid rgba(132, 96, 40, .24);
+      border-radius: 8px;
+      background: #fff8e8;
+      box-shadow: 0 14px 34px rgba(92, 65, 24, .12);
+      line-height: 1.72;
+    }
+    .answer-sheet.open {
+      display: block;
+    }
+    .answer-sheet h2 {
+      margin: 0 0 12px;
+      font-size: 22px;
+    }
+    .answer-sheet h3 {
+      margin: 18px 0 8px;
+      font-size: 17px;
+      color: #8a251f;
+    }
+    .answer-sheet ol,
+    .answer-sheet ul {
+      margin-top: 6px;
+      padding-left: 1.4em;
+    }
+    .answer-sheet li + li {
+      margin-top: 4px;
+    }
+    .exam-canvas {
+      position: absolute;
+      left: 0;
+      top: 0;
+      z-index: 4;
+      pointer-events: none;
+    }
+    .exam-canvas.enabled {
+      pointer-events: auto;
+      touch-action: none;
+      cursor: crosshair;
+    }
+    @media (max-width: 760px) {
+      .portal-stats,
+      .exam-info-row {
+        grid-template-columns: 1fr;
+      }
+      .exam-paper {
+        padding: 24px 18px 42px;
+      }
+      .mock-body {
+        padding: 14px;
+      }
+    }
+
   </style>
 </head>
 <body>
+  <section class="portal-layer" id="portalLayer">
+    <div class="portal-card">
+      <div>
+        <h1 class="portal-title">Study</h1>
+        <p class="portal-subtitle">小小鱼期末复习。资料背诵、模拟试卷和 iPad 批注放在同一个入口里。</p>
+      </div>
+      <div class="portal-actions">
+        <button class="portal-btn primary" id="openReview" type="button">复习</button>
+        <button class="portal-btn" id="openMock" type="button">模拟</button>
+      </div>
+      <div class="portal-stats">
+        <div class="portal-stat"><strong>英语</strong><span>阅读与听力原题整理</span></div>
+        <div class="portal-stat"><strong>财务</strong><span>重点与真题文本版</span></div>
+        <div class="portal-stat"><strong>马原</strong><span>手写考点与模拟卷</span></div>
+      </div>
+    </div>
+  </section>
+  <button class="home-chip" id="homeChip" type="button">首页</button>
+  <section class="mock-layer" id="mockLayer" aria-label="模拟考试">
+    <div class="mock-topbar">
+      <strong id="mockTitle">模拟</strong>
+      <div class="mock-home-actions">
+        <button class="mock-btn" id="mockBack" type="button">返回</button>
+        <button class="mock-btn" id="mockHome" type="button">首页</button>
+      </div>
+    </div>
+    <div class="mock-body">
+      <div class="mock-view active" id="mockSubjects">
+        <h1>模拟卷</h1>
+        <p class="portal-subtitle">现在先放马克思主义基本原理。客观题自动判分；手写的简答、论述和材料分析，静态网页不能可靠识别批改，交卷后会显示参考答案和评分点给你自评。</p>
+        <div class="mock-subject-grid">
+          <button class="mock-subject-card" id="openMayuanMock" type="button"><strong>马克思主义基本原理</strong><span>两套 100 分模拟卷，含论述题和材料分析题。</span></button>
+        </div>
+      </div>
+      <div class="mock-view" id="mockPapers">
+        <h1>马克思主义基本原理</h1>
+        <p class="portal-subtitle">选择一套试卷开始。作答区可以用工具栏的笔在 iPad 上书写。</p>
+        <div class="mock-paper-grid" id="mockPaperGrid"></div>
+      </div>
+      <div class="mock-view" id="mockExam">
+        <div class="mock-toolbar">
+          <div class="mock-paper-actions">
+            <button class="mock-btn" data-exam-tool="select" type="button">选择</button>
+            <button class="mock-btn" data-exam-tool="pen" type="button">笔</button>
+            <button class="mock-btn" data-exam-tool="highlight" type="button">荧光</button>
+            <button class="mock-btn" data-exam-tool="eraser" type="button">橡皮</button>
+            <button class="mock-btn" id="clearExamInk" type="button">清空笔迹</button>
+          </div>
+          <div class="mock-paper-actions">
+            <span class="mock-score" id="mockScore">未交卷</span>
+            <button class="mock-btn primary" id="submitMock" type="button">交卷并显示答案</button>
+          </div>
+        </div>
+        <div id="mockExamMount"></div>
+      </div>
+    </div>
+  </section>
   <div class="app">
     <aside class="sidebar">
       <div class="brand">
@@ -3945,6 +4341,456 @@
 
       resizeAllCanvases();
       showPage(0);
+    })();
+  </script>
+  <script>
+    (() => {
+      const portalLayer = document.getElementById('portalLayer');
+      const mockLayer = document.getElementById('mockLayer');
+      const homeChip = document.getElementById('homeChip');
+      const mockTitle = document.getElementById('mockTitle');
+      const views = {
+        subjects: document.getElementById('mockSubjects'),
+        papers: document.getElementById('mockPapers'),
+        exam: document.getElementById('mockExam'),
+      };
+      let activePaper = null;
+      let examSubmitted = false;
+      let examTool = 'select';
+      let examDrawing = false;
+      let examStroke = null;
+
+      const optionLabels = ['A', 'B', 'C', 'D'];
+      const papers = [
+        {
+          id: 'mayuan-a',
+          title: '马克思主义基本原理模拟卷（一）',
+          subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
+          sections: [
+            {
+              type: 'single',
+              title: '一、单项选择题（本题共 15 小题，每题 2 分，共 30 分）',
+              score: 2,
+              questions: [
+                ['马克思主义公开问世的重要标志是', ['《德意志意识形态》', '《共产党宣言》', '《资本论》第一卷', '《反杜林论》'], 'B'],
+                ['马克思主义最鲜明的政治立场是', ['实现少数精英治理', '维护资产阶级利益', '致力于最广大人民的根本利益', '坚持技术决定论'], 'C'],
+                ['哲学基本问题是', ['社会和自然的关系问题', '思维和存在的关系问题', '个人和集体的关系问题', '真理和价值的关系问题'], 'B'],
+                ['马克思主义物质观认为物质的唯一特性是', ['可感知性', '客观实在性', '运动性', '结构性'], 'B'],
+                ['唯物辩证法的总特征是', ['实践和认识', '真理和价值', '联系和发展', '生产力和生产关系'], 'C'],
+                ['矛盾问题的精髓是', ['主要矛盾和次要矛盾的关系', '矛盾普遍性和特殊性的关系', '量变和质变的关系', '肯定和否定的关系'], 'B'],
+                ['实践的最基本形式是', ['科学文化实践', '社会政治实践', '物质生产实践', '道德评价活动'], 'C'],
+                ['检验真理的唯一标准是', ['权威意见', '逻辑推导', '多数人的同意', '实践'], 'D'],
+                ['社会历史观的基本问题是', ['社会存在和社会意识的关系问题', '英雄和群众的关系问题', '国家和法律的关系问题', '改革和革命的关系问题'], 'A'],
+                ['社会发展的根本动力是', ['个人意志', '社会基本矛盾', '自然环境', '人口数量'], 'B'],
+                ['商品的二因素是', ['价值和价格', '使用价值和价值', '具体劳动和抽象劳动', '交换价值和利润'], 'B'],
+                ['商品价值量由什么决定', ['个别劳动时间', '社会必要劳动时间', '市场价格', '供求关系'], 'B'],
+                ['剩余价值的真正来源是', ['机器设备', '流通过程', '雇佣工人的剩余劳动', '资本家的管理劳动'], 'C'],
+                ['资本主义经济危机的实质是', ['生产绝对不足', '生产相对过剩', '货币天然短缺', '科技发展停滞'], 'B'],
+                ['共产主义社会的根本特征之一是', ['按资分配', '人的自由而全面发展', '阶级差别固定化', '商品经济永恒化'], 'B'],
+              ],
+            },
+            {
+              type: 'multi',
+              title: '二、多项选择题（本题共 5 小题，每题 3 分，共 15 分）',
+              score: 3,
+              questions: [
+                ['马克思主义的三个组成部分包括', ['马克思主义哲学', '马克思主义政治经济学', '科学社会主义', '行为主义心理学'], ['A', 'B', 'C']],
+                ['马克思主义的鲜明特征包括', ['科学性', '人民性', '实践性', '发展开放性'], ['A', 'B', 'C', 'D']],
+                ['实践在认识中的决定作用表现为实践是认识的', ['来源', '发展动力', '唯一检验标准', '目的'], ['A', 'B', 'C', 'D']],
+                ['人民群众是历史的创造者，主要表现在人民群众是', ['社会物质财富的创造者', '社会精神财富的创造者', '社会变革的决定力量', '全部历史事件的直接策划者'], ['A', 'B', 'C']],
+                ['价值规律的作用包括', ['自发调节资源配置', '刺激生产者改进技术和管理', '促使商品生产者优胜劣汰', '消除资本主义基本矛盾'], ['A', 'B', 'C']],
+              ],
+            },
+            {
+              type: 'judge',
+              title: '三、判断题（本题共 15 小题，每题 1 分，共 15 分）',
+              score: 1,
+              questions: [
+                ['马克思主义是封闭的、一次完成的理论体系。', '错'],
+                ['意识是客观存在在人脑中的主观映象。', '对'],
+                ['运动是物质的根本存在方式。', '对'],
+                ['矛盾特殊性要求坚持具体问题具体分析。', '对'],
+                ['量变和质变没有任何联系。', '错'],
+                ['辩证否定的实质是扬弃。', '对'],
+                ['认识的目的在于回到实践并指导实践。', '对'],
+                ['真理没有客观内容。', '错'],
+                ['社会意识对社会存在只有消极反映，没有反作用。', '错'],
+                ['生产力决定生产关系。', '对'],
+                ['改革是社会主义社会发展的重要动力。', '对'],
+                ['商品经济产生只需要社会分工一个条件。', '错'],
+                ['劳动力商品的特殊使用价值在于能够创造剩余价值。', '对'],
+                ['国家垄断资本主义消除了资本主义基本矛盾。', '错'],
+                ['共产主义实现是一个长期历史过程。', '对'],
+              ],
+            },
+            {
+              type: 'short',
+              title: '四、简答题（本题共 3 小题，每题 5 分，共 15 分）',
+              questions: [
+                ['简述物质和意识的辩证关系。', ['物质决定意识，意识是客观存在在人脑中的主观映象。', '意识对物质具有能动反作用，正确意识促进实践，错误意识阻碍实践。', '方法论：坚持一切从实际出发、实事求是，同时发挥主观能动性。']],
+                ['简述实践是检验真理的唯一标准。', ['真理性问题是主观认识是否符合客观实际的问题。', '实践具有直接现实性，能把主观认识同客观结果联系起来。', '实践标准既确定又不确定，会随实践发展不断深化。']],
+                ['简述商品二因素和劳动二重性的关系。', ['商品具有使用价值和价值二因素。', '具体劳动创造使用价值，抽象劳动形成价值。', '劳动二重性决定商品二因素。']],
+              ],
+            },
+            {
+              type: 'essay',
+              title: '五、论述题（本题 1 小题，共 10 分）',
+              questions: [
+                ['联系实际论述人民群众在历史创造过程中的决定作用。', ['人民群众是社会物质财富的创造者。', '人民群众是社会精神财富的创造者。', '人民群众是社会变革的决定力量。', '方法论上坚持群众观点和群众路线，尊重人民主体地位。', '结合现实例子说明人民群众实践对社会发展的推动作用。']],
+              ],
+            },
+            {
+              type: 'material',
+              title: '六、材料分析题（本题 1 小题，共 15 分）',
+              material: '材料：近年来，新能源汽车、人工智能、大数据等新技术快速发展，推动生产方式、生活方式和社会治理方式发生深刻变化。但同时，一些行业也出现就业结构调整、数据安全、算法偏见等新问题。',
+              questions: [
+                ['运用马克思主义关于科学技术作用的观点分析上述材料。', ['科学技术是先进生产力的重要标志，是推动生产方式、生活方式和思维方式变革的重要力量。', '科技发展能够促进生产力发展和社会进步，材料中新技术推动产业升级体现了积极作用。', '科学技术作用的发挥受社会制度、价值导向和使用方式制约，材料中的数据安全、算法偏见等问题说明科技具有双重影响。', '应坚持以人民为中心，使科技发展服务人民利益和社会进步。']],
+              ],
+            },
+          ],
+        },
+        {
+          id: 'mayuan-b',
+          title: '马克思主义基本原理模拟卷（二）',
+          subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
+          sections: [
+            {
+              type: 'single',
+              title: '一、单项选择题（本题共 15 小题，每题 2 分，共 30 分）',
+              score: 2,
+              questions: [
+                ['马克思主义产生的阶级基础是', ['无产阶级作为独立政治力量登上历史舞台', '封建贵族复辟', '自然科学停滞', '宗教改革完成'], 'A'],
+                ['世界的真正统一性在于它的', ['精神性', '物质性', '观念性', '偶然性'], 'B'],
+                ['规律的根本特点是', ['主观性', '任意性', '客观性', '神秘性'], 'C'],
+                ['新事物之所以新，是因为它', ['出现时间晚', '形式漂亮', '符合客观规律并有发展前途', '得到所有人赞成'], 'C'],
+                ['质变是指', ['数量增减', '场所变更', '根本性质变化', '重复循环'], 'C'],
+                ['认识的本质是', ['主体对客体的能动反映', '纯粹主观想象', '权威命令', '本能反应'], 'A'],
+                ['感性认识的形式不包括', ['感觉', '知觉', '表象', '推理'], 'D'],
+                ['价值是指', ['客体对主体需要的满足关系', '商品价格', '货币数量', '个人偏好本身'], 'A'],
+                ['社会存在中起决定作用的是', ['地理环境', '人口因素', '物质生产方式', '风俗习惯'], 'C'],
+                ['上层建筑一定要适合什么状况', ['经济基础', '自然环境', '个人兴趣', '偶然事件'], 'A'],
+                ['劳动力成为商品的基本条件之一是劳动者', ['拥生产资料', '没有人身自由', '有人身自由并能出卖劳动力', '不需要生活资料'], 'C'],
+                ['资本积累的实质是', ['剩余价值资本化', '消费品增加', '工资提高', '货币退出流通'], 'A'],
+                ['垄断形成的基础是', ['生产集中和资本集中', '小生产分散', '完全没有竞争', '自然经济扩大'], 'A'],
+                ['经济全球化的主要表现不包括', ['生产全球化', '贸易全球化', '金融全球化', '思想完全同质化'], 'D'],
+                ['科学社会主义从空想变为科学的两大理论基石是唯物史观和', ['剩余价值学说', '地理环境决定论', '天赋人权论', '边际效用论'], 'A'],
+              ],
+            },
+            {
+              type: 'multi',
+              title: '二、多项选择题（本题共 5 小题，每题 3 分，共 15 分）',
+              score: 3,
+              questions: [
+                ['哲学基本问题包括', ['思维和存在何者为第一性', '思维能否正确认识存在', '世界是否可知', '商品价格如何形成'], ['A', 'B', 'C']],
+                ['联系的特征包括', ['客观性', '普遍性', '多样性', '条件性'], ['A', 'B', 'C', 'D']],
+                ['实践的基本形式包括', ['物质生产实践', '社会政治实践', '科学文化实践', '纯粹幻想活动'], ['A', 'B', 'C']],
+                ['社会基本矛盾包括', ['生产力和生产关系的矛盾', '经济基础和上层建筑的矛盾', '使用价值和价格的矛盾', '个人爱好之间的矛盾'], ['A', 'B']],
+                ['共产主义社会的基本特征包括', ['物质财富极大丰富', '人民精神境界极大提高', '每个人自由而全面发展', '阶级压迫长期固定'], ['A', 'B', 'C']],
+              ],
+            },
+            {
+              type: 'judge',
+              title: '三、判断题（本题共 15 小题，每题 1 分，共 15 分）',
+              score: 1,
+              questions: [
+                ['马克思主义具有人民性。', '对'],
+                ['唯心主义认为物质第一性、意识第二性。', '错'],
+                ['时间和空间是运动着的物质的基本存在形式。', '对'],
+                ['主要矛盾决定事物发展重点。', '对'],
+                ['矛盾主要方面决定事物性质。', '对'],
+                ['否定之否定规律说明发展是直线式没有曲折的。', '错'],
+                ['理性认识包括概念、判断、推理。', '对'],
+                ['价值评价不受社会历史条件影响。', '错'],
+                ['社会意识具有相对独立性。', '对'],
+                ['英雄人物可以脱离人民群众独自创造历史。', '错'],
+                ['价值规律表现为价格围绕价值上下波动。', '对'],
+                ['剩余价值不是在流通中产生的。', '对'],
+                ['资本主义基本矛盾是生产社会化和资本主义私人占有之间的矛盾。', '对'],
+                ['经济全球化只有积极影响，没有消极影响。', '错'],
+                ['科学社会主义基本原则要同各国具体实际相结合。', '对'],
+              ],
+            },
+            {
+              type: 'short',
+              title: '四、简答题（本题共 3 小题，每题 5 分，共 15 分）',
+              questions: [
+                ['简述马克思主义的鲜明特征。', ['科学性：揭示规律，以事实为依据。', '人民性：站在人民立场，追求人的解放。', '实践性：来自实践并指导实践。', '发展开放性：随时代和实践不断发展。']],
+                ['简述矛盾特殊性及其方法论意义。', ['不同事物的矛盾各有特点。', '同一事物不同阶段的矛盾各有特点。', '同一矛盾双方各有特点。', '方法论：坚持具体问题具体分析。']],
+                ['简述资本主义经济危机的根源和实质。', ['实质是生产相对过剩。', '根源是资本主义基本矛盾，即生产社会化和资本主义私人占有之间的矛盾。', '具体表现为个别企业生产有组织性和社会生产无政府状态、生产无限扩大和有支付能力需求相对缩小之间的矛盾。']],
+              ],
+            },
+            {
+              type: 'essay',
+              title: '五、论述题（本题 1 小题，共 10 分）',
+              questions: [
+                ['论述实践和认识的辩证关系。', ['实践决定认识：实践是认识来源、发展动力、检验真理的唯一标准、认识目的。', '认识对实践具有反作用，正确认识指导实践成功，错误认识阻碍实践。', '认识过程包括从感性认识到理性认识、从理性认识到实践两次飞跃。', '方法论上要坚持理论与实践相结合，在实践中检验和发展认识。']],
+              ],
+            },
+            {
+              type: 'material',
+              title: '六、材料分析题（本题 1 小题，共 15 分）',
+              material: '材料：某地推进乡村振兴时，没有照搬外地模式，而是根据本地山地多、茶产业基础好、年轻人返乡创业增多等条件，发展生态茶园和电商直播。几年后，农民收入提高，村集体经济壮大，也带动了当地文化旅游。',
+              questions: [
+                ['运用矛盾普遍性和特殊性关系原理分析上述材料。', ['矛盾普遍性说明矛盾存在于一切事物及其发展过程，乡村发展也会遇到产业、收入、治理等矛盾。', '矛盾特殊性说明不同地区、不同阶段矛盾各有特点，材料中该地山地、茶产业、返乡青年等条件具有自身特殊性。', '普遍性寓于特殊性之中，并通过特殊性表现出来，乡村振兴的一般要求必须同本地具体实际结合。', '方法论是具体问题具体分析，把一般原理同具体实际结合，反对照搬照抄。']],
+              ],
+            },
+          ],
+        },
+      ];
+
+      function showPortal() {
+        portalLayer.style.display = 'grid';
+        mockLayer.classList.remove('open');
+        homeChip.style.display = 'none';
+      }
+
+      function showReview() {
+        portalLayer.style.display = 'none';
+        mockLayer.classList.remove('open');
+        homeChip.style.display = 'block';
+      }
+
+      function showMock(view = 'subjects') {
+        portalLayer.style.display = 'none';
+        mockLayer.classList.add('open');
+        homeChip.style.display = 'none';
+        Object.entries(views).forEach(([key, el]) => el.classList.toggle('active', key === view));
+        mockTitle.textContent = view === 'exam' && activePaper ? activePaper.title : '模拟';
+      }
+
+      function sectionScore(section) {
+        if (section.type === 'short') return section.questions.length * 5;
+        if (section.type === 'essay') return 10;
+        if (section.type === 'material') return 15;
+        return section.questions.length * section.score;
+      }
+
+      function renderPaperCards() {
+        const grid = document.getElementById('mockPaperGrid');
+        grid.innerHTML = papers.map((paper, index) => {
+          const total = paper.sections.reduce((sum, section) => sum + sectionScore(section), 0);
+          return `<button class="mock-paper-card" data-paper="${paper.id}" type="button"><strong>模拟卷 ${index + 1}</strong><span>${paper.title}<br>满分 ${total} 分</span></button>`;
+        }).join('');
+        grid.querySelectorAll('[data-paper]').forEach((btn) => {
+          btn.addEventListener('click', () => openPaper(btn.dataset.paper));
+        });
+      }
+
+      function renderObjective(section, sectionIndex) {
+        return section.questions.map((question, index) => {
+          const [stem, options] = question;
+          const inputType = section.type === 'multi' ? 'checkbox' : 'radio';
+          const optionsHtml = options.map((option, optionIndex) => {
+            const label = optionLabels[optionIndex];
+            return `<label class="exam-option" data-option="${label}"><input type="${inputType}" name="q-${sectionIndex}-${index}" value="${label}" /> <span>${label}. ${option}</span></label>`;
+          }).join('');
+          return `<div class="exam-question" data-section="${sectionIndex}" data-question="${index}" data-type="${section.type}"><div class="exam-question-title">${index + 1}. ${stem}</div><div class="exam-options">${optionsHtml}</div><div class="answer-panel"></div></div>`;
+        }).join('');
+      }
+
+      function renderJudge(section, sectionIndex) {
+        return section.questions.map((question, index) => {
+          return `<div class="exam-question" data-section="${sectionIndex}" data-question="${index}" data-type="judge"><div class="exam-question-title">${index + 1}. ${question[0]}</div><div class="exam-options"><label class="exam-option" data-option="对"><input type="radio" name="q-${sectionIndex}-${index}" value="对" /> <span>对</span></label><label class="exam-option" data-option="错"><input type="radio" name="q-${sectionIndex}-${index}" value="错" /> <span>错</span></label></div><div class="answer-panel"></div></div>`;
+        }).join('');
+      }
+
+      function renderSubjective(section, sectionIndex) {
+        const material = section.material ? `<p class="exam-note">${section.material}</p>` : '';
+        return material + section.questions.map((question, index) => {
+          const tall = section.type === 'essay' || section.type === 'material' ? ' tall' : '';
+          return `<div class="exam-question" data-section="${sectionIndex}" data-question="${index}" data-type="${section.type}"><div class="exam-question-title">${index + 1}. ${question[0]}</div><div class="write-space${tall}"></div><div class="answer-panel"></div></div>`;
+        }).join('');
+      }
+
+      function openPaper(id) {
+        activePaper = papers.find((paper) => paper.id === id);
+        examSubmitted = false;
+        document.getElementById('mockScore').textContent = '未交卷';
+        const sectionsHtml = activePaper.sections.map((section, sectionIndex) => {
+          let body = '';
+          if (section.type === 'single' || section.type === 'multi') body = renderObjective(section, sectionIndex);
+          if (section.type === 'judge') body = renderJudge(section, sectionIndex);
+          if (section.type === 'short' || section.type === 'essay' || section.type === 'material') body = renderSubjective(section, sectionIndex);
+          return `<section class="exam-section"><h2>${section.title}</h2>${body}</section>`;
+        }).join('');
+        document.getElementById('mockExamMount').innerHTML = `<article class="exam-paper" id="examPaper"><h1>${activePaper.title}</h1><p class="exam-meta">${activePaper.subtitle}</p><div class="exam-info-row"><span>姓名：</span><span>班级：</span><span>得分：</span></div>${sectionsHtml}<canvas class="exam-canvas" id="examCanvas"></canvas></article><section class="answer-sheet" id="answerSheet" aria-live="polite"></section>`;
+        bindExamOptions();
+        setupExamCanvas();
+        showMock('exam');
+      }
+
+      function bindExamOptions() {
+        document.querySelectorAll('.exam-option input').forEach((input) => {
+          input.addEventListener('change', () => {
+            const group = input.closest('.exam-options');
+            if (input.type === 'radio') {
+              group.querySelectorAll('.exam-option').forEach((label) => label.classList.remove('selected'));
+              input.closest('.exam-option').classList.add('selected');
+            } else {
+              input.closest('.exam-option').classList.toggle('selected', input.checked);
+            }
+          });
+        });
+      }
+
+      function normalizeAnswer(value) {
+        return Array.isArray(value) ? value.slice().sort().join('') : value;
+      }
+
+      function submitPaper() {
+        if (!activePaper) return;
+        let score = 0;
+        let objectiveTotal = 0;
+        activePaper.sections.forEach((section, sectionIndex) => {
+          section.questions.forEach((question, questionIndex) => {
+            const row = document.querySelector(`.exam-question[data-section="${sectionIndex}"][data-question="${questionIndex}"]`);
+            const answerPanel = row.querySelector('.answer-panel');
+            if (section.type === 'single' || section.type === 'multi' || section.type === 'judge') {
+              objectiveTotal += section.score;
+              const correct = section.type === 'judge' ? question[1] : question[2];
+              const selected = Array.from(row.querySelectorAll('input:checked')).map((input) => input.value);
+              const isRight = normalizeAnswer(selected) === normalizeAnswer(correct);
+              if (isRight) score += section.score;
+              row.querySelectorAll('.exam-option').forEach((label) => {
+                const value = label.dataset.option;
+                const correctValues = Array.isArray(correct) ? correct : [correct];
+                label.classList.toggle('correct', correctValues.includes(value));
+                label.classList.toggle('wrong', label.querySelector('input').checked && !correctValues.includes(value));
+              });
+              answerPanel.innerHTML = `<strong>答案</strong>${Array.isArray(correct) ? correct.join('、') : correct}`;
+            } else {
+              const points = question[1].map((item) => `<li>${item}</li>`).join('');
+              answerPanel.innerHTML = `<strong>参考答案与评分点</strong><ul>${points}</ul>`;
+            }
+            answerPanel.classList.add('open');
+          });
+        });
+        examSubmitted = true;
+        document.getElementById('mockScore').textContent = `客观题 ${score} / ${objectiveTotal} 分；主观题请按评分点自评`;
+        renderAnswerSheet(score, objectiveTotal);
+        document.getElementById('answerSheet')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+
+      function answerText(section, question) {
+        if (section.type === 'judge') return question[1];
+        if (section.type === 'single' || section.type === 'multi') {
+          const answer = question[2];
+          return Array.isArray(answer) ? answer.join('、') : answer;
+        }
+        return question[1].map((item) => `<li>${item}</li>`).join('');
+      }
+
+      function renderAnswerSheet(score, objectiveTotal) {
+        const sheet = document.getElementById('answerSheet');
+        if (!sheet || !activePaper) return;
+        const sections = activePaper.sections.map((section) => {
+          const rows = section.questions.map((question, index) => {
+            if (section.type === 'short' || section.type === 'essay' || section.type === 'material') {
+              return `<li><strong>${index + 1}. ${question[0]}</strong><ul>${answerText(section, question)}</ul></li>`;
+            }
+            return `<li>${index + 1}. ${answerText(section, question)}</li>`;
+          }).join('');
+          return `<h3>${section.title}</h3><ol>${rows}</ol>`;
+        }).join('');
+        sheet.innerHTML = `<h2>${activePaper.title}｜答案卷</h2><p>客观题自动得分：${score} / ${objectiveTotal} 分。主观题请按答案要点自评：简答每题 5 分，论述题 10 分，材料分析题 15 分。</p>${sections}`;
+        sheet.classList.add('open');
+      }
+
+      function setupExamCanvas() {
+        const paper = document.getElementById('examPaper');
+        const canvas = document.getElementById('examCanvas');
+        if (!paper || !canvas) return;
+        const resize = () => {
+          const ratio = window.devicePixelRatio || 1;
+          canvas.style.width = `${paper.scrollWidth}px`;
+          canvas.style.height = `${paper.scrollHeight}px`;
+          canvas.width = Math.max(1, Math.round(paper.scrollWidth * ratio));
+          canvas.height = Math.max(1, Math.round(paper.scrollHeight * ratio));
+          const ctx = canvas.getContext('2d');
+          ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          ctx.lineCap = 'round';
+          ctx.lineJoin = 'round';
+        };
+        resize();
+        window.addEventListener('resize', resize);
+        canvas.addEventListener('pointerdown', startExamDraw);
+        canvas.addEventListener('pointermove', moveExamDraw);
+        canvas.addEventListener('pointerup', endExamDraw);
+        canvas.addEventListener('pointercancel', endExamDraw);
+        updateExamTool();
+      }
+
+      function examPoint(event) {
+        const rect = event.currentTarget.getBoundingClientRect();
+        return { x: event.clientX - rect.left, y: event.clientY - rect.top };
+      }
+
+      function startExamDraw(event) {
+        if (examTool === 'select') return;
+        event.preventDefault();
+        examDrawing = true;
+        examStroke = examPoint(event);
+        event.currentTarget.setPointerCapture?.(event.pointerId);
+      }
+
+      function moveExamDraw(event) {
+        if (!examDrawing || examTool === 'select') return;
+        event.preventDefault();
+        const point = examPoint(event);
+        const ctx = event.currentTarget.getContext('2d');
+        ctx.save();
+        if (examTool === 'eraser') {
+          ctx.globalCompositeOperation = 'destination-out';
+          ctx.lineWidth = 28;
+        } else {
+          ctx.globalCompositeOperation = 'source-over';
+          ctx.globalAlpha = examTool === 'highlight' ? 0.34 : 0.9;
+          ctx.strokeStyle = examTool === 'highlight' ? '#f4cf3a' : '#7f4a16';
+          ctx.lineWidth = examTool === 'highlight' ? 18 : 4;
+        }
+        ctx.beginPath();
+        ctx.moveTo(examStroke.x, examStroke.y);
+        ctx.lineTo(point.x, point.y);
+        ctx.stroke();
+        ctx.restore();
+        examStroke = point;
+      }
+
+      function endExamDraw() {
+        examDrawing = false;
+        examStroke = null;
+      }
+
+      function updateExamTool() {
+        document.querySelectorAll('[data-exam-tool]').forEach((btn) => btn.classList.toggle('primary', btn.dataset.examTool === examTool));
+        const canvas = document.getElementById('examCanvas');
+        if (canvas) canvas.classList.toggle('enabled', examTool !== 'select');
+      }
+
+      document.getElementById('openReview')?.addEventListener('click', showReview);
+      document.getElementById('openMock')?.addEventListener('click', () => showMock('subjects'));
+      document.getElementById('homeChip')?.addEventListener('click', showPortal);
+      document.getElementById('mockHome')?.addEventListener('click', showPortal);
+      document.getElementById('mockBack')?.addEventListener('click', () => {
+        if (views.exam.classList.contains('active')) showMock('papers');
+        else if (views.papers.classList.contains('active')) showMock('subjects');
+        else showPortal();
+      });
+      document.getElementById('openMayuanMock')?.addEventListener('click', () => {
+        renderPaperCards();
+        showMock('papers');
+      });
+      document.getElementById('submitMock')?.addEventListener('click', submitPaper);
+      document.getElementById('clearExamInk')?.addEventListener('click', () => {
+        const canvas = document.getElementById('examCanvas');
+        if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+      });
+      document.querySelectorAll('[data-exam-tool]').forEach((btn) => {
+        btn.addEventListener('click', () => {
+          examTool = btn.dataset.examTool;
+          updateExamTool();
+        });
+      });
     })();
   </script>
 
