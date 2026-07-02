@@ -4,6 +4,12 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Study</title>
+  <meta name="theme-color" content="#6f7175" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Study" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="apple-touch-icon" href="icon-180.png" />
   <style>
     :root {
       --ink: #172033;
@@ -504,6 +510,142 @@
       color: #303947;
     }
 
+
+    .mayuan-page .page-scroll {
+      padding-bottom: 44px;
+    }
+    .mayuan-note {
+      margin: 18px 0 22px;
+      padding: 16px 18px;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .72);
+      color: #4b3d2b;
+      line-height: 1.72;
+    }
+    .mayuan-note p {
+      margin: 0 0 8px;
+    }
+    .mayuan-note p:last-child {
+      margin-bottom: 0;
+    }
+    .mayuan-list {
+      display: grid;
+      gap: 18px;
+    }
+    .mayuan-card {
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .82);
+      box-shadow: 0 10px 26px rgba(92, 65, 24, .08);
+      overflow: hidden;
+    }
+    .mayuan-card-head {
+      display: grid;
+      grid-template-columns: auto minmax(0, 1fr);
+      align-items: start;
+      gap: 12px;
+      padding: 16px 18px 12px;
+      border-bottom: 1px solid rgba(132, 96, 40, .12);
+      background: linear-gradient(135deg, rgba(255, 246, 224, .95), rgba(255, 253, 247, .7));
+    }
+    .mayuan-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 64px;
+      min-height: 28px;
+      padding: 4px 8px;
+      border-radius: 8px;
+      background: #8a251f;
+      color: #fff;
+      font-size: 13px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .mayuan-card h2 {
+      margin: 0;
+      color: #2a2118;
+      font-size: 21px;
+      line-height: 1.45;
+      letter-spacing: 0;
+    }
+    .mayuan-answer,
+    .mayuan-grip {
+      padding: 15px 18px;
+      line-height: 1.78;
+      color: #303947;
+    }
+    .mayuan-answer strong,
+    .mayuan-grip strong {
+      display: block;
+      margin-bottom: 6px;
+      color: #9b6a25;
+      font-size: 14px;
+    }
+    .mayuan-answer p,
+    .mayuan-grip p {
+      margin: 0;
+      font-size: 17px;
+    }
+    .mayuan-grip {
+      background: rgba(255, 246, 224, .52);
+      border-top: 1px dashed rgba(132, 96, 40, .18);
+    }
+    .color-wheel,
+    .bg-color-wheel {
+      width: 34px;
+      height: 34px;
+      padding: 0;
+      border: 1px solid rgba(132, 96, 40, .18);
+      border-radius: 999px;
+      background: transparent;
+      cursor: pointer;
+    }
+    .pen-kind-group,
+    .background-group {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 4px;
+      border: 1px solid rgba(132, 96, 40, .14);
+      border-radius: 8px;
+      background: rgba(255, 253, 247, .62);
+    }
+    .mini-tool {
+      min-width: 42px;
+      height: 30px;
+      border: 1px solid transparent;
+      border-radius: 7px;
+      background: transparent;
+      color: #4d3a22;
+      font-size: 12px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+    .mini-tool.active {
+      border-color: rgba(184, 132, 50, .42);
+      background: #d9ad5f;
+      color: #fff;
+    }
+    .background-group span {
+      color: #7b6e60;
+      font-size: 12px;
+      font-weight: 900;
+    }
+    @media (max-width: 700px) {
+      .mayuan-card-head {
+        grid-template-columns: 1fr;
+      }
+      .mayuan-card h2 {
+        font-size: 18px;
+      }
+      .mayuan-answer p,
+      .mayuan-grip p {
+        font-size: 16px;
+      }
+    }
+
     /* Champagne Study theme */
     :root {
       --ink: #2a2118;
@@ -967,7 +1109,7 @@
     <aside class="sidebar">
       <div class="brand">
         <h1>Study</h1>
-        <p>英语阅读听力 + 财务管理重点，左右翻页复习。</p>
+        <p>英语、财务管理、马克思主义期末复习。</p>
       </div>
       <nav><div class="subject-divider">英语复习</div><button class="unit-tab active" data-go="0"><span>阅读</span><strong>Unit 2 Reading Comprehension</strong></button>
 <button class="unit-tab" data-go="1"><span>阅读</span><strong>UNIT 3 Reading Comprehension</strong></button>
@@ -997,7 +1139,19 @@
 <button class="unit-tab" data-go="23"><span>真题 4</span><strong>每股收益无差别点</strong></button>
 <button class="unit-tab" data-go="24"><span>真题 5</span><strong>项目投资现金流量与净现值</strong></button>
 <button class="unit-tab" data-go="25"><span>真题 6</span><strong>静态回收期与动态回收期</strong></button>
-<button class="unit-tab" data-go="26"><span>真题 7</span><strong>短期资金管理与最佳现金持有量</strong></button></nav>
+<button class="unit-tab" data-go="26"><span>真题 7</span><strong>短期资金管理与最佳现金持有量</strong></button>
+
+<div class="subject-divider">马克思主义重点</div>
+<button class="unit-tab" data-go="27"><span>导论：马克思主义及其当代价值</span><strong>导论：马克思主义及其当代价值</strong></button>
+<button class="unit-tab" data-go="28"><span>第一章：世界的物质性及发展规律</span><strong>第一单元：世界的物质性及发展规律</strong></button>
+<button class="unit-tab" data-go="29"><span>第二章：实践、认识、真理与价值</span><strong>第二单元：实践、认识、真理与价值</strong></button>
+<button class="unit-tab" data-go="30"><span>第三章：人类社会及其发展规律</span><strong>第三单元：人类社会及其发展规律</strong></button>
+<button class="unit-tab" data-go="31"><span>第四章：资本主义的本质及规律</span><strong>第四单元：资本主义的本质及规律</strong></button>
+<button class="unit-tab" data-go="32"><span>第五章：资本主义的发展及其趋势</span><strong>第五单元：资本主义的发展及其趋势</strong></button>
+<button class="unit-tab" data-go="33"><span>第六章：社会主义的发展及其规律</span><strong>第六单元：社会主义的发展及其规律</strong></button>
+<button class="unit-tab" data-go="34"><span>第七章：共产主义崇高理想及其最终实现</span><strong>第七单元：共产主义崇高理想及其最终实现</strong></button>
+<button class="unit-tab" data-go="35"><span>最后速记：答题模板</span><strong>最后速记：答题模板</strong></button>
+<button class="unit-tab" data-go="36"><span>高频关键词速背</span><strong>高频关键词速背</strong></button></nav>
     </aside>
     <main class="stage">
 
@@ -2733,6 +2887,400 @@
 </div>
 </div>
 </section>
+<section class="unit-page finance-page mayuan-page" data-page="27">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>导论：马克思主义及其当代价值</h1>
+<p class="finance-source">对应教材：导论</p>
+<div class="mayuan-note"><p>根据两张手写重点图整理，结合《马克思主义基本原理（2023年版，高等教育出版社）》章节体系</p><p>使用方法：先背每个小点的“背诵抓手”，再用“对应答案”扩成简答题。若老师课堂页码或措辞与本文不同，考试优先按老师课堂要求。</p></div>
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 1</span><h2>什么是马克思主义？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>马克思主义是由马克思、恩格斯创立，并由后继者不断发展的科学理论体系。它以无产阶级和全人类解放为根本价值追求，以揭示自然、社会和人类思维发展规律为基本任务，主要由马克思主义哲学、马克思主义政治经济学和科学社会主义三大组成部分构成。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>创立者、发展性、三大组成部分、根本目标。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 2</span><h2>马克思主义产生的历史条件有哪些？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>社会根源是资本主义生产方式的发展及其基本矛盾的暴露；阶级基础是无产阶级作为独立政治力量登上历史舞台；思想来源主要包括德国古典哲学、英国古典政治经济学、英法空想社会主义；自然科学基础包括细胞学说、能量守恒和转化定律、生物进化论等近代科学成果。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>社会根源、阶级基础、思想来源、科学基础四个角度。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 3</span><h2>为什么说马克思主义是科学的理论？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>马克思主义坚持辩证唯物主义和历史唯物主义，科学揭示了自然界、人类社会和思维发展的普遍规律，特别是揭示了资本主义社会运行规律和社会主义代替资本主义的历史趋势。它不是封闭教条，而是在实践中不断接受检验并不断发展的理论。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>科学世界观方法论、揭示规律、实践检验、开放发展。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 4</span><h2>马克思主义的鲜明特征是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>马克思主义具有科学性、人民性、实践性和发展开放性。科学性体现为以事实和规律为依据；人民性体现为以人民解放和人的自由全面发展为价值立场；实践性体现为从实践中来并指导实践；发展开放性体现为随时代、实践和科学发展不断丰富。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>科学性、人民性、实践性、发展开放性。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 5</span><h2>马克思主义为什么“行”？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>马克思主义之所以行，在于它把科学性和革命性统一起来，把认识世界和改造世界统一起来，把理论逻辑和实践逻辑统一起来。它既能解释社会历史发展规律，又能指导无产阶级和人民群众改造现实，并能在中国实践中不断实现中国化时代化发展。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>科学性革命性统一、解释世界、改造世界、中国化时代化。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="28">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第一单元：世界的物质性及发展规律</h1>
+<p class="finance-source">对应教材：第一章 世界的物质性及发展规律</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 6</span><h2>哲学基本问题是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>哲学基本问题是思维和存在、意识和物质的关系问题。它包括两个方面：第一，思维和存在何者为第一性，即物质和意识谁决定谁；第二，思维能否正确认识存在，即世界是否可知。对第一方面的不同回答区分唯物主义和唯心主义，对第二方面的不同回答区分可知论和不可知论。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>两方面、两组划分。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 7</span><h2>马克思主义物质观的核心是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>物质是不依赖于人的意识并能为人的意识所反映的客观实在。客观实在性是物质的唯一特性。马克思主义物质观坚持了唯物主义一元论，克服了旧唯物主义把物质等同于具体物质形态的局限。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>不依赖意识、能被反映、客观实在性。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 8</span><h2>如何理解世界统一于物质？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>世界的真正统一性在于它的物质性。自然界是物质的，人类社会也是物质世界长期发展的产物，人的意识是高度发展的物质即人脑的机能和客观世界的主观映象。社会生活在本质上是实践的，因此物质世界的统一性是在实践基础上得到理解和证明的。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>自然界、人类社会、意识、实践基础。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 9</span><h2>物质和意识的辩证关系是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>物质决定意识，意识是物质世界长期发展的产物，是客观存在在人脑中的反映；意识对物质具有能动反作用，正确意识能够指导实践、促进事物发展，错误意识会阻碍实践。方法论上要求坚持一切从实际出发，实事求是，同时充分发挥主观能动性。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>物质决定意识、意识反作用、一切从实际出发。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 10</span><h2>如何理解规律客观性与主观能动性的统一？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>规律是不以人的意志为转移的客观联系，人不能创造、消灭或任意改变规律。但人在实践中能够认识规律、把握规律并利用规律改造世界。正确做法是在尊重客观规律的基础上发挥主观能动性。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>尊重规律是前提，发挥能动性是要求。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 11</span><h2>唯物辩证法的总观点是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>唯物辩证法认为世界是普遍联系和永恒发展的。联系具有客观性、普遍性、多样性和条件性；发展是事物由低级到高级、由简单到复杂的前进上升运动，其实质是新事物的产生和旧事物的灭亡。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>联系、发展、新事物代替旧事物。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 12</span><h2>矛盾规律为什么是唯物辩证法的实质和核心？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>矛盾即对立统一，矛盾双方既相互排斥、相互斗争，又相互依存、相互贯通。矛盾是事物发展的源泉和动力。矛盾规律揭示了事物联系和发展的根本内容，是理解其他辩证规律和范畴的关键。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>对立统一、源泉动力、实质核心。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 13</span><h2>矛盾普遍性和特殊性的关系及方法论是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>矛盾普遍性说明矛盾存在于一切事物及其发展过程始终；矛盾特殊性说明不同事物、同一事物不同阶段和矛盾双方各有特点。二者相互联结，普遍性寓于特殊性之中，并通过特殊性表现出来。方法论上要坚持具体问题具体分析，并把一般原理同具体实际结合起来。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>普遍存在、各有特点、具体问题具体分析。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 14</span><h2>主要矛盾和矛盾主要方面的区别是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>主要矛盾是在复杂矛盾体系中处于支配地位、对事物发展起决定作用的矛盾；矛盾主要方面是在同一矛盾中处于支配地位、决定事物性质的方面。方法论上既要抓重点、抓关键，又要坚持两点论和重点论统一。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>主要矛盾决定发展重点，主要方面决定性质。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 15</span><h2>质量互变规律的内容是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>量变是事物数量增减和场所变更，是相对不显著的变化；质变是事物根本性质的变化。量变是质变的必要准备，质变是量变的必然结果，质变又为新的量变开辟道路。方法论上要重视量的积累，把握适度原则，促成有利质变。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>量变准备、质变结果、适度和积累。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 16</span><h2>否定之否定规律的内容是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>辩证否定是事物自身的否定，是发展的环节和联系的环节，其实质是扬弃。事物发展经历肯定、否定、否定之否定，呈现前进性和曲折性的统一。方法论上要既看到发展前途光明，又看到道路曲折。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>自我否定、扬弃、前进性和曲折性。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="29">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第二单元：实践、认识、真理与价值</h1>
+<p class="finance-source">对应教材：第二章 实践与认识及其发展规律</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 17</span><h2>实践的含义和基本形式是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>实践是人类能动地改造世界的社会性的物质活动。它具有直接现实性、自觉能动性和社会历史性。基本形式包括物质生产实践、社会政治实践和科学文化实践，其中物质生产实践是最基本的实践形式。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>改造世界、社会性物质活动、三种形式。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 18</span><h2>实践在认识中的决定作用表现在哪里？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>实践是认识的来源，认识产生于实践需要；实践是认识发展的动力，实践不断提出新问题、提供新工具；实践是检验认识真理性的唯一标准；实践是认识的目的，认识最终要回到实践并指导实践。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>来源、动力、标准、目的。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 19</span><h2>认识的本质是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>认识是在实践基础上主体对客体的能动反映。它不是消极照镜子式反映，而是在实践中经过选择、加工、抽象和概括形成的能动反映；同时它又以客观对象为基础，不能脱离客观实际任意构造。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>实践基础、主体对客体、能动反映。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 20</span><h2>认识运动的两次飞跃是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>第一次飞跃是从感性认识到理性认识，即从感觉、知觉、表象上升到概念、判断、推理；第二次飞跃是从理性认识到实践，用理论指导实践并在实践中接受检验和发展。第二次飞跃更为重要，因为认识的目的在于实践。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>感性到理性，理性到实践。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 21</span><h2>感性认识和理性认识的关系是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>感性认识是认识的初级阶段，具有直接性和具体性；理性认识是认识的高级阶段，具有抽象性和间接性。感性认识有待于发展为理性认识，理性认识依赖于感性认识，二者在实践基础上统一。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>初级高级、相互依赖、实践统一。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 22</span><h2>真理的客观性、绝对性和相对性如何理解？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>真理是标志主观同客观相符合的哲学范畴，客观性是真理的根本属性。绝对性指任何真理都包含不依赖人的客观内容，并且人类认识能够不断接近无限发展的客观世界；相对性指具体真理受历史条件和认识条件限制。绝对真理和相对真理相互包含、相互转化。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>客观性根本属性，绝对与相对统一。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 23</span><h2>为什么实践是检验真理的唯一标准？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>真理性问题是主观认识是否符合客观实际的问题。只有实践具有直接现实性，能够把主观认识同客观结果联系起来，通过实践结果证明认识是否正确。因此实践是检验真理的唯一标准，但这个标准既是确定的，又会随实践发展不断深化。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>直接现实性、主观见之于客观、唯一标准。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 24</span><h2>真理和价值的关系是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>真理原则强调认识和实践必须符合客观规律，价值原则强调实践必须符合主体需要和人民利益。成功实践是真理尺度和价值尺度的统一：既要按客观规律办事，又要服务于人民利益和社会进步。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>合规律性与合目的性统一。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="30">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第三单元：人类社会及其发展规律</h1>
+<p class="finance-source">对应教材：第三章 人类社会及其发展规律</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 25</span><h2>社会存在和社会意识的辩证关系是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>社会存在决定社会意识，社会意识是社会存在的反映；社会意识又具有相对独立性，能够反作用于社会存在。先进社会意识促进社会发展，落后社会意识阻碍社会发展。方法论上要从社会现实出发，同时重视先进思想理论的引领作用。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>存在决定意识，意识相对独立并反作用。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 26</span><h2>生产力和生产关系的矛盾运动是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>生产力决定生产关系，生产关系对生产力具有反作用。当生产关系适合生产力状况时，就促进生产力发展；当生产关系不适合生产力状况时，就阻碍生产力发展。生产关系一定要适合生产力状况，这是社会发展的基本规律之一。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>生产力决定，生产关系反作用，适合规律。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 27</span><h2>经济基础和上层建筑的矛盾运动是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>经济基础决定上层建筑，上层建筑对经济基础具有反作用。上层建筑为适合经济基础服务时，会维护和促进经济基础发展；不适合时则会阻碍发展。上层建筑一定要适合经济基础状况，这是社会发展的又一基本规律。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>经济基础决定，上层建筑反作用，适合规律。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 28</span><h2>社会基本矛盾是什么？为什么是社会发展的根本动力？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>社会基本矛盾是生产力和生产关系、经济基础和上层建筑之间的矛盾。它们贯穿社会发展全过程，规定社会发展的基本性质和趋势，并通过阶级斗争、社会革命、改革等具体形式推动社会形态更替和社会进步。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>两对矛盾、贯穿全过程、根本动力。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 29</span><h2>阶级斗争、社会革命和改革在社会发展中的作用是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>在阶级社会中，阶级斗争是阶级社会发展的直接动力；社会革命是阶级斗争的最高形式，是推动社会形态更替的重要手段；改革是在不根本改变社会制度性质的前提下调整生产关系和上层建筑中不适应生产力发展的环节，是社会主义社会发展的重要动力。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>阶级斗争直接动力，革命更替制度，改革调整体制。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 30</span><h2>科学技术在社会发展中的作用是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>科学技术是先进生产力的重要标志，是推动生产方式、生活方式和思维方式变革的重要力量。它能够促进生产力发展和社会进步，但科学技术作用的发挥受社会制度、价值导向和使用方式制约。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>第一生产力意义，双重影响，受社会条件制约。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 31</span><h2>为什么说人民群众是历史的创造者？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>人民群众是社会物质财富的创造者，是社会精神财富的创造者，是社会变革的决定力量。历史发展不是少数英雄任意创造的，而是在人民群众实践活动中实现的。方法论上要坚持群众观点和群众路线。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>物质财富、精神财富、社会变革、群众路线。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 32</span><h2>人的本质和人的自由全面发展如何理解？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>人的本质不是单个人所固有的抽象物，在其现实性上是一切社会关系的总和。人的发展受社会关系和社会条件制约。共产主义追求人的自由全面发展，即人的能力、个性和社会关系在摆脱异化和压迫的条件下得到充分发展。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>社会关系总和、社会条件、自由全面发展。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="31">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第四单元：资本主义的本质及规律</h1>
+<p class="finance-source">对应教材：第四章 资本主义的本质及规律</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 33</span><h2>商品经济产生的条件是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>商品经济产生需要两个基本条件：一是社会分工，使不同生产者生产不同产品并发生交换需要；二是生产资料和劳动产品属于不同所有者，使交换必须采取商品交换形式。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>社会分工、不同所有者。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 34</span><h2>商品二因素和劳动二重性是什么关系？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>商品具有使用价值和价值二因素。使用价值是商品能满足人们某种需要的属性，价值是凝结在商品中的无差别的人类劳动。生产商品的劳动具有具体劳动和抽象劳动二重性：具体劳动创造使用价值，抽象劳动形成价值。劳动二重性决定商品二因素。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>具体劳动-使用价值，抽象劳动-价值。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 35</span><h2>商品价值量由什么决定？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>商品价值量不是由个别劳动时间决定，而是由生产该商品的社会必要劳动时间决定。社会劳动生产率提高，单位商品价值量降低；社会劳动生产率降低，单位商品价值量提高。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>社会必要劳动时间、劳动生产率反比。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 36</span><h2>价值规律的内容、表现形式和作用是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>价值规律的基本内容是商品价值量由社会必要劳动时间决定，商品交换以价值量为基础实行等价交换。表现形式是价格围绕价值上下波动。作用包括自发调节资源配置、刺激商品生产者改进技术和管理、促使商品生产者优胜劣汰并发生分化。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>内容、价格表现、三方面作用。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 37</span><h2>私有制商品经济的基本矛盾是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>私人劳动和社会劳动的矛盾是私有制商品经济的基本矛盾。商品生产者的劳动首先表现为私人劳动，但产品只有通过交换被社会承认，私人劳动才能转化为社会劳动。这个矛盾是商品经济内在矛盾的根源。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>私人劳动、社会劳动、交换实现。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 38</span><h2>劳动力成为商品的条件和特点是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>劳动力成为商品需要两个条件：劳动者有人身自由，能够出卖劳动力；劳动者丧失生产资料，不得不出卖劳动力。劳动力商品的价值由维持劳动者及其家庭生活、教育训练所必需的生活资料价值决定；其特殊使用价值在于能够创造出大于自身价值的价值。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>自由劳动者、无生产资料、能创造剩余价值。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 39</span><h2>剩余价值是怎样产生的？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>剩余价值不是在流通中产生的，而是在资本主义生产过程中由雇佣工人的剩余劳动创造的。资本家购买劳动力，工人在必要劳动时间创造劳动力价值，在剩余劳动时间创造被资本家无偿占有的剩余价值。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>生产过程、剩余劳动、无偿占有。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 40</span><h2>不变资本和可变资本的区分有什么意义？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>不变资本是用于购买生产资料的资本，在生产过程中只转移原有价值，不发生价值增殖；可变资本是用于购买劳动力的资本，在生产过程中能够创造新价值和剩余价值。区分二者揭示了剩余价值的真正来源是雇佣劳动。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>生产资料不增殖，劳动力创造剩余价值。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 41</span><h2>绝对剩余价值和相对剩余价值有什么区别？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>绝对剩余价值是通过延长工作日或提高劳动强度，在必要劳动时间不变的情况下增加剩余劳动时间获得的；相对剩余价值是在工作日长度不变的情况下，通过提高劳动生产率缩短必要劳动时间、相对延长剩余劳动时间获得的。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>延长工作日 vs 缩短必要劳动时间。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 42</span><h2>资本积累及其后果是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>资本积累是剩余价值资本化，即把剩余价值的一部分转化为资本继续投入生产。资本积累推动生产规模扩大和生产力发展，同时导致资本有机构成提高、相对过剩人口形成和贫富分化加剧，体现资本主义基本矛盾的发展。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>剩余价值资本化、有机构成、相对过剩人口。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 43</span><h2>资本主义经济危机的根源是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>资本主义经济危机的实质是生产相对过剩，根源在于资本主义基本矛盾，即生产社会化和资本主义私人占有之间的矛盾。个别企业生产有组织性和整个社会生产无政府状态之间的矛盾、生产无限扩大趋势和劳动人民有支付能力需求相对缩小之间的矛盾，是其具体表现。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>相对过剩、基本矛盾、两种具体表现。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="32">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第五单元：资本主义的发展及其趋势</h1>
+<p class="finance-source">对应教材：第五章 资本主义的发展及其趋势</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 44</span><h2>垄断是怎样形成的？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>自由竞争引起生产集中和资本集中，生产和资本集中发展到一定阶段必然产生垄断。垄断组织通过控制生产、市场和价格获取垄断利润，但垄断并不消除竞争，而是使竞争在新的形式和更高层次上展开。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>竞争-集中-垄断，垄断不消除竞争。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 45</span><h2>金融资本和金融寡头是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>金融资本是工业垄断资本和银行垄断资本融合形成的资本形式。掌握金融资本并控制国民经济命脉的少数垄断资本家或集团称为金融寡头。金融寡头通过参与制、个人联合等方式实现经济和政治控制。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>工业资本+银行资本，金融寡头控制。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 46</span><h2>国家垄断资本主义的本质是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>国家垄断资本主义是国家政权和私人垄断资本相结合的垄断资本主义。它在一定程度上缓和资本主义矛盾、促进经济运行，但没有改变资本主义私有制和雇佣劳动制度，没有消除资本主义基本矛盾。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>国家+垄断资本，缓和但不根除矛盾。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 47</span><h2>如何认识经济全球化？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>经济全球化是生产、贸易、金融、投资等经济活动跨国扩展和相互依赖增强的过程。它促进资源配置和生产力发展，也加剧国际竞争和发展不平衡。经济全球化由资本主义主导时，往往体现不平等的国际经济秩序。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>跨国扩展、双重影响、发展不平衡。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 48</span><h2>当代资本主义新变化是否改变其本质？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>当代资本主义在生产资料所有制形式、劳资关系、分配制度、社会福利、国家调节和国际关系等方面出现新变化，但这些变化是在资本主义制度框架内的调整，没有改变资本主义私有制、雇佣劳动和资本追逐剩余价值的本质。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>有新变化，本质未变。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 49</span><h2>为什么资本主义必然为社会主义所代替？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>资本主义创造了巨大的社会化生产力，也造成生产社会化和资本主义私人占有之间不可克服的矛盾。随着资本主义基本矛盾发展，资本主义制度的历史局限性不断暴露。社会主义代替资本主义是社会基本矛盾运动和人类社会发展规律作用的结果，但这一过程具有长期性和曲折性。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>历史进步性、基本矛盾、必然趋势、长期曲折。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="33">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第六单元：社会主义的发展及其规律</h1>
+<p class="finance-source">对应教材：第六章 社会主义的发展及其规律</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 50</span><h2>社会主义如何从空想到科学？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>空想社会主义揭露资本主义弊端并设想未来理想社会，但没有找到实现社会变革的现实力量和科学道路。马克思、恩格斯创立唯物史观和剩余价值学说，揭示资本主义灭亡和社会主义胜利的历史规律，使社会主义从空想变为科学。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>空想局限，唯物史观和剩余价值学说使其科学化。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 51</span><h2>科学社会主义基本原则有哪些？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>科学社会主义坚持无产阶级政党领导，坚持建立无产阶级政权，坚持生产资料公有制和共同富裕方向，坚持人民群众主体地位，坚持人的自由全面发展目标。具体制度形式要同各国实际和时代条件相结合。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>党的领导、人民主体、公有制、共同富裕、人的发展。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 52</span><h2>社会主义建设为什么具有长期性和曲折性？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>社会主义是对资本主义的历史超越，但它不是在成熟条件下一次完成的。生产力发展水平、旧社会残余影响、国际环境压力以及制度探索复杂性，决定了社会主义建设必须在实践中不断探索、改革和完善，过程具有长期性、复杂性和曲折性。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>条件不充分、旧因素影响、实践探索、长期曲折。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 53</span><h2>如何认识中国特色社会主义与科学社会主义的关系？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>中国特色社会主义坚持科学社会主义基本原则，又根据中国具体实际和时代特征加以创造性发展。它不是背离科学社会主义，而是科学社会主义在当代中国的实践形态和创新发展。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>坚持基本原则，结合中国实际，创新发展。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="34">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>第七单元：共产主义崇高理想及其最终实现</h1>
+<p class="finance-source">对应教材：第七章 共产主义崇高理想及其最终实现</p>
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 54</span><h2>共产主义社会的基本特征是什么？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>共产主义社会是物质财富极大丰富、人民精神境界极大提高、每个人自由而全面发展的社会。其基本特征包括社会生产力高度发展，生产资料公有制充分实现，阶级差别和国家逐步消亡，劳动成为生活第一需要，分配原则由按劳分配发展到按需分配。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>物质丰富、精神提高、自由全面发展、按需分配。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 55</span><h2>为什么共产主义实现具有必然性？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>共产主义实现的必然性来自人类社会基本矛盾运动，特别是资本主义基本矛盾的发展及社会主义制度的成长。社会化大生产的发展要求更高形式的社会占有和社会管理，人的自由全面发展也要求超越私有制和阶级压迫。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>社会基本矛盾、社会化生产、人的发展。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 56</span><h2>为什么共产主义实现又具有长期性？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>共产主义不是短期内自然到来的结果，而需要高度发展的生产力、成熟的社会关系、先进的精神文明和长期的社会主义实践积累。世界范围内制度更替和社会改造具有复杂性，因此实现共产主义是一个长期历史过程。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>条件要求高、实践积累长、世界过程复杂。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 57</span><h2>远大理想和共同理想是什么关系？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>共产主义远大理想是马克思主义追求的最高社会理想，中国特色社会主义共同理想是在现阶段实现中华民族伟大复兴的现实目标。二者相互联系：远大理想指明方向，共同理想是通向远大理想的现实步骤。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>远大理想定方向，共同理想管当下。</p></div>
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 58</span><h2>如何理解“两个必然”和“两个决不会”？</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>“两个必然”指出资本主义必然灭亡、社会主义必然胜利，揭示历史发展总趋势；“两个决不会”强调无论哪一个社会形态，在它所能容纳的生产力全部发挥出来以前决不会灭亡，新的更高生产关系在其物质存在条件成熟以前决不会出现。二者统一说明历史趋势必然，但实现过程受条件制约、长期曲折。</p></div>
+<div class="mayuan-grip"><strong>背诵抓手</strong><p>趋势必然 + 条件制约。</p></div>
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="35">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>最后速记：答题模板</h1>
+
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 1</span><h2>关系类答题：先写二者含义，再写决定作用和反作用，最后写方法论。例：物质与意识、社会存在与社会意识、生产力与生产关系。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>关系类答题：先写二者含义，再写决定作用和反作用，最后写方法论。例：物质与意识、社会存在与社会意识、生产力与生产关系。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 2</span><h2>规律类答题：先写规律内容，再写关键词，最后写方法论。例：质量互变、否定之否定、价值规律。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>规律类答题：先写规律内容，再写关键词，最后写方法论。例：质量互变、否定之否定、价值规律。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 3</span><h2>原因类答题：从历史条件、内在矛盾、实践作用、现实意义四个角度组织。例：马克思主义为什么行、资本主义为什么必然被代替。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>原因类答题：从历史条件、内在矛盾、实践作用、现实意义四个角度组织。例：马克思主义为什么行、资本主义为什么必然被代替。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 4</span><h2>区别类答题：先分别定义，再比较作用或地位，最后写联系。例：主要矛盾与矛盾主要方面、绝对剩余价值与相对剩余价值。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>区别类答题：先分别定义，再比较作用或地位，最后写联系。例：主要矛盾与矛盾主要方面、绝对剩余价值与相对剩余价值。</p></div>
+
+</article>
+</div>
+</div>
+</section>
+<section class="unit-page finance-page mayuan-page" data-page="36">
+<div class="page-scroll finance-scroll mayuan-scroll">
+<div class="unit-kicker">马克思主义基本原理</div>
+<h1>高频关键词速背</h1>
+
+
+<div class="mayuan-list">
+<article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 1</span><h2>物质：客观实在性。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>物质：客观实在性。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 2</span><h2>意识：客观存在的主观映象。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>意识：客观存在的主观映象。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 3</span><h2>实践：社会性的物质活动。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>实践：社会性的物质活动。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 4</span><h2>真理：主观与客观相符合。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>真理：主观与客观相符合。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 5</span><h2>价值规律：价值决定与等价交换，价格围绕价值波动。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>价值规律：价值决定与等价交换，价格围绕价值波动。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 6</span><h2>剩余价值：雇佣工人剩余劳动创造并被资本家无偿占有。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>剩余价值：雇佣工人剩余劳动创造并被资本家无偿占有。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 7</span><h2>社会基本矛盾：生产力与生产关系、经济基础与上层建筑。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>社会基本矛盾：生产力与生产关系、经济基础与上层建筑。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 8</span><h2>人民群众：历史创造者。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>人民群众：历史创造者。</p></div>
+
+</article><article class="mayuan-card">
+<div class="mayuan-card-head"><span class="mayuan-badge">考点 9</span><h2>共产主义：人的自由全面发展。</h2></div>
+<div class="mayuan-answer"><strong>对应答案</strong><p>共产主义：人的自由全面发展。</p></div>
+
+</article>
+</div>
+</div>
+</section>
         </div>
       </div>
       <button class="turn next" id="next" aria-label="下一页">›</button>
@@ -2767,7 +3315,7 @@
       const brandTitle = document.querySelector('.brand h1');
       const brandSub = document.querySelector('.brand p');
       if (brandTitle) brandTitle.textContent = localStorage.getItem(key('brandTitle')) || 'Study';
-      if (brandSub) brandSub.textContent = localStorage.getItem(key('brandSub')) || '英语阅读听力 + 财务管理重点，左右翻页复习。';
+      if (brandSub) brandSub.textContent = localStorage.getItem(key('brandSub')) || '英语、财务管理、马克思主义期末复习。';
       document.title = brandTitle?.textContent || 'Study';
       [brandTitle, brandSub].forEach((el, idx) => {
         if (!el) return;
@@ -2983,6 +3531,7 @@
       let currentPage = 0;
       let tool = 'none';
       let color = localStorage.getItem(key('inkColor')) || '#7f4a16';
+      let penStyle = localStorage.getItem(key('penStyle')) || 'pencil';
       let size = Number(localStorage.getItem(key('inkSize')) || 5);
       let drawing = false;
       let activeStroke = null;
@@ -3008,11 +3557,22 @@
             <button class="tool-btn" id="clearInk" type="button">清空</button>
           </div>
           <div class="tool-options" aria-label="笔迹选项">
+            <div class="pen-kind-group" aria-label="笔类型">
+              <button class="mini-tool active" data-pen-style="pencil" type="button">铅笔</button>
+              <button class="mini-tool" data-pen-style="pen" type="button">钢笔</button>
+              <button class="mini-tool" data-pen-style="ballpoint" type="button">圆珠</button>
+            </div>
+            <input class="color-wheel" id="inkColorPicker" type="color" value="#7f4a16" aria-label="笔迹颜色" />
             <button class="swatch active" data-color="#7f4a16" style="--swatch:#7f4a16" type="button" aria-label="棕色"></button>
             <button class="swatch" data-color="#d64242" style="--swatch:#d64242" type="button" aria-label="红色"></button>
             <button class="swatch" data-color="#2367d1" style="--swatch:#2367d1" type="button" aria-label="蓝色"></button>
             <button class="swatch" data-color="#f4cf3a" style="--swatch:#f4cf3a" type="button" aria-label="黄色"></button>
             <input class="size-range" id="strokeSize" type="range" min="2" max="34" value="5" aria-label="粗细" />
+            <div class="background-group" aria-label="背景颜色">
+              <span>背景</span>
+              <input class="bg-color-wheel" id="bgColorPicker" type="color" value="#f8eed8" aria-label="背景颜色" />
+              <button class="mini-tool" id="resetBgColor" type="button">重置</button>
+            </div>
           </div>`;
       }
 
@@ -3134,9 +3694,10 @@
         if (!stroke.points || stroke.points.length < 2) return;
         ctx.save();
         ctx.globalCompositeOperation = stroke.tool === 'highlight' ? 'multiply' : 'source-over';
-        ctx.globalAlpha = stroke.tool === 'highlight' ? 0.58 : 0.95;
+        const style = stroke.penStyle || 'pencil';
+        ctx.globalAlpha = stroke.tool === 'highlight' ? 0.48 : (style === 'pencil' ? 0.62 : 0.95);
         ctx.strokeStyle = stroke.color;
-        ctx.lineWidth = stroke.size;
+        ctx.lineWidth = style === 'pen' ? stroke.size + 1 : stroke.size;
         ctx.beginPath();
         ctx.moveTo(stroke.points[0].x, stroke.points[0].y);
         stroke.points.slice(1).forEach((point) => ctx.lineTo(point.x, point.y));
@@ -3193,6 +3754,7 @@
         activeStroke = {
           tool,
           color: tool === 'highlight' && color === '#7f4a16' ? '#f4cf3a' : color,
+          penStyle,
           size: tool === 'highlight' ? Math.max(16, pickedSize) : pickedSize,
           points: [point]
         };
@@ -3386,14 +3948,49 @@
         saveStrokes(currentPage, []);
         redrawPage(currentPage);
       });
+      function setInkColor(nextColor) {
+        color = nextColor;
+        localStorage.setItem(key('inkColor'), color);
+        const picker = document.getElementById('inkColorPicker');
+        if (picker) picker.value = color;
+        document.querySelectorAll('[data-color]').forEach((item) => item.classList.toggle('active', item.dataset.color.toLowerCase() === color.toLowerCase()));
+      }
       document.querySelectorAll('[data-color]').forEach((btn) => {
-        btn.classList.toggle('active', btn.dataset.color === color);
+        btn.classList.toggle('active', btn.dataset.color.toLowerCase() === color.toLowerCase());
+        btn.addEventListener('click', () => setInkColor(btn.dataset.color));
+      });
+      const inkColorPicker = document.getElementById('inkColorPicker');
+      if (inkColorPicker) {
+        inkColorPicker.value = color;
+        inkColorPicker.addEventListener('input', (event) => setInkColor(event.target.value));
+      }
+      document.querySelectorAll('[data-pen-style]').forEach((btn) => {
+        btn.classList.toggle('active', btn.dataset.penStyle === penStyle);
         btn.addEventListener('click', () => {
-          color = btn.dataset.color;
-          localStorage.setItem(key('inkColor'), color);
-          document.querySelectorAll('[data-color]').forEach((item) => item.classList.toggle('active', item === btn));
+          penStyle = btn.dataset.penStyle;
+          localStorage.setItem(key('penStyle'), penStyle);
+          document.querySelectorAll('[data-pen-style]').forEach((item) => item.classList.toggle('active', item === btn));
         });
       });
+      function applyBackgroundColor(nextColor) {
+        if (!nextColor) {
+          document.body.style.background = '';
+          localStorage.removeItem(key('bgColor'));
+          const picker = document.getElementById('bgColorPicker');
+          if (picker) picker.value = '#f8eed8';
+          return;
+        }
+        document.body.style.background = nextColor;
+        localStorage.setItem(key('bgColor'), nextColor);
+      }
+      const savedBg = localStorage.getItem(key('bgColor'));
+      if (savedBg) applyBackgroundColor(savedBg);
+      const bgColorPicker = document.getElementById('bgColorPicker');
+      if (bgColorPicker) {
+        bgColorPicker.value = savedBg || '#f8eed8';
+        bgColorPicker.addEventListener('input', (event) => applyBackgroundColor(event.target.value));
+      }
+      document.getElementById('resetBgColor')?.addEventListener('click', () => applyBackgroundColor(''));
       const strokeSize = document.getElementById('strokeSize');
       strokeSize.value = size;
       strokeSize.addEventListener('input', () => {
