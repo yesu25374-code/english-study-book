@@ -1216,15 +1216,15 @@
       border-radius: 8px;
       background: rgba(255, 253, 247, .72);
       padding: 16px;
+      min-height: 86px;
+      color: #2a2118;
+      text-align: center;
+      cursor: pointer;
+      transition: transform .18s ease, box-shadow .18s ease;
     }
     .portal-stat strong {
       display: block;
-      font-size: 22px;
-      margin-bottom: 4px;
-    }
-    .portal-stat span {
-      color: #7b6e60;
-      font-size: 13px;
+      font-size: 26px;
     }
     .home-chip {
       position: fixed;
@@ -1313,7 +1313,7 @@
       gap: 14px;
     }
     .review-subject-card {
-      min-height: 168px;
+      min-height: 112px;
       border: 1px solid rgba(132, 96, 40, .18);
       border-radius: 8px;
       background: linear-gradient(180deg, rgba(255, 253, 247, .92), rgba(249, 235, 205, .86));
@@ -1324,22 +1324,9 @@
       box-shadow: 0 12px 28px rgba(92, 65, 24, .10);
       transition: transform .18s ease, box-shadow .18s ease;
     }
-    .review-subject-card span {
-      display: inline-flex;
-      margin-bottom: 16px;
-      color: #8a251f;
-      font-size: 13px;
-      font-weight: 900;
-    }
     .review-subject-card strong {
       display: block;
-      margin-bottom: 8px;
-      font-size: 24px;
-    }
-    .review-subject-card p {
-      margin: 0;
-      color: #7b6e60;
-      line-height: 1.62;
+      font-size: 26px;
     }
     body.review-focused .nav-group {
       display: none;
@@ -1593,13 +1580,12 @@
         <h1 class="portal-title">STUDY</h1>
       </div>
       <div class="portal-actions">
-        <button class="portal-btn primary" id="openReview" type="button">复习</button>
         <button class="portal-btn" id="openMock" type="button">模拟</button>
       </div>
       <div class="portal-stats">
-        <div class="portal-stat"><strong>英语</strong><span>阅读与听力原题整理</span></div>
-        <div class="portal-stat"><strong>财务</strong><span>重点与真题文本版</span></div>
-        <div class="portal-stat"><strong>马原</strong><span>手写考点与模拟卷</span></div>
+        <button class="portal-stat" data-open-subject="english" type="button"><strong>英语</strong></button>
+        <button class="portal-stat" data-open-subject="finance" type="button"><strong>财管</strong></button>
+        <button class="portal-stat" data-open-subject="mayuan" type="button"><strong>马原</strong></button>
       </div>
     </div>
   </section>
@@ -1617,17 +1603,15 @@
         <div class="review-hero">
           <div class="review-hero-main">
             <h1>选择复习科目</h1>
-            <p class="portal-subtitle">英语、财管和马原分开进入。进去以后左侧只保留对应目录，翻页也停在当前学科里。</p>
           </div>
           <div class="review-hero-side">
             <strong>3 个板块</strong>
-            <p class="portal-subtitle">重点、真题、批注工具继续保留，整体还是原来的香槟金色调。</p>
           </div>
         </div>
         <div class="review-subject-grid">
-          <button class="review-subject-card" data-open-subject="english" type="button"><span>Reading / Listening</span><strong>英语</strong><p>阅读和听力原题整理，适合直接背题背答案。</p></button>
-          <button class="review-subject-card" data-open-subject="finance" type="button"><span>Key Points / 真题</span><strong>财管</strong><p>36 个重点问答和 7 道真题文本版，按复习顺序整理。</p></button>
-          <button class="review-subject-card" data-open-subject="mayuan" type="button"><span>Handwritten Points</span><strong>马原</strong><p>按学校手写考点重排的 27 条重点内容。</p></button>
+          <button class="review-subject-card" data-open-subject="english" type="button"><strong>英语</strong></button>
+          <button class="review-subject-card" data-open-subject="finance" type="button"><strong>财管</strong></button>
+          <button class="review-subject-card" data-open-subject="mayuan" type="button"><strong>马原</strong></button>
         </div>
       </div>
     </div>
@@ -1643,14 +1627,12 @@
     <div class="mock-body">
       <div class="mock-view active" id="mockSubjects">
         <h1>模拟卷</h1>
-        <p class="portal-subtitle">现在先放马克思主义基本原理。客观题自动判分；手写的简答、论述和材料分析，静态网页不能可靠识别批改，交卷后会显示参考答案和评分点给你自评。</p>
         <div class="mock-subject-grid">
-          <button class="mock-subject-card" id="openMayuanMock" type="button"><strong>马克思主义基本原理</strong><span>两套 100 分模拟卷，含论述题和材料分析题。</span></button>
+          <button class="mock-subject-card" id="openMayuanMock" type="button"><strong>马克思主义基本原理</strong></button>
         </div>
       </div>
       <div class="mock-view" id="mockPapers">
         <h1>马克思主义基本原理</h1>
-        <p class="portal-subtitle">选择一套试卷开始。作答区可以用工具栏的笔在 iPad 上书写。</p>
         <div class="mock-paper-grid" id="mockPaperGrid"></div>
       </div>
       <div class="mock-view" id="mockExam">
@@ -5027,7 +5009,6 @@
         if (canvas) canvas.classList.toggle('enabled', examTool !== 'select');
       }
 
-      document.getElementById('openReview')?.addEventListener('click', showReviewHub);
       document.getElementById('openMock')?.addEventListener('click', () => showMock('subjects'));
       document.getElementById('homeChip')?.addEventListener('click', showPortal);
       document.getElementById('subjectChip')?.addEventListener('click', showReviewHub);
