@@ -4359,6 +4359,8 @@
       let examTool = 'select';
       let examDrawing = false;
       let examStroke = null;
+      let examResizeObserver = null;
+      let examResizeHandler = null;
 
       const optionLabels = ['A', 'B', 'C', 'D'];
       const papers = [
@@ -4615,8 +4617,8 @@
         }).join('');
         document.getElementById('mockExamMount').innerHTML = `<article class="exam-paper" id="examPaper"><h1>${activePaper.title}</h1><p class="exam-meta">${activePaper.subtitle}</p><div class="exam-info-row"><span>姓名：</span><span>班级：</span><span>得分：</span></div>${sectionsHtml}<canvas class="exam-canvas" id="examCanvas"></canvas></article><section class="answer-sheet" id="answerSheet" aria-live="polite"></section>`;
         bindExamOptions();
-        setupExamCanvas();
         showMock('exam');
+        requestAnimationFrame(setupExamCanvas);
       }
 
       function bindExamOptions() {
@@ -4700,19 +4702,29 @@
         const paper = document.getElementById('examPaper');
         const canvas = document.getElementById('examCanvas');
         if (!paper || !canvas) return;
+        if (examResizeObserver) examResizeObserver.disconnect();
+        if (examResizeHandler) window.removeEventListener('resize', examResizeHandler);
         const resize = () => {
           const ratio = window.devicePixelRatio || 1;
-          canvas.style.width = `${paper.scrollWidth}px`;
-          canvas.style.height = `${paper.scrollHeight}px`;
-          canvas.width = Math.max(1, Math.round(paper.scrollWidth * ratio));
-          canvas.height = Math.max(1, Math.round(paper.scrollHeight * ratio));
+          const rect = paper.getBoundingClientRect();
+          const width = Math.max(1, Math.ceil(rect.width || paper.scrollWidth));
+          const height = Math.max(1, Math.ceil(paper.scrollHeight || rect.height));
+          canvas.style.width = `${width}px`;
+          canvas.style.height = `${height}px`;
+          canvas.width = Math.round(width * ratio);
+          canvas.height = Math.round(height * ratio);
           const ctx = canvas.getContext('2d');
           ctx.setTransform(ratio, 0, 0, ratio, 0, 0);
           ctx.lineCap = 'round';
           ctx.lineJoin = 'round';
         };
         resize();
-        window.addEventListener('resize', resize);
+        examResizeHandler = resize;
+        window.addEventListener('resize', examResizeHandler);
+        if ('ResizeObserver' in window) {
+          examResizeObserver = new ResizeObserver(resize);
+          examResizeObserver.observe(paper);
+        }
         canvas.addEventListener('pointerdown', startExamDraw);
         canvas.addEventListener('pointermove', moveExamDraw);
         canvas.addEventListener('pointerup', endExamDraw);
