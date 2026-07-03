@@ -1655,10 +1655,11 @@
         <h1>模拟卷</h1>
         <div class="mock-subject-grid">
           <button class="mock-subject-card" id="openMayuanMock" type="button"><strong>马克思主义基本原理</strong></button>
+          <button class="mock-subject-card" id="openFinanceMock" type="button"><strong>财务管理</strong></button>
         </div>
       </div>
       <div class="mock-view" id="mockPapers">
-        <h1>马克思主义基本原理</h1>
+        <h1 id="mockPaperTitle">马克思主义基本原理</h1>
         <div class="mock-paper-grid" id="mockPaperGrid"></div>
       </div>
       <div class="mock-view" id="mockExam">
@@ -4528,8 +4529,13 @@
       let examStroke = null;
       let examResizeObserver = null;
       let examResizeHandler = null;
+      let currentMockSubject = 'mayuan';
 
       const optionLabels = ['A', 'B', 'C', 'D'];
+      const mockSubjectLabels = {
+        mayuan: '马克思主义基本原理',
+        finance: '财务管理',
+      };
       const reviewSubjects = {
         english: { start: 0, end: 6, label: '英语复习' },
         finance: { start: 7, end: 26, label: '财管复习' },
@@ -4538,6 +4544,7 @@
       const papers = [
         {
           id: 'mayuan-a',
+          subject: 'mayuan',
           title: '马克思主义基本原理模拟卷（一）',
           subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
           sections: [
@@ -4625,6 +4632,7 @@
         },
         {
           id: 'mayuan-b',
+          subject: 'mayuan',
           title: '马克思主义基本原理模拟卷（二）',
           subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
           sections: [
@@ -4706,6 +4714,80 @@
               material: '材料：某地推进乡村振兴时，没有照搬外地模式，而是根据本地山地多、茶产业基础好、年轻人返乡创业增多等条件，发展生态茶园和电商直播。几年后，农民收入提高，村集体经济壮大，也带动了当地文化旅游。',
               questions: [
                 ['运用矛盾普遍性和特殊性关系原理分析上述材料。', ['矛盾普遍性说明矛盾存在于一切事物及其发展过程，乡村发展也会遇到产业、收入、治理等矛盾。', '矛盾特殊性说明不同地区、不同阶段矛盾各有特点，材料中该地山地、茶产业、返乡青年等条件具有自身特殊性。', '普遍性寓于特殊性之中，并通过特殊性表现出来，乡村振兴的一般要求必须同本地具体实际结合。', '方法论是具体问题具体分析，把一般原理同具体实际结合，反对照搬照抄。']],
+              ],
+            },
+          ],
+        },
+        {
+          id: 'finance-a',
+          subject: 'finance',
+          title: '财务管理模拟卷（一）',
+          subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
+          sections: [
+            {
+              type: 'single',
+              title: '一、单项选择题（本题共 15 小题，每题 2 分，共 30 分）',
+              score: 2,
+              questions: [
+                ['财务管理的核心内容不包括', ['筹资管理', '投资管理', '短期资产管理', '产品包装设计'], 'D'],
+                ['企业财务管理较常用的目标是', ['产量最大化', '企业价值最大化', '成本总额最大化', '库存数量最大化'], 'B'],
+                ['货币时间价值产生的根本原因是', ['资金在周转使用中能够增值', '货币面值会自动变大', '通货膨胀必然存在', '会计分录需要'], 'A'],
+                ['普通年金现值系数通常用于计算', ['每期期末等额收付款的现值', '一次性终值', '债券票面利率', '股票发行费用'], 'A'],
+                ['销售百分比法中通常随销售额同比例变动的是', ['经营性资产', '长期股权投资', '固定股利', '实收资本'], 'A'],
+                ['外部筹资额的基本计算思路是', ['资产增加额减去负债自然增加额和留存收益增加额', '销售收入减销售成本', '净利润减股利', '现金流入减现金流出'], 'A'],
+                ['债务筹资相对于普通股筹资的优点通常是', ['资本成本较低', '没有固定偿还压力', '不会产生财务风险', '必然扩大控制权'], 'A'],
+                ['加权平均资本成本中的“权重”通常是指', ['各类资本占全部资本的比重', '每股收益', '销售增长率', '存货周转次数'], 'A'],
+                ['净现值 NPV 大于 0 通常说明项目', ['可行', '一定亏损', '投资回收期为零', '没有现金流入'], 'A'],
+                ['现值指数 PI 的计算公式是', ['未来现金流入现值/原始投资现值', '利润/销售收入', '负债/资产', '股利/股价'], 'A'],
+                ['每股收益无差别点主要用于比较', ['不同筹资方案对每股收益的影响', '不同存货采购批量', '不同折旧年限', '不同收账政策'], 'A'],
+                ['应收账款机会成本可用什么表示', ['应收账款占用资金的应计利息', '销售收入总额', '固定资产原值', '现金余额'], 'A'],
+                ['静态投资回收期的缺点是', ['没有考虑资金时间价值', '考虑了折现', '只适用于现金管理', '等同于净现值'], 'A'],
+                ['最佳现金持有量模型追求的是', ['相关总成本最低', '现金余额最高', '转换次数最多', '机会成本为零'], 'A'],
+                ['股利分配政策中，能较好保持股利稳定的是', ['固定或稳定增长股利政策', '剩余股利政策', '零股利政策', '完全随机分配政策'], 'A'],
+              ],
+            },
+            {
+              type: 'multi',
+              title: '二、多项选择题（本题共 10 小题，每题 2 分，共 20 分）',
+              score: 2,
+              questions: [
+                ['财务管理的主要内容包括', ['筹资管理', '投资管理', '短期资产管理', '股利分配管理'], ['A', 'B', 'C', 'D']],
+                ['能够协调所有者与债权人利益冲突的方式有', ['限制性借款条款', '债权人提前收回借款', '拒绝继续提供新借款', '所有者随意转移资产'], ['A', 'B', 'C']],
+                ['股权筹资的特点包括', ['财务风险较小', '没有固定还本付息压力', '资本成本通常较高', '可能稀释控制权'], ['A', 'B', 'C', 'D']],
+                ['债务资本成本可能受哪些因素影响', ['借款利率', '所得税税率', '筹资费用率', '债务资本金额'], ['A', 'B', 'C', 'D']],
+                ['项目投资现金流出量通常包括', ['原始投资', '垫支营运资金', '付现成本', '所得税'], ['A', 'B', 'C', 'D']],
+                ['项目投资现金流入量通常包括', ['营业现金流入', '固定资产残值收入', '收回垫支营运资金', '销售商品取得的现金'], ['A', 'B', 'C', 'D']],
+                ['可分散风险通常包括', ['公司经营失误', '产品质量问题', '个别企业诉讼风险', '宏观经济衰退'], ['A', 'B', 'C']],
+                ['影响经营杠杆系数的因素有', ['销售量', '单价', '单位变动成本', '固定成本'], ['A', 'B', 'C', 'D']],
+                ['现金管理的内容包括', ['编制现金预算', '确定最佳现金持有量', '日常收支控制', '闲置现金短期投资'], ['A', 'B', 'C', 'D']],
+                ['商业信用常见形式包括', ['应付账款', '应付票据', '预收账款', '发行普通股'], ['A', 'B', 'C']],
+              ],
+            },
+            {
+              type: 'judge',
+              title: '三、判断题（本题共 10 小题，每题 1 分，共 10 分）',
+              score: 1,
+              questions: [
+                ['企业价值最大化目标通常比单纯利润最大化更考虑风险和时间价值。', '对'],
+                ['现值和终值计算时可以不统一时间点直接相加比较。', '错'],
+                ['销售百分比法中，所有资产项目都一定随销售额同比例变动。', '错'],
+                ['普通股筹资没有固定还本付息压力，但资本成本通常较高。', '对'],
+                ['净现值小于 0 的项目通常不宜接受。', '对'],
+                ['经营杠杆本身不是经营风险的来源，而是放大经营风险。', '对'],
+                ['应收账款机会成本可以用占用资金乘以资本成本率计算。', '对'],
+                ['动态投资回收期考虑了资金时间价值。', '对'],
+                ['最佳现金持有量越大越好。', '错'],
+                ['商誉通常不能作为吸收直接投资的出资方式。', '对'],
+              ],
+            },
+            {
+              type: 'calculation',
+              title: '四、计算题（本题共 4 小题，每题 10 分，共 40 分）',
+              questions: [
+                ['某企业准备购买一台设备，预计每年年末可带来现金净流量 30000 元，连续 5 年，折现率 10%。已知（P/A，10%，5）=3.7908。计算该年金现金流量的现值。', ['现值 P=A×（P/A，i，n）。', '代入：P=30000×3.7908=113724 元。', '结论：该设备未来 5 年现金净流量折现到现在的价值为 113724 元。']],
+                ['某公司预计销售收入由 1000 万元增至 1200 万元。经营性资产占销售收入 40%，经营性负债占销售收入 15%；预计销售净利率 10%，股利支付率 40%。计算需要追加的外部筹资额。', ['销售增加额=1200-1000=200 万元。', '经营性资产增加=200×40%=80 万元；经营性负债增加=200×15%=30 万元。', '留存收益增加=预计销售收入×销售净利率×（1-股利支付率）=1200×10%×60%=72 万元。', '外部筹资额=80-30-72=-22 万元，说明内部留存和自然负债增加已能满足资金需要，并有 22 万元余量。']],
+                ['某公司拟筹资，债务 400 万元，税后资本成本 6%；普通股 600 万元，资本成本 12%。计算加权平均资本成本。', ['资本总额=400+600=1000 万元。', '债务权重=400/1000=40%；普通股权重=600/1000=60%。', 'WACC=40%×6%+60%×12%=2.4%+7.2%=9.6%。', '结论：该筹资方案加权平均资本成本为 9.6%。']],
+                ['某投资项目原始投资 100000 元，第一至第五年每年年末现金净流量分别为 25000 元、30000 元、35000 元、30000 元、20000 元。计算静态投资回收期。', ['累计第 1 年现金流量=25000 元；第 2 年累计=55000 元；第 3 年累计=90000 元。', '第 4 年尚需收回=100000-90000=10000 元。', '第 4 年现金净流量为 30000 元，需用时间=10000/30000=0.33 年。', '静态投资回收期=3+0.33=3.33 年。']],
               ],
             },
           ],
@@ -4817,15 +4899,20 @@
       }
 
       function sectionScore(section) {
+        if (section.type === 'calculation') return section.questions.length * 10;
         if (section.type === 'short') return section.questions.length * 5;
         if (section.type === 'essay') return 10;
         if (section.type === 'material') return 15;
         return section.questions.length * section.score;
       }
 
-      function renderPaperCards() {
+      function renderPaperCards(subject = currentMockSubject) {
+        currentMockSubject = subject;
+        const title = document.getElementById('mockPaperTitle');
+        if (title) title.textContent = mockSubjectLabels[subject] || '模拟卷';
         const grid = document.getElementById('mockPaperGrid');
-        grid.innerHTML = papers.map((paper, index) => {
+        const subjectPapers = papers.filter((paper) => paper.subject === subject);
+        grid.innerHTML = subjectPapers.map((paper, index) => {
           const total = paper.sections.reduce((sum, section) => sum + sectionScore(section), 0);
           return `<button class="mock-paper-card" data-paper="${paper.id}" type="button"><strong>模拟卷 ${index + 1}</strong><span>${paper.title}<br>满分 ${total} 分</span></button>`;
         }).join('');
@@ -4868,7 +4955,7 @@
           let body = '';
           if (section.type === 'single' || section.type === 'multi') body = renderObjective(section, sectionIndex);
           if (section.type === 'judge') body = renderJudge(section, sectionIndex);
-          if (section.type === 'short' || section.type === 'essay' || section.type === 'material') body = renderSubjective(section, sectionIndex);
+          if (section.type === 'short' || section.type === 'essay' || section.type === 'material' || section.type === 'calculation') body = renderSubjective(section, sectionIndex);
           return `<section class="exam-section"><h2>${section.title}</h2>${body}</section>`;
         }).join('');
         document.getElementById('mockExamMount').innerHTML = `<article class="exam-paper" id="examPaper"><h1>${activePaper.title}</h1><p class="exam-meta">${activePaper.subtitle}</p><div class="exam-info-row"><span>姓名：</span><span>班级：</span><span>得分：</span></div>${sectionsHtml}<canvas class="exam-canvas" id="examCanvas"></canvas></article><section class="answer-sheet" id="answerSheet" aria-live="polite"></section>`;
@@ -4943,14 +5030,14 @@
         if (!sheet || !activePaper) return;
         const sections = activePaper.sections.map((section) => {
           const rows = section.questions.map((question, index) => {
-            if (section.type === 'short' || section.type === 'essay' || section.type === 'material') {
+            if (section.type === 'short' || section.type === 'essay' || section.type === 'material' || section.type === 'calculation') {
               return `<li><strong>${index + 1}. ${question[0]}</strong><ul>${answerText(section, question)}</ul></li>`;
             }
             return `<li>${index + 1}. ${answerText(section, question)}</li>`;
           }).join('');
           return `<h3>${section.title}</h3><ol>${rows}</ol>`;
         }).join('');
-        sheet.innerHTML = `<h2>${activePaper.title}｜答案卷</h2><p>客观题自动得分：${score} / ${objectiveTotal} 分。主观题请按答案要点自评：简答每题 5 分，论述题 10 分，材料分析题 15 分。</p>${sections}`;
+        sheet.innerHTML = `<h2>${activePaper.title}｜答案卷</h2><p>客观题自动得分：${score} / ${objectiveTotal} 分。主观题和计算题请按答案要点自评。</p>${sections}`;
         sheet.classList.add('open');
       }
 
@@ -5073,7 +5160,11 @@
         else showPortal();
       });
       document.getElementById('openMayuanMock')?.addEventListener('click', () => {
-        renderPaperCards();
+        renderPaperCards('mayuan');
+        showMock('papers');
+      });
+      document.getElementById('openFinanceMock')?.addEventListener('click', () => {
+        renderPaperCards('finance');
         showMock('papers');
       });
       document.getElementById('submitMock')?.addEventListener('click', submitPaper);
