@@ -4039,7 +4039,6 @@
 
     setupEditableText();
     setupNavGroups();
-    setupCanvases();
     showPage(0);
   </script>
   <script>
@@ -4165,7 +4164,7 @@
         const scroller = pageEls[currentPage]?.querySelector('.page-scroll');
         if (scroller) scroller.scrollTop = 0;
         loadNotes();
-        requestAnimationFrame(resizeAllCanvases);
+        requestAnimationFrame(resizeActiveCanvas);
       }
 
       function strokesFor(index) {
@@ -4194,13 +4193,20 @@
         return canvas;
       }
 
+      function canvasRatioFor(width, height) {
+        const nativeRatio = Math.min(window.devicePixelRatio || 1, 2);
+        const maxPixels = 16000000;
+        const pagePixels = Math.max(1, width * height);
+        return Math.max(0.75, Math.min(nativeRatio, Math.sqrt(maxPixels / pagePixels)));
+      }
+
       function resizeCanvasForPage(unitPage) {
         const scroller = unitPage.querySelector('.page-scroll');
         if (!scroller) return;
         const canvas = makeCanvas(scroller);
-        const ratio = window.devicePixelRatio || 1;
         const width = scroller.clientWidth;
         const height = Math.max(scroller.scrollHeight, scroller.clientHeight);
+        const ratio = canvasRatioFor(width, height);
         canvas.style.width = `${width}px`;
         canvas.style.height = `${height}px`;
         canvas.width = Math.max(1, Math.round(width * ratio));
@@ -4212,8 +4218,17 @@
         redrawPage(Number(unitPage.dataset.page));
       }
 
-      function resizeAllCanvases() {
-        pageEls.forEach(resizeCanvasForPage);
+      function pruneInactiveCanvases() {
+        pageEls.forEach((unitPage, index) => {
+          if (index === currentPage) return;
+          unitPage.querySelector('canvas.draw-layer')?.remove();
+        });
+      }
+
+      function resizeActiveCanvas() {
+        const activePage = pageEls[currentPage];
+        if (activePage) resizeCanvasForPage(activePage);
+        pruneInactiveCanvases();
         updateCanvasToolState();
       }
 
@@ -4544,7 +4559,7 @@
         editColor = btn.dataset.navColor;
         document.querySelectorAll('[data-nav-color]').forEach((item) => item.classList.toggle('active', item === btn));
       }));
-      window.addEventListener('resize', resizeAllCanvases);
+      window.addEventListener('resize', resizeActiveCanvas);
       window.addEventListener('keydown', (event) => {
         if (event.target.matches('input, textarea')) return;
         if (event.key === 'ArrowRight') showPage(currentPage + 1);
@@ -4552,7 +4567,6 @@
         if (event.key === 'Escape') setTool('none');
       });
 
-      resizeAllCanvases();
       showPage(0);
     })();
   </script>
@@ -5097,10 +5111,11 @@
         if (examResizeObserver) examResizeObserver.disconnect();
         if (examResizeHandler) window.removeEventListener('resize', examResizeHandler);
         const resize = () => {
-          const ratio = window.devicePixelRatio || 1;
           const rect = paper.getBoundingClientRect();
           const width = Math.max(1, Math.ceil(rect.width || paper.scrollWidth));
           const height = Math.max(1, Math.ceil(paper.scrollHeight || rect.height));
+          const nativeRatio = Math.min(window.devicePixelRatio || 1, 2);
+          const ratio = Math.max(0.75, Math.min(nativeRatio, Math.sqrt(16000000 / Math.max(1, width * height))));
           canvas.style.width = `${width}px`;
           canvas.style.height = `${height}px`;
           canvas.width = Math.round(width * ratio);
