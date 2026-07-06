@@ -1570,6 +1570,24 @@
     .answer-sheet li + li {
       margin-top: 4px;
     }
+    .mock-record {
+      display: block;
+      margin-top: 8px;
+      color: #8d672f;
+      font-size: 12px;
+      line-height: 1.45;
+    }
+    .exam-record {
+      width: min(920px, 100%);
+      margin: 0 auto 12px;
+      padding: 12px 14px;
+      border: 1px solid rgba(132, 96, 40, .22);
+      border-radius: 8px;
+      background: rgba(255, 250, 240, .86);
+      color: #6c4c22;
+      font-weight: 800;
+      line-height: 1.55;
+    }
     .exam-canvas {
       position: absolute;
       left: 0;
@@ -1678,6 +1696,7 @@
             <button class="mock-btn" data-exam-tool="highlight" type="button">荧光</button>
             <button class="mock-btn" data-exam-tool="eraser" type="button">橡皮</button>
             <button class="mock-btn" id="clearExamInk" type="button">清空笔迹</button>
+            <button class="mock-btn" id="resetMockRecord" type="button">重新练习</button>
           </div>
           <div class="mock-paper-actions">
             <span class="mock-score" id="mockScore">未交卷</span>
@@ -4627,6 +4646,7 @@
       let currentMockSubject = 'mayuan';
 
       const optionLabels = ['A', 'B', 'C', 'D'];
+      const mockKey = (name) => `xiaoxiaoyu-mock-v1:${name}`;
       const mockSubjectLabels = {
         mayuan: '马克思主义基本原理',
         finance: '财务管理',
@@ -4889,6 +4909,80 @@
             },
           ],
         },
+        {
+          id: 'finance-b',
+          subject: 'finance',
+          title: '财务管理模拟卷（二）',
+          subtitle: '闭卷模拟｜满分 100 分｜建议用时 90 分钟',
+          sections: [
+            {
+              type: 'single',
+              title: '一、单项选择题（本题共 15 小题，每题 2 分，共 30 分）',
+              score: 2,
+              questions: [
+                ['在企业财务管理目标中，较能兼顾风险、报酬和长期发展的目标是', ['利润最大化', '企业价值最大化', '产量最大化', '成本最小化'], 'B'],
+                ['下列属于筹资管理内容的是', ['确定资本结构', '确定产品包装', '安排生产班次', '制定广告口号'], 'A'],
+                ['普通年金终值系数适用于计算', ['每期期末等额收付款到期时的终值', '一次性款项的现值', '项目投资的账面残值', '债券票面利率'], 'A'],
+                ['销售百分比法预测资金需要量时，通常会随销售额变动的是', ['经营性资产和经营性负债', '实收资本', '长期专项设备', '固定股利政策'], 'A'],
+                ['外部筹资额大于 0 表示', ['企业还需要从外部筹集资金', '企业一定亏损', '企业不需要经营性资产', '留存收益为零'], 'A'],
+                ['债务资本成本通常低于普通股资本成本的主要原因是', ['利息具有抵税作用且风险补偿较低', '债务没有还本付息压力', '债务不会带来财务风险', '债务必然不需要筹资费用'], 'A'],
+                ['在加权平均资本成本中，个别资本成本乘以的是', ['该类资本占全部资本的比重', '销售净利率', '存货周转率', '应收账款周转天数'], 'A'],
+                ['项目净现值为正，通常说明该项目', ['预期报酬超过必要报酬，可以考虑接受', '不能收回原始投资', '没有资金时间价值', '现金流量一定为负'], 'A'],
+                ['现值指数 PI 大于 1，通常与下列哪项结论一致', ['项目具有财务可行性', '项目净现值小于 0', '项目静态回收期为 0', '项目没有投资风险'], 'A'],
+                ['每股收益无差别点主要用来比较', ['不同筹资方案下 EPS 的变化', '不同采购批量下存货成本', '不同收账政策下坏账率', '不同折旧方法下账面价值'], 'A'],
+                ['经营杠杆系数越大，通常说明', ['销售变动对息税前利润的影响越强', '财务风险一定为零', '固定成本不存在', '销售收入不会变化'], 'A'],
+                ['下列属于应收账款机会成本计算思路的是', ['应收账款占用资金乘以资本成本率', '销售收入乘以所得税率', '固定资产原值减残值', '股利除以股价'], 'A'],
+                ['静态投资回收期指标的主要缺点是', ['没有考虑资金时间价值和回收期后的现金流量', '计算时必须考虑折现', '只能用于现金管理', '只能评价股利政策'], 'A'],
+                ['最佳现金持有量的基本目标是', ['使相关总成本最低', '使现金余额最大', '使转换次数无限增加', '使机会成本为零'], 'A'],
+                ['下列股利政策中，较能体现股利稳定性的政策是', ['固定或稳定增长股利政策', '剩余股利政策', '完全不分配股利政策', '随机股利政策'], 'A'],
+              ],
+            },
+            {
+              type: 'multi',
+              title: '二、多项选择题（本题共 10 小题，每题 2 分，共 20 分）',
+              score: 2,
+              questions: [
+                ['财务管理的主要内容包括', ['筹资管理', '投资管理', '营运资金管理', '股利分配管理'], ['A', 'B', 'C', 'D']],
+                ['销售百分比法中，常见的经营性资产包括', ['现金', '应收账款', '存货', '短期借款'], ['A', 'B', 'C']],
+                ['销售百分比法中，留存收益增加额通常受哪些因素影响', ['预计销售收入', '销售净利率', '股利支付率', '经营性资产占比'], ['A', 'B', 'C']],
+                ['影响债务资本成本的因素可能包括', ['债务利率', '所得税税率', '筹资费用率', '发行价格或筹资额'], ['A', 'B', 'C', 'D']],
+                ['普通股筹资的特点通常包括', ['没有固定还本付息压力', '财务风险较小', '资本成本较高', '可能稀释控制权'], ['A', 'B', 'C', 'D']],
+                ['项目投资现金流出量通常可能包括', ['原始投资', '垫支营运资金', '付现成本', '所得税'], ['A', 'B', 'C', 'D']],
+                ['项目终结期现金流入通常可能包括', ['固定资产残值收入', '收回垫支营运资金', '最后一期营业现金净流量', '已经发生的沉没成本'], ['A', 'B', 'C']],
+                ['现金管理的主要内容包括', ['编制现金预算', '确定最佳现金持有量', '日常收支控制', '闲置现金短期投资'], ['A', 'B', 'C', 'D']],
+                ['延长信用期限可能带来的成本增加有', ['应收账款机会成本', '坏账成本', '收账成本', '现金折扣成本'], ['A', 'B', 'C', 'D']],
+                ['股利分配政策常见类型包括', ['剩余股利政策', '固定或稳定增长股利政策', '固定股利支付率政策', '低正常股利加额外股利政策'], ['A', 'B', 'C', 'D']],
+              ],
+            },
+            {
+              type: 'judge',
+              title: '三、判断题（本题共 10 小题，每题 1 分，共 10 分）',
+              score: 1,
+              questions: [
+                ['资金只有在不同空间才会产生时间价值，同一时间点不需要比较。', '错'],
+                ['销售百分比法下，并非所有资产项目都一定随销售额同比例变动。', '对'],
+                ['债务筹资成本较低，但会增加固定还本付息压力和财务风险。', '对'],
+                ['优先股股息通常不能像债务利息一样在所得税前扣除。', '对'],
+                ['净现值小于 0 的项目，通常说明项目报酬低于必要报酬。', '对'],
+                ['经营杠杆本身不是经营风险的来源，而是放大经营风险。', '对'],
+                ['静态投资回收期越短越好，因此它是越大越好的正指标。', '错'],
+                ['动态投资回收期考虑了资金时间价值。', '对'],
+                ['最佳现金持有量越高越好，因为现金越多收益越高。', '错'],
+                ['积极收账政策可能降低坏账损失，但也可能增加收账费用。', '对'],
+              ],
+            },
+            {
+              type: 'calculation',
+              title: '四、计算分析题（本题共 4 小题，每题 10 分，共 40 分）',
+              questions: [
+                ['某企业拟购买一台设备，购置成本 180000 元。预计未来 5 年每年年末可获得现金净流量 52000 元，第 5 年末另有残值收入 20000 元。资本成本为 10%，已知（P/A，10%，5）=3.7908，（P/F，10%，5）=0.6209。计算净现值，并判断项目是否可行。', ['先算年金现值：52000×3.7908=197021.6 元。', '残值现值：20000×0.6209=12418 元。', '未来现金流入现值合计=209439.6 元。', 'NPV=209439.6-180000=29439.6 元，大于 0，项目可行。']],
+                ['某公司本年销售收入 800 万元，预计下年销售收入 1000 万元。经营性资产占销售收入 55%，经营性负债占销售收入 20%；预计销售净利率 12%，股利支付率 50%。用销售百分比法计算下年需要追加的外部筹资额。', ['销售增加额=1000-800=200 万元。', '经营性资产增加=200×55%=110 万元。', '经营性负债增加=200×20%=40 万元。', '留存收益增加=1000×12%×(1-50%)=60 万元。', '外部筹资额=110-40-60=10 万元。']],
+                ['某公司资本结构如下：银行借款 300 万元，年利率 5%，所得税税率 25%；发行债券 500 万元，票面利率 6%，筹资费率 2%；普通股 700 万元，资本成本 13%；优先股 200 万元，股息率 8%，筹资费率 4%。计算各项资本成本和加权平均资本成本。', ['银行借款税后资本成本=5%×(1-25%)=3.75%。', '债券资本成本≈6%×(1-25%)/(1-2%)=4.59%。', '普通股资本成本=13%。', '优先股资本成本≈8%/(1-4%)=8.33%。', '资本总额=1700 万元，WACC≈300/1700×3.75%+500/1700×4.59%+700/1700×13%+200/1700×8.33%=7.92%（约）。']],
+                ['某公司全年现金需求量 500000 元，每次现金与有价证券转换成本 400 元，有价证券年收益率 8%。运用存货模型计算最佳现金持有量、全年转换次数、转换成本、机会成本和相关总成本。', ['最佳现金持有量 C* = √(2TF/K)=√(2×500000×400/0.08)=70710.68 元。', '全年转换次数=500000/70710.68≈7.07 次。', '转换成本=7.07×400≈2828.43 元。', '机会成本=70710.68/2×8%=2828.43 元。', '相关总成本≈5656.85 元。']],
+              ],
+            },
+          ],
+        },
       ];
 
       function showPortal() {
@@ -4934,6 +5028,7 @@
         subjectChip.style.display = 'none';
         document.body.classList.remove('review-focused');
         delete document.body.dataset.reviewSubject;
+        if (view === 'papers') renderPaperCards(currentMockSubject);
         Object.entries(views).forEach(([key, el]) => el.classList.toggle('active', key === view));
         mockTitle.textContent = view === 'exam' && activePaper ? activePaper.title : '模拟';
       }
@@ -5006,6 +5101,54 @@
         return section.questions.length * section.score;
       }
 
+      function getPaperRecord(id) {
+        try {
+          return JSON.parse(localStorage.getItem(mockKey(`paper:${id}`)) || '{}');
+        } catch {
+          return {};
+        }
+      }
+
+      function savePaperRecord(update = {}) {
+        if (!activePaper) return;
+        const record = { ...getPaperRecord(activePaper.id), ...update };
+        localStorage.setItem(mockKey(`paper:${activePaper.id}`), JSON.stringify(record));
+      }
+
+      function selectedAnswers() {
+        const answers = {};
+        document.querySelectorAll('.exam-question').forEach((row) => {
+          const key = `${row.dataset.section}-${row.dataset.question}`;
+          answers[key] = Array.from(row.querySelectorAll('input:checked')).map((input) => input.value);
+        });
+        return answers;
+      }
+
+      function saveCurrentAnswers() {
+        if (!activePaper) return;
+        savePaperRecord({ answers: selectedAnswers(), updatedAt: new Date().toISOString() });
+      }
+
+      function applySavedAnswers(record) {
+        if (!record?.answers) return;
+        Object.entries(record.answers).forEach(([key, values]) => {
+          const [section, question] = key.split('-');
+          const row = document.querySelector(`.exam-question[data-section="${section}"][data-question="${question}"]`);
+          if (!row) return;
+          row.querySelectorAll('input').forEach((input) => {
+            input.checked = values.includes(input.value);
+            input.closest('.exam-option')?.classList.toggle('selected', input.checked);
+          });
+        });
+      }
+
+      function formatRecordTime(value) {
+        if (!value) return '';
+        const date = new Date(value);
+        if (Number.isNaN(date.getTime())) return '';
+        return date.toLocaleString('zh-CN', { month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' });
+      }
+
       function renderPaperCards(subject = currentMockSubject) {
         currentMockSubject = subject;
         const title = document.getElementById('mockPaperTitle');
@@ -5014,7 +5157,11 @@
         const subjectPapers = papers.filter((paper) => paper.subject === subject);
         grid.innerHTML = subjectPapers.map((paper, index) => {
           const total = paper.sections.reduce((sum, section) => sum + sectionScore(section), 0);
-          return `<button class="mock-paper-card" data-paper="${paper.id}" type="button"><strong>模拟卷 ${index + 1}</strong><span>${paper.title}<br>满分 ${total} 分</span></button>`;
+          const record = getPaperRecord(paper.id);
+          const recordLine = record.submittedAt
+            ? `<em class="mock-record">上次：客观题 ${record.score ?? 0}/${record.objectiveTotal ?? 0}｜${formatRecordTime(record.submittedAt)}</em>`
+            : (record.updatedAt ? `<em class="mock-record">已保存草稿｜${formatRecordTime(record.updatedAt)}</em>` : '');
+          return `<button class="mock-paper-card" data-paper="${paper.id}" type="button"><strong>模拟卷 ${index + 1}</strong><span>${paper.title}<br>满分 ${total} 分</span>${recordLine}</button>`;
         }).join('');
         grid.querySelectorAll('[data-paper]').forEach((btn) => {
           btn.addEventListener('click', () => openPaper(btn.dataset.paper));
@@ -5049,8 +5196,11 @@
 
       function openPaper(id) {
         activePaper = papers.find((paper) => paper.id === id);
-        examSubmitted = false;
-        document.getElementById('mockScore').textContent = '未交卷';
+        const record = getPaperRecord(id);
+        examSubmitted = Boolean(record.submittedAt);
+        document.getElementById('mockScore').textContent = examSubmitted
+          ? `上次客观题 ${record.score ?? 0} / ${record.objectiveTotal ?? 0} 分`
+          : (record.updatedAt ? '已恢复上次草稿' : '未交卷');
         const sectionsHtml = activePaper.sections.map((section, sectionIndex) => {
           let body = '';
           if (section.type === 'single' || section.type === 'multi') body = renderObjective(section, sectionIndex);
@@ -5058,10 +5208,15 @@
           if (section.type === 'short' || section.type === 'essay' || section.type === 'material' || section.type === 'calculation') body = renderSubjective(section, sectionIndex);
           return `<section class="exam-section"><h2>${section.title}</h2>${body}</section>`;
         }).join('');
-        document.getElementById('mockExamMount').innerHTML = `<article class="exam-paper" id="examPaper"><h1>${activePaper.title}</h1><p class="exam-meta">${activePaper.subtitle}</p><div class="exam-info-row"><span>姓名：</span><span>班级：</span><span>得分：</span></div>${sectionsHtml}<canvas class="exam-canvas" id="examCanvas"></canvas></article><section class="answer-sheet" id="answerSheet" aria-live="polite"></section>`;
+        const recordHtml = record.submittedAt
+          ? `<div class="exam-record">已保存上次交卷记录：客观题 ${record.score ?? 0} / ${record.objectiveTotal ?? 0} 分｜${formatRecordTime(record.submittedAt)}</div>`
+          : (record.updatedAt ? `<div class="exam-record">已恢复上次草稿：${formatRecordTime(record.updatedAt)}</div>` : '');
+        document.getElementById('mockExamMount').innerHTML = `${recordHtml}<article class="exam-paper" id="examPaper"><h1>${activePaper.title}</h1><p class="exam-meta">${activePaper.subtitle}</p><div class="exam-info-row"><span>姓名：</span><span>班级：</span><span>得分：</span></div>${sectionsHtml}<canvas class="exam-canvas" id="examCanvas"></canvas></article><section class="answer-sheet" id="answerSheet" aria-live="polite"></section>`;
         bindExamOptions();
+        applySavedAnswers(record);
         showMock('exam');
-        requestAnimationFrame(setupExamCanvas);
+        if (examSubmitted) submitPaper({ restoring: true });
+        requestAnimationFrame(() => setupExamCanvas(record.ink || ''));
       }
 
       function bindExamOptions() {
@@ -5074,6 +5229,7 @@
             } else {
               input.closest('.exam-option').classList.toggle('selected', input.checked);
             }
+            saveCurrentAnswers();
           });
         });
       }
@@ -5082,7 +5238,7 @@
         return Array.isArray(value) ? value.slice().sort().join('') : value;
       }
 
-      function submitPaper() {
+      function submitPaper(options = {}) {
         if (!activePaper) return;
         let score = 0;
         let objectiveTotal = 0;
@@ -5112,8 +5268,18 @@
         });
         examSubmitted = true;
         document.getElementById('mockScore').textContent = `客观题 ${score} / ${objectiveTotal} 分；主观题请按评分点自评`;
+        if (!options.restoring) {
+          savePaperRecord({
+            answers: selectedAnswers(),
+            score,
+            objectiveTotal,
+            submittedAt: new Date().toISOString(),
+            updatedAt: new Date().toISOString(),
+            ink: document.getElementById('examCanvas')?.toDataURL('image/png') || ''
+          });
+        }
         renderAnswerSheet(score, objectiveTotal);
-        document.getElementById('answerSheet')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (!options.restoring) document.getElementById('answerSheet')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
 
       function answerText(section, question) {
@@ -5141,7 +5307,15 @@
         sheet.classList.add('open');
       }
 
-      function setupExamCanvas() {
+      function restoreExamInk(dataUrl) {
+        const canvas = document.getElementById('examCanvas');
+        if (!canvas || !dataUrl) return;
+        const img = new Image();
+        img.onload = () => canvas.getContext('2d').drawImage(img, 0, 0, canvas.clientWidth, canvas.clientHeight);
+        img.src = dataUrl;
+      }
+
+      function setupExamCanvas(savedInk = '') {
         const paper = document.getElementById('examPaper');
         const canvas = document.getElementById('examCanvas');
         if (!paper || !canvas) return;
@@ -5174,6 +5348,7 @@
         canvas.addEventListener('pointerup', endExamDraw);
         canvas.addEventListener('pointercancel', endExamDraw);
         updateExamTool();
+        restoreExamInk(savedInk);
       }
 
       function examPoint(event) {
@@ -5213,6 +5388,10 @@
       }
 
       function endExamDraw() {
+        if (examDrawing && activePaper) {
+          const canvas = document.getElementById('examCanvas');
+          savePaperRecord({ ink: canvas?.toDataURL('image/png') || '', updatedAt: new Date().toISOString(), answers: selectedAnswers() });
+        }
         examDrawing = false;
         examStroke = null;
       }
@@ -5272,6 +5451,12 @@
       document.getElementById('clearExamInk')?.addEventListener('click', () => {
         const canvas = document.getElementById('examCanvas');
         if (canvas) canvas.getContext('2d').clearRect(0, 0, canvas.width, canvas.height);
+        savePaperRecord({ ink: '', updatedAt: new Date().toISOString() });
+      });
+      document.getElementById('resetMockRecord')?.addEventListener('click', () => {
+        if (!activePaper) return;
+        localStorage.removeItem(mockKey(`paper:${activePaper.id}`));
+        openPaper(activePaper.id);
       });
       document.querySelectorAll('[data-exam-tool]').forEach((btn) => {
         btn.addEventListener('click', () => {
