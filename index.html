@@ -1214,9 +1214,9 @@
     }
     .portal-stats {
       display: grid;
-      grid-template-columns: repeat(4, minmax(0, 1fr));
+      grid-template-columns: repeat(auto-fit, minmax(118px, 1fr));
       gap: 12px;
-      width: min(660px, 100%);
+      width: min(780px, 100%);
     }
     .portal-stat {
       display: grid;
@@ -1225,8 +1225,8 @@
       border: 1px solid rgba(132, 96, 40, .18);
       border-radius: 8px;
       background: linear-gradient(180deg, rgba(255, 253, 247, .92), rgba(247, 232, 199, .84));
-      padding: 18px 16px;
-      min-height: 128px;
+      padding: 16px 14px;
+      min-height: 112px;
       color: #2a2118;
       text-align: center;
       cursor: pointer;
@@ -1589,6 +1589,9 @@
       .exam-info-row {
         grid-template-columns: 1fr;
       }
+      .portal-stats {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
       .exam-paper {
         padding: 24px 18px 42px;
       }
@@ -1611,6 +1614,7 @@
         <button class="portal-stat" data-open-subject="finance" type="button"><span class="portal-code">02</span><strong>财管</strong><em>重点 · 真题</em></button>
         <button class="portal-stat" data-open-subject="mayuan" type="button"><span class="portal-code">03</span><strong>马原</strong><em>手写考点</em></button>
         <button class="portal-stat" data-open-subject="internal" type="button"><span class="portal-code">04</span><strong>内控</strong><em>风险管理</em></button>
+        <button class="portal-stat" data-open-subject="cost" type="button"><span class="portal-code">05</span><strong>成本</strong><em>管理会计</em></button>
       </div>
       <div class="portal-actions">
         <button class="portal-btn" id="openMock" type="button">模拟</button>
@@ -1633,7 +1637,7 @@
             <h1>选择复习科目</h1>
           </div>
           <div class="review-hero-side">
-            <strong>3 个板块</strong>
+            <strong>5 个板块</strong>
           </div>
         </div>
         <div class="review-subject-grid">
@@ -1641,6 +1645,7 @@
           <button class="review-subject-card" data-open-subject="finance" type="button"><strong>财管</strong></button>
           <button class="review-subject-card" data-open-subject="mayuan" type="button"><strong>马原</strong></button>
           <button class="review-subject-card" data-open-subject="internal" type="button"><strong>内控</strong></button>
+          <button class="review-subject-card" data-open-subject="cost" type="button"><strong>成本</strong></button>
         </div>
       </div>
     </div>
@@ -1738,7 +1743,11 @@
 <button class="unit-tab" data-go="40"><span>V6</span><strong>内部监督</strong></button>
 <button class="unit-tab" data-go="41"><span>V7</span><strong>采购、销售与存货业务控制</strong></button>
 <button class="unit-tab" data-go="42"><span>V8</span><strong>案例小题页码与业务</strong></button>
-<button class="unit-tab" data-go="43"><span>V9</span><strong>教材 P241-P249</strong></button></nav>
+<button class="unit-tab" data-go="43"><span>V9</span><strong>教材 P241-P249</strong></button>
+<div class="subject-divider">成本管理会计</div>
+<button class="unit-tab" data-go="44"><span>总览</span><strong>手写考点总览</strong></button>
+<button class="unit-tab" data-go="45"><span>大题</span><strong>三道大题重点</strong></button>
+<button class="unit-tab" data-go="46"><span>小题</span><strong>小题与判断重点</strong></button></nav>
     </aside>
     <main class="stage">
 
@@ -3815,6 +3824,24 @@
 </div></div></section>
 <section class="unit-page finance-page internal-page" data-page="42"><div class="page-scroll finance-scroll mayuan-scroll"><div class="unit-kicker">内部控制与风险管理｜V8</div><h1>V8：案例小题页码与业务</h1><div class="mayuan-list"><article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">考点</span><h2>P214-P221、P224-P226、P229</h2></div><div class="mayuan-answer"><strong>手写标注</strong><p>P214-P221 所有；P224-P226；P229；案例小题。</p></div><div class="mayuan-answer"><strong>对应复习法</strong><ul class="mayuan-points"><li>这部分不要按章节泛背，要直接按教材案例小题看。</li><li>每个案例按“业务类型、风险点、违反的控制要求、改进措施”整理。</li><li>业务类型优先看销售、采购、存货、货币资金、固定资产等。</li><li>答题模板：指出内部控制缺陷，说明可能风险，提出岗位分离、授权审批、会计记录、财产保护或监督整改措施。</li></ul></div></article></div></div></section>
 <section class="unit-page finance-page internal-page" data-page="43"><div class="page-scroll finance-scroll mayuan-scroll"><div class="unit-kicker">内部控制与风险管理｜V9</div><h1>V9：P241-P249</h1><div class="mayuan-list"><article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">考点</span><h2>P241-P249</h2></div><div class="mayuan-answer"><strong>手写标注</strong><p>P241-P249。</p></div><div class="mayuan-answer"><strong>对应复习法</strong><ul class="mayuan-points"><li>严格按教材 P241-P249 的小标题、案例和表述复习。</li><li>先整理每页的业务环节，再对应常见风险和控制措施。</li><li>如果是案例题，按“缺陷表现、违反的内部控制要求、风险后果、整改建议”回答。</li><li>不要把这一页扩展成别的章节，重点就是图片圈定的页码范围。</li></ul></div></article></div></div></section>
+<section class="unit-page finance-page cost-page" data-page="44"><div class="page-scroll finance-scroll mayuan-scroll"><div class="unit-kicker">成本管理会计｜总览</div><h1>成本管理会计：手写重点总览</h1><div class="mayuan-list">
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">大题</span><h2>三道大题页码</h2></div><div class="mayuan-answer"><strong>手写标注</strong><ul class="mayuan-points"><li>P54：辅助生产成本的分配，有分录。</li><li>P256：单一产品本量利分析，保本点、保利点。</li><li>P394：标准成本法。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">小题</span><h2>十一组小题页码</h2></div><div class="mayuan-answer"><strong>手写标注</strong><ul class="mayuan-points"><li>P40-P45；P64 选择；P77 计算；P92 品种法特点、适用范围；P116 分批法特点、适用范围。</li><li>P136 分步法特点、适用范围；P148 平行结转分步法特点；P237 更全面理解本量利分析和变动成本法的区别。</li><li>P304 本量利分析其他技术；P394 标准成本法；判断题：P64、P92、P116、P136。</li></ul></div></article>
+</div></div></section>
+<section class="unit-page finance-page cost-page" data-page="45"><div class="page-scroll finance-scroll mayuan-scroll"><div class="unit-kicker">成本管理会计｜大题</div><h1>大题：三道重点</h1><div class="mayuan-list">
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P54</span><h2>辅助生产成本的分配</h2></div><div class="mayuan-answer"><strong>考法</strong><p>按辅助生产费用分配方法计算各受益对象应分担费用，并写会计分录。</p></div><div class="mayuan-answer"><strong>背诵抓手</strong><ul class="mayuan-points"><li>直接分配法：只向辅助生产车间以外的受益对象分配，不考虑辅助车间之间相互提供劳务。</li><li>交互分配法：先在辅助生产车间之间交互分配，再将交互分配后的实际费用向外部分配。</li><li>分录思路：借记“制造费用”“管理费用”等受益对象，贷记“辅助生产成本”。如果先交互分配，辅助车间之间也要先互相转入转出。</li><li>做题顺序：算总劳务量，确定分配率，分配费用，检查分配合计是否等于待分配费用，最后写分录。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P256</span><h2>单一产品本量利分析</h2></div><div class="mayuan-answer"><strong>考法</strong><p>保本点、保利点、边际贡献、安全边际一类计算题。</p></div><div class="mayuan-answer"><strong>公式</strong><ul class="mayuan-points"><li>单位边际贡献 = 单价 - 单位变动成本。</li><li>边际贡献率 = 单位边际贡献 / 单价。</li><li>保本销售量 = 固定成本 / 单位边际贡献。</li><li>保本销售额 = 固定成本 / 边际贡献率。</li><li>保利销售量 = （固定成本 + 目标利润）/ 单位边际贡献。</li><li>安全边际量 = 实际或预计销售量 - 保本销售量；安全边际率 = 安全边际量 / 实际或预计销售量。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P394</span><h2>标准成本法</h2></div><div class="mayuan-answer"><strong>考法</strong><p>标准成本、成本差异及差异分析。</p></div><div class="mayuan-answer"><strong>公式</strong><ul class="mayuan-points"><li>标准成本 = 标准用量 × 标准价格。</li><li>直接材料价格差异 = 实际用量 × （实际价格 - 标准价格）。</li><li>直接材料数量差异 = （实际用量 - 标准用量）× 标准价格。</li><li>直接人工工资率差异 = 实际工时 × （实际工资率 - 标准工资率）。</li><li>直接人工效率差异 = （实际工时 - 标准工时）× 标准工资率。</li><li>差异为正通常表示超支或不利差异，差异为负通常表示节约或有利差异，答题要结合题目口径写。</li></ul></div></article>
+</div></div></section>
+<section class="unit-page finance-page cost-page" data-page="46"><div class="page-scroll finance-scroll mayuan-scroll"><div class="unit-kicker">成本管理会计｜小题</div><h1>小题与判断重点</h1><div class="mayuan-list">
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P40-P45</span><h2>成本核算基础</h2></div><div class="mayuan-answer"><strong>复习点</strong><ul class="mayuan-points"><li>掌握成本、费用、产品成本、期间费用的区别。</li><li>注意生产费用按经济用途通常分为直接材料、直接人工和制造费用。</li><li>产品成本计算要围绕成本对象、成本项目和成本计算期展开。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P64 / P77</span><h2>选择与计算</h2></div><div class="mayuan-answer"><strong>复习点</strong><ul class="mayuan-points"><li>P64：按手写标注重点看选择题，同时也列入判断题页码。</li><li>P77：重点看计算题，做题时先分清直接材料、直接人工、制造费用，再按题目给出的分配标准计算。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P92</span><h2>品种法特点、适用范围</h2></div><div class="mayuan-answer"><strong>对应答案</strong><ul class="mayuan-points"><li>特点：以产品品种作为成本计算对象，一般按月定期计算产品成本。</li><li>适用范围：大量大批、单步骤生产，或者管理上不要求分步骤计算成本的多步骤生产。</li><li>判断抓手：题目出现“按产品品种归集费用、按月计算成本”，优先想到品种法。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P116</span><h2>分批法特点、适用范围</h2></div><div class="mayuan-answer"><strong>对应答案</strong><ul class="mayuan-points"><li>特点：以产品批别或订单作为成本计算对象，成本计算期通常与生产周期一致，不一定与会计期间一致。</li><li>适用范围：单件小批生产，如专用设备、船舶、精密仪器、修理作业等。</li><li>判断抓手：题目出现“订单、批别、单件小批”，优先想到分批法。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P136 / P148</span><h2>分步法与平行结转分步法</h2></div><div class="mayuan-answer"><strong>对应答案</strong><ul class="mayuan-points"><li>分步法特点：以生产步骤作为成本计算对象，适用于大量大批、多步骤生产，并且管理上要求分步骤计算成本。</li><li>逐步结转分步法：上一步骤半成品成本随实物转移到下一步骤。</li><li>平行结转分步法：各步骤只计算本步骤应计入最终产成品成本的份额，不计算各步骤半成品成本。</li><li>判断抓手：题目出现“各步骤平行汇总最终产成品成本份额”，对应平行结转分步法。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">P237 / P304</span><h2>本量利分析与其他技术</h2></div><div class="mayuan-answer"><strong>对应答案</strong><ul class="mayuan-points"><li>本量利分析研究成本、业务量和利润之间的关系，核心变量是单价、单位变动成本、固定成本、销售量和利润。</li><li>与变动成本法区别：变动成本法是成本计算方法，本量利分析是经营决策分析工具；前者强调产品成本只包括变动生产成本，后者强调成本性态和利润预测。</li><li>P304 重点看本量利分析的其他技术，如敏感性分析、多品种条件下的加权平均边际贡献率等。</li></ul></div></article>
+<article class="mayuan-card"><div class="mayuan-card-head"><span class="mayuan-badge">判断题</span><h2>P64、P92、P116、P136</h2></div><div class="mayuan-answer"><strong>复习法</strong><ul class="mayuan-points"><li>P64 看概念边界，特别是成本对象、成本项目、费用归集分配。</li><li>P92、P116、P136 分别对应品种法、分批法、分步法，判断题常考“特点”和“适用范围”是否匹配。</li><li>做判断时先找关键词：品种、批别、步骤；再看生产组织特点：大量大批、单件小批、多步骤。</li></ul></div></article>
+</div></div></section>
         </div>
       </div>
       <button class="turn next" id="next" aria-label="下一页">›</button>
@@ -4609,6 +4636,7 @@
         finance: { start: 7, end: 26, label: '财管复习' },
         mayuan: { start: 27, end: 34, label: '马原复习' },
         internal: { start: 35, end: 43, label: '内控复习' },
+        cost: { start: 44, end: 46, label: '成本复习' },
       };
       const papers = [
         {
@@ -4917,6 +4945,8 @@
           if (firstPage <= 6) subject = 'english';
           else if (firstPage <= 26) subject = 'finance';
           else if (firstPage <= 34) subject = 'mayuan';
+          else if (firstPage <= 43) subject = 'internal';
+          else subject = 'cost';
           group.dataset.reviewSubject = subject;
         });
       }
